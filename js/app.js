@@ -1,5 +1,8 @@
 let accounts;
-
+const TIMEOUT = 1000;
+const COLLECTION_NAME = 'cryptohasbi';
+let editions = [];
+let dots = 1;
 // METAMASK CONNECTION falla esto:
 window.addEventListener("DOMContentLoaded", async () => {
   
@@ -153,7 +156,7 @@ const updateConnectStatus = async () => {
     spinner.classList.remove('hidden');
     window.contract = new web3.eth.Contract(abi, contractAddress);
 
-    loadInfo();
+    checkOwner(accounts[0]);
   } else {
     //menuconnetwallet.classList.add('hidden'); //cerramos menu
 
@@ -187,7 +190,7 @@ const updateConnectStatus = async () => {
           window.address = accts[0];
           accounts = accts;
           window.contract = new web3.eth.Contract(abi, contractAddress);
-          loadInfo();
+          checkOwner(accounts[0]);
         });
     };
     onboardButtonM.onclick = async () => {
@@ -212,7 +215,7 @@ const updateConnectStatus = async () => {
           window.address = accts[0];
           accounts = accts;
           window.contract = new web3.eth.Contract(abi, contractAddress);
-          loadInfo();
+          checkOwner(accounts[0]);
         });
     };
 

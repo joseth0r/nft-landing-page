@@ -1,6 +1,6 @@
 const fetch = require('node-fetch')
 
-const CONTRACT = process.env.CONTRACT_ADDRESS;
+const CONTRACT = "0xa755cd34d4527afa4d44794b4810c03dfd85c9e9";
 const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
