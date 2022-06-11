@@ -937,7 +937,7 @@ body::-webkit-scrollbar-track {
 
 /*test video stars */
 .mainvideo{
-  position: fixed;
+  position: absolute;
   right: 0;
   bottom: 0;
   min-width: 100%;
@@ -1692,7 +1692,6 @@ svg:hover{
 
 
 .vw-center {
-  position: relative;
   top: 50%;
   left:50%;
   transform: translate(-50%,-50%);
