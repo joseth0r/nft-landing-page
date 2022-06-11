@@ -302,7 +302,7 @@ const checkOwner = async (account) => {
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, true)
     
-    editions = [data.editions] //he modificado aqui, antes era ...data.editions
+    editions = [...data.editions] //he modificado aqui, antes era ...data.editions
     console.log(data.editions);
 
     console.log(editions);
