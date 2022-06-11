@@ -1,0 +1,12 @@
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  main {
+    width: 100vw;
+    height: 500vh;
+    z-index: 99;
+    position: absolute;
+  }

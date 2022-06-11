@@ -1,0 +1,51 @@
+/* Added so you can scroll */
+.header-logo {
+    height: 2000px;
+  }
+  #smooth-logo {
+    position: fixed;
+  }
+  
+  /* SCROLLING BLUR ANIMATIONS */
+  .blur-in-fwd {
+    filter: url(#filt-blur-out);
+  }
+  .blur-in-bkw {
+    filter: url(#filt-blur-in);
+  }
+  #filt-blur-in {
+    animation-delay: 0.5s !important;
+  }
+  
+  /* UN-HIDE THE SLIDE STYLES TO SEE THE ANIMATION SLIDE LEFT AND RIGHT */
+  
+  /* Slide Animations */
+  /* .slideLeft {
+    -webkit-animation: slide-left .15s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-left .15s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: .15s;
+  }
+  .slideRight {
+    -webkit-animation: slide-right .2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-right .2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  @keyframes slide-left {
+    0% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(-40%);
+      transform: translateX(-40%);
+    }
+  }
+  @keyframes slide-right {
+    0% {
+      -webkit-transform: translateX(-40%);
+      transform: translateX(-40%);
+    }
+    100% {
+      -webkit-transform: translateX(0px);
+      transform: translateX(0px);
+    }
+  } */

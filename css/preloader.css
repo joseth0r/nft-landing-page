@@ -1,0 +1,24 @@
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  opacity:0;
+}
+
+.loader{
+  height: 10px;
+  background-color: #000;
+  position: absolute;
+  
+}
+
+.content{
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  background: rgb(177, 123, 123);
+  display: none;
+
+}
