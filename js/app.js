@@ -303,6 +303,8 @@ const checkOwner = async (account) => {
     updateStatusText(isOwner, true)
     
     editions = [data.editions]
+    console.log(data.editions);
+
     console.log(editions);
     let nextPage = data.next_page
 
