@@ -1,6 +1,6 @@
 let accounts;
 const TIMEOUT = 1000;
-const COLLECTION_NAME = 'cryptohasbi';
+const COLLECTION_NAME = 'The Boring Elon';
 let editions = [];
 let dots = 1;
 // METAMASK CONNECTION falla esto:
@@ -302,8 +302,7 @@ const checkOwner = async (account) => {
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, true)
     
-    editions = [...data.editions] //he modificado aqui, antes era ...data.editions
-    console.log(data.editions);
+    editions = [...data.editions] 
 
     console.log(editions);
     let nextPage = data.next_page
