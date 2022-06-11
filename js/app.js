@@ -297,12 +297,12 @@ const checkOwner = async (account) => {
     let isOwner = false;
     let page = 1
     
-    const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+    const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
 
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, true)
     
-    editions = [data.editions]
+    editions = [data.editions] //he modificado aqui, antes era ...data.editions
     console.log(data.editions);
 
     console.log(editions);
@@ -310,7 +310,7 @@ const checkOwner = async (account) => {
 
     while(nextPage) {
       page = nextPage
-      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+      const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
 
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
