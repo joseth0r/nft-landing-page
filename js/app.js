@@ -154,7 +154,7 @@ const updateConnectStatus = async () => {
     notConnected.classList.add('hidden');
     // SHOW SPINNER
     spinner.classList.remove('hidden');
-    window.contract = new web3.eth.Contract(abi, contractAddress);
+    //window.contract = new web3.eth.Contract(abi, contractAddress);
 
     checkOwner(accounts[0]);
   } else {
@@ -189,7 +189,7 @@ const updateConnectStatus = async () => {
           onboardButtonConnectedM.disabled = true;
           window.address = accts[0];
           accounts = accts;
-          window.contract = new web3.eth.Contract(abi, contractAddress);
+          //window.contract = new web3.eth.Contract(abi, contractAddress);
           checkOwner(accounts[0]);
         });
     };
@@ -214,7 +214,7 @@ const updateConnectStatus = async () => {
           onboardButtonConnectedM.disabled = true;
           window.address = accts[0];
           accounts = accts;
-          window.contract = new web3.eth.Contract(abi, contractAddress);
+          //window.contract = new web3.eth.Contract(abi, contractAddress);
           checkOwner(accounts[0]);
         });
     };
