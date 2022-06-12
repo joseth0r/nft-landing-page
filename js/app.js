@@ -316,7 +316,6 @@ console.log(editions);
 
 
 
-    data.forEach(itemsNFT);
 
 //
 
@@ -343,6 +342,7 @@ console.log(editions);
       
       
     }
+    data.forEach(itemsNFT);
 
     updateStatusText(isOwner, false)
   }
