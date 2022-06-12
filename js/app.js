@@ -304,7 +304,8 @@ const checkOwner = async (account) => {
     
     editions = [...data.editions] 
 
-    console.log(editions);
+    console.log(data);
+
     let nextPage = data.next_page
 
     while(nextPage) {
