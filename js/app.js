@@ -302,7 +302,7 @@ const checkOwner = async (account) => {
     let page = 1
     
     const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-    let nftData = await data.json();
+     nftData = await data.json();
 
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, true)
