@@ -76,8 +76,8 @@ const checkOwner = async (account) => {
       
       editions = [...editions, ...data.editions]
       contrato = [...contrato, ...data.contrato]
-      nftname = [...nftname, ...data.nftname]
-      nftimage = [...nftimage, ...data.nftimage]
+      nftname = [...nftname, ...data.name]
+      nftimage = [...nftimage, ...data.image]
       nextPage = data.next_page
     }
 
