@@ -937,7 +937,7 @@ body::-webkit-scrollbar-track {
 
 /*test video stars */
 .mainvideo{
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   min-width: 100%;
