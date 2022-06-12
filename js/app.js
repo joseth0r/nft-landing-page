@@ -3,7 +3,7 @@ const TIMEOUT = 1000;
 const COLLECTION_NAME = 'The Boring Elon';
 let editions = [];
 let dots = 1;
-let nftname=[];//new
+let nftname=[];//new, works
 
 
 
@@ -339,6 +339,7 @@ function updateStatusText(isOwner, checking) {
   } else {
     if(isOwner) {
       statusText.innerText = `You own ${nftname} ${editions.length} ${COLLECTION_NAME}!! 😻`;
+      cardview();
     } else {
       statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
     }
@@ -396,3 +397,33 @@ async function fetchWithRetry(url)  {
 
 
 //
+
+
+//card:
+async function cardview() {
+const cardContainer = document.getElementById('cardContainer')
+
+data.forEach((nft) => {
+  const { nftname } = nft
+
+  const newElement = document.createElement('div')
+  newElement.innerHTML = `
+    <!-- Opensea listing item-->
+    <!--<a href='${permalink}' target="_blank">-->
+      <div class='flex flex-col'>
+        <!--<img
+          src='${image_url}'
+          class='w-full rounded-lg' />-->
+        <div class='flex-col w-full space-y-1'>
+          <p class='text-gray-800 text-lg'>${nftname}</p>
+          <!--<p class='text-gray-500 text-xs word-wrap'>${description ?? ''}</p>-->
+        </div>
+      </div>
+    </a>
+    <!-- End Opensea listing item-->
+  `
+
+  osContainer.appendChild(newElement)
+})
+
+};
