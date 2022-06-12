@@ -343,13 +343,13 @@ console.log(editions);
 
     updateStatusText(isOwner, false)
     console.log(data)
-    itemsNFT(isOwner,data)
+    itemsNFT(isOwner,data,nftname)
 
   }
 }
 
 
-function itemsNFT(isOwner,data) {
+function itemsNFT(isOwner,data,nftname) {
   data.forEach(nftname);
 
   const osContainer = document.getElementById('openseaItems')
