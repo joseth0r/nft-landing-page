@@ -322,7 +322,7 @@ const checkOwner = async (account) => {
       updateStatusText(isOwner, true)
       
       editions = [...editions, ...data.editions]
-    nftname = [...nfname, ...data.nftname]
+    nftname = [...nftname, ...data.nftname]
     nftimage = [...nftimage, ...data.nftimage]
       nextPage = data.next_page
     }
