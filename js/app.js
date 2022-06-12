@@ -313,23 +313,11 @@ const checkOwner = async (account) => {
 console.log(data);
 console.log(editions);
     console.log(nftname);
-//
 
-    const osContainer = document.getElementById('openseaItems')
 
-    data.forEach((nftname) => {
 
-      const newElement = document.createElement('div')
-      newElement.innerHTML = `
-          <div class='flex flex-col'>
-            <div class='flex-col w-full space-y-1'>
-              <p class='text-gray-800 text-lg'>${nftname}</p>
-            </div>
-          </div>
-        </a>
-      `
-      osContainer.appendChild(newElement)
-    })
+    data.forEach(itemsNFT);
+
 //
 
 
@@ -359,6 +347,26 @@ console.log(editions);
     updateStatusText(isOwner, false)
   }
 }
+
+
+function itemsNFT(nftname) {
+  const osContainer = document.getElementById('openseaItems')
+  const newElement = document.createElement('div')
+  newElement.innerHTML = `
+      <div class='flex flex-col'>
+        <div class='flex-col w-full space-y-1'>
+          <p class='text-gray-800 text-lg'>${nftname}</p>
+        </div>
+      </div>
+    </a>
+  `
+  osContainer.appendChild(newElement)
+
+
+}
+
+
+
 
 function updateStatusText(isOwner, checking) {
   const statusText = document.querySelector('.owner-status');
