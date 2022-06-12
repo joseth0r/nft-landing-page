@@ -304,7 +304,7 @@ const checkOwner = async (account) => {
     
     editions = [...data.editions] 
 
-    console.log(data);
+    console.log(data[1].token_id);
 
     let nextPage = data.next_page
 
