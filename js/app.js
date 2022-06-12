@@ -355,7 +355,7 @@ function itemsNFT(nftname) {
   newElement.innerHTML = `
       <div class='flex flex-col'>
         <div class='flex-col w-full space-y-1'>
-          <p class='text-gray-800 text-lg'>${nftname}</p>
+          <p class='text-gray-800 text-lg'>nftname</p>
         </div>
       </div>
     </a>
