@@ -48,6 +48,8 @@ const getOwnedNfts = async (wallet, page) => {
   });
 
   let editions = []
+  let nftname=[]
+  let nftimage=[]
   try {
     const data = await fetchData(url + query, options)
     console.log(`Recieved page ${page}`)
@@ -56,12 +58,15 @@ const getOwnedNfts = async (wallet, page) => {
     data.nfts.forEach(nft => {
       if(nft.contract_address === CONTRACT) {
         editions.push(nft.token_id)
+        nftname.push(nft.name)//new
+
       }
     })
 
     return {
       isOwner: editions.length > 0 ? true : false,
       editions,
+      nftname, //new
       next_page: +page === pages ? null : +page + 1,
     }
   } catch(err) {
