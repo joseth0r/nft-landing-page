@@ -339,7 +339,7 @@ function updateStatusText(isOwner, checking) {
   } else {
     if(isOwner) {
       statusText.innerText = `You own ${nftname} ${editions.length} ${COLLECTION_NAME}!! 😻`;
-      cardview(editions);
+      cardview(data);
     } else {
       statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
     }
@@ -400,15 +400,14 @@ async function fetchWithRetry(url)  {
 
 
 //card:
-async function cardview(editions) {
+async function cardview(data) {
 const cardContainer = document.getElementById('cardContainer')
 
-editions.forEach((nft) => {
+data.forEach((nft) => {
   const { nftname } = nft
 
   const newElement = document.createElement('div')
   newElement.innerHTML = `
-    <!-- Opensea listing item-->
       <div class='flex flex-col'>
        
         <div class='flex-col w-full space-y-1'>
@@ -416,7 +415,6 @@ editions.forEach((nft) => {
         </div>
       </div>
     </a>
-    <!-- End Opensea listing item-->
   `
 
   cardContainer.appendChild(newElement)
