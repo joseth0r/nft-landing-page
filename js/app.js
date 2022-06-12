@@ -309,8 +309,8 @@ const checkOwner = async (account) => {
     
     editions = [...data.editions] 
 
-    nftname = [...data.name]
-    nftimage = [...data.image]
+    nftname = [...data.names]
+    nftimage = [...data.images]
 
     let nextPage = data.next_page
 
@@ -322,8 +322,8 @@ const checkOwner = async (account) => {
       updateStatusText(isOwner, true)
       
       editions = [...editions, ...data.editions]
-    nftname = [...nftname, ...data.name]
-    nftimage = [...nftimage, ...data.image]
+    nftname = [...nftname, ...data.names]
+    nftimage = [...nftimage, ...data.images]
       nextPage = data.next_page
     }
 
