@@ -403,7 +403,7 @@ async function fetchWithRetry(url)  {
 async function cardview() {
 const cardContainer = document.getElementById('cardContainer')
 
-data.forEach((nft) => {
+editions.forEach((nft) => {
   const { nftname } = nft
 
   const newElement = document.createElement('div')
