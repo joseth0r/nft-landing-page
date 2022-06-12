@@ -344,7 +344,7 @@ console.log(editions);
 
     updateStatusText(isOwner, false)
     console.log(data)
-    itemsNFT(isOwner,data,nftname)
+    itemsNFT(isOwner,nftdata)
 
   }
 }
