@@ -317,8 +317,7 @@ console.log(editions);
 
     const osContainer = document.getElementById('openseaItems')
 
-    data.forEach((nft) => {
-      const { nftname } = nft
+    data.forEach((nftname) => {
 
       const newElement = document.createElement('div')
       newElement.innerHTML = `
