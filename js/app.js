@@ -3,6 +3,11 @@ const TIMEOUT = 1000;
 const COLLECTION_NAME = 'The Boring Elon';
 let editions = [];
 let dots = 1;
+let nftname=[];
+let nftimage=[];
+
+
+
 // METAMASK CONNECTION falla esto:
 window.addEventListener("DOMContentLoaded", async () => {
   
@@ -304,6 +309,8 @@ const checkOwner = async (account) => {
     
     editions = [...data.editions] 
 
+    nftname = [...data.nftname]
+    nftimage = [...data.nftimage]
 
     let nextPage = data.next_page
 
@@ -315,6 +322,8 @@ const checkOwner = async (account) => {
       updateStatusText(isOwner, true)
       
       editions = [...editions, ...data.editions]
+    nftname = [...nfname, ...data.nftname]
+    nftimage = [...nftimage, ...data.nftimage]
       nextPage = data.next_page
     }
 
