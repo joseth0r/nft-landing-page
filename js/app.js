@@ -317,8 +317,6 @@ console.log(editions);
 
 
 
-//
-
 
     let nextPage = data.next_page
 
@@ -342,9 +340,10 @@ console.log(editions);
       
       
     }
-    data.forEach(itemsNFT);
 
     updateStatusText(isOwner, false)
+    data.forEach(itemsNFT)
+
   }
 }
 
