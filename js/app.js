@@ -339,7 +339,7 @@ function updateStatusText(isOwner, checking) {
   } else {
     if(isOwner) {
       statusText.innerText = `You own ${nftname} ${editions.length} ${COLLECTION_NAME}!! 😻`;
-      cardview();
+      cardview(editions);
     } else {
       statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
     }
