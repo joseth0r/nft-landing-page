@@ -314,33 +314,25 @@ console.log(data);
 console.log(editions);
     console.log(nftname);
 //
-/*
+
     const osContainer = document.getElementById('openseaItems')
 
     data.forEach((nft) => {
-      const { name, image_url, description, permalink } = nft
+      const { nftname } = nft
 
       const newElement = document.createElement('div')
       newElement.innerHTML = `
-        <!-- Opensea listing item-->
-        <a href='${permalink}' target="_blank">
           <div class='flex flex-col'>
-            <img
-              src='${image_url}'
-              class='w-full rounded-lg' />
             <div class='flex-col w-full space-y-1'>
-              <p class='text-gray-800 text-lg'>${name}</p>
-              <p class='text-gray-500 text-xs word-wrap'>${description ?? ''}</p>
+              <p class='text-gray-800 text-lg'>${nftname}</p>
             </div>
           </div>
         </a>
-        <!-- End Opensea listing item-->
       `
-
       osContainer.appendChild(newElement)
     })
 //
-*/
+
 
     let nextPage = data.next_page
 
