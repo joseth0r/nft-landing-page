@@ -1,97 +1,145 @@
-const fetch = require('node-fetch')
+// METAMASK CONNECTION
+const TIMEOUT = 1000;
+const COLLECTION_NAME = 'Cryptohasbi';
+let editions = [];
+let contrato =[];
+let idtest=[];
+let nftname=[];
+let nftimage=[];
+let dots = 1;
+let accounts;
+window.addEventListener('DOMContentLoaded', () => {
+  const onboarding = new MetaMaskOnboarding();
+  const onboardButton = document.getElementById('connectWallet');
+  let accounts;
 
-const chain = "polygon";
-const include = "metadata";
-
-exports.handler = async (event, context) => {
-  const wallet = event.queryStringParameters && event.queryStringParameters.wallet
-  const page = event.queryStringParameters && event.queryStringParameters.page
-
-  const isOwner = (wallet) => {
-    if(!wallet) {
-      return {
-        isOwner: false
-      }
+  const updateButton = async () => {
+    if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
+      onboardButton.innerText = 'Install MetaMask!';
+      onboardButton.onclick = () => {
+        onboardButton.innerText = 'Connecting...';
+        onboardButton.disabled = true;
+        onboarding.startOnboarding();
+      };
+    } else if (accounts && accounts.length > 0) {
+      onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
+      onboardButton.disabled = true;
+      onboarding.stopOnboarding();
+      checkOwner(accounts[0]);
     } else {
-      return getOwnedNfts(wallet, page)
-    }
-  }
-
-  const response = await isOwner(wallet)
-
-  return {
-    'statusCode': 200,
-    'headers': {
-      'Cache-Control': 'no-cache',
-      'Content-Type': 'application/json',
-    },
-    'body': JSON.stringify(response)
-  }
-}
-
-const getOwnedNfts = async (wallet, page) => {
-  const url = `https://api.nftport.xyz/v0/accounts/${wallet}/?`;
-  
-  const options = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: AUTH
+      onboardButton.innerText = 'Connect MetaMask!';
+      onboardButton.onclick = async () => {
+        await window.ethereum.request({
+          method: 'eth_requestAccounts',
+        })
+        .then(function(accounts) {
+          onboardButton.innerText = `✔ ...${accounts[0].slice(-4)}`;
+          onboardButton.disabled = true;
+          checkOwner(accounts[0]);
+        });
+      };
     }
   };
-  const query = new URLSearchParams({
-    chain,
-    include,
-    page_number: page
-  });
 
-  let editions = []
-  let nftname=[]
-  let nftimage=[]
-  let contrato=[]
-  try {
-    const data = await fetchData(url + query, options)
-    console.log(`Recieved page ${page}`)
-    const total = data.total;
-    const pages = Math.ceil(total / 50);
-    data.nfts.forEach(nft => {
-      contrato.push(nft.contract_address)
-      if(nft.contract_address == CONTRACT /*|| nft.token_id=="62020157288306137204262585601212871537268194779568533209731806292692472692737"*/) {
-        editions.push(nft.token_id)
-        nftname.push(nft.name)
-        /*nftimage.push(nft.metadata.image)*/
-      }
-    })
+  updateButton();
+  if (MetaMaskOnboarding.isMetaMaskInstalled()) {
+    window.ethereum.on('accountsChanged', (newAccounts) => {
+      accounts = newAccounts;
+      updateButton();
+    });
+  }
+});
 
-    return {
-      isOwner: editions.length > 0 ? true : false,
-      editions,
-      contrato,
-      nftimage,
-      nftname,
-      next_page: +page === pages ? null : +page + 1,
+const checkOwner = async (account) => {
+  if(account) {
+    let isOwner = false;
+    let page = 1
+    
+    const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+
+    isOwner = !isOwner ? data.isOwner : isOwner;
+    updateStatusText(isOwner, true)
+    
+    editions = [...data.editions]
+    contrato = [...data.contrato]
+    nftname = [...data.nftname]
+    nftimage = [...data.nftimage]
+    
+    let nextPage = data.next_page
+
+    while(nextPage) {
+      page = nextPage
+      const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+
+      isOwner = !isOwner ? data.isOwner : isOwner;
+      updateStatusText(isOwner, true)
+      
+      editions = [...editions, ...data.editions]
+      contrato = [...contrato, ...data.contrato]
+      nftname = [...nftname, ...data.nftname]
+      nftimage = [...nftimage, ...data.nftimage]
+      nextPage = data.next_page
     }
-  } catch(err) {
-    console.log(`Catch: ${JSON.stringify(err)}`)
-    return {
-      error: err
-    }
+
+    updateStatusText(isOwner, false)
   }
 }
 
-async function fetchData(url, options) {
-  return new Promise((resolve, reject) => {
-    return fetch(url, options).then(res => {
-      const status = res.status;            
+function updateStatusText(isOwner, checking) {
+  const statusText = document.querySelector('.owner-status');
+  if(checking) {
+    if(isOwner) {
+      statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
+    } else {
+      statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} 😻${renderDots(dots)}`;
+    }
+  } else {
+    if(isOwner) {
+      statusText.innerText = `You own ${nftname} ${editions.length} ${COLLECTION_NAME}!! 😻`;
+      
+    } else {
+      statusText.innerText = `You don't own any ${COLLECTION_NAME} `;
+    }
+  }
+  dots = dots === 3 ? 1 : dots + 1;
+}
 
-      if(status === 200) {
-        return resolve(res.json());
-      } else {
-        console.log(`Fetch failed with status ${status}`);
-        return reject(res.json());
-      }        
-    }).catch(function (error) { 
-      reject(error)
-    });
+function renderDots(dots) {
+  let dotsString = '';
+  for (let i = 0; i < dots; i++) {
+    dotsString += '.';
+  }
+  return dotsString;
+}
+
+function timer(ms) {
+  return new Promise(res => setTimeout(res, ms));
+}
+
+async function fetchWithRetry(url)  {
+  await timer(TIMEOUT);
+  return new Promise((resolve, reject) => {
+    const fetch_retry = (_url) => {
+      return fetch(_url).then(async (res) => {
+        const status = res.status;
+
+        if(status === 200) {
+          return resolve(res.json());
+        }            
+        else {
+          console.error(`ERROR STATUS: ${status}`)
+          console.log('Retrying')
+          await timer(TIMEOUT)
+          fetch_retry(_url)
+        }            
+      })
+      .catch(async (error) => {  
+        console.error(`CATCH ERROR: ${error}`)  
+        console.log('Retrying')    
+        await timer(TIMEOUT)    
+        fetch_retry(_url)
+      }); 
+    }
+    return fetch_retry(url);
   });
 }
