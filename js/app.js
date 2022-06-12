@@ -310,18 +310,59 @@ const checkOwner = async (account) => {
 
     nftname = [...data.nftname]//new
 
+console.log(data);
+console.log(editions);
+    console.log(nftname);
+//
+/*
+    const osContainer = document.getElementById('openseaItems')
+
+    data.forEach((nft) => {
+      const { name, image_url, description, permalink } = nft
+
+      const newElement = document.createElement('div')
+      newElement.innerHTML = `
+        <!-- Opensea listing item-->
+        <a href='${permalink}' target="_blank">
+          <div class='flex flex-col'>
+            <img
+              src='${image_url}'
+              class='w-full rounded-lg' />
+            <div class='flex-col w-full space-y-1'>
+              <p class='text-gray-800 text-lg'>${name}</p>
+              <p class='text-gray-500 text-xs word-wrap'>${description ?? ''}</p>
+            </div>
+          </div>
+        </a>
+        <!-- End Opensea listing item-->
+      `
+
+      osContainer.appendChild(newElement)
+    })
+//
+*/
+
     let nextPage = data.next_page
 
     while(nextPage) {
+      
       page = nextPage
       const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
 
+
+
+      
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
       editions = [...editions, ...data.editions]
     nftname = [...nftname, ...data.nftname] //new
       nextPage = data.next_page
+
+
+
+      
+      
     }
 
     updateStatusText(isOwner, false)
@@ -339,7 +380,6 @@ function updateStatusText(isOwner, checking) {
   } else {
     if(isOwner) {
       statusText.innerText = `You own ${nftname} ${editions.length} ${COLLECTION_NAME}!! 😻`;
-      cardview(data);
     } else {
       statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
     }
@@ -400,6 +440,7 @@ async function fetchWithRetry(url)  {
 
 
 //card:
+/*
 async function cardview(data) {
 const cardContainer = document.getElementById('cardContainer')
 
@@ -420,4 +461,4 @@ data.forEach((nft) => {
   cardContainer.appendChild(newElement)
 })
 
-};
+};*/
