@@ -302,6 +302,7 @@ const checkOwner = async (account) => {
     let page = 1
     
     const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+    let nftData = await data.json();
 
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, true)
@@ -349,23 +350,26 @@ console.log(editions);
 }
 
 
-function itemsNFT(isOwner,data,nftname) {
-  data.forEach(data.nftname);
-
+function itemsNFT(isOwner,nftdata) {
   const osContainer = document.getElementById('openseaItems')
   const newElement = document.createElement('div')
-  newElement.innerHTML = `
-      <div class='flex flex-col'>
-        <div class='flex-col w-full space-y-1'>
-          <p class='text-gray-800 text-lg'>nftname</p>
-        </div>
+  nftData.nfts.forEach((index) => {
+
+    newElement.innerHTML = `
+    <div class='flex flex-col'>
+      <div class='flex-col w-full space-y-1'>
+        <p class='text-gray-800 text-lg'>index</p>
       </div>
-    </a>
-  `
-  osContainer.appendChild(newElement)
+    </div>
+  </a>
+`
+osContainer.appendChild(newElement)
 
-
+  });
+  console.log(nftData);
+  setNFTs(nftData.nfts);
 }
+
 
 
 
