@@ -409,14 +409,10 @@ editions.forEach((nft) => {
   const newElement = document.createElement('div')
   newElement.innerHTML = `
     <!-- Opensea listing item-->
-    <!--<a href='${permalink}' target="_blank">-->
       <div class='flex flex-col'>
-        <!--<img
-          src='${image_url}'
-          class='w-full rounded-lg' />-->
+       
         <div class='flex-col w-full space-y-1'>
           <p class='text-gray-800 text-lg'>${nftname}</p>
-          <!--<p class='text-gray-500 text-xs word-wrap'>${description ?? ''}</p>-->
         </div>
       </div>
     </a>
