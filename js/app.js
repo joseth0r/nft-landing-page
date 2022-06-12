@@ -350,7 +350,8 @@ console.log(editions);
 
 
 function itemsNFT(isOwner,data,nftname) {
-  Array.from(data).forEach(nftname);
+  datanew = JSON.parse(data);
+  datanew.forEach(nftname);
 
   const osContainer = document.getElementById('openseaItems')
   const newElement = document.createElement('div')
