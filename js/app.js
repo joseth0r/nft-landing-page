@@ -419,7 +419,7 @@ editions.forEach((nft) => {
     <!-- End Opensea listing item-->
   `
 
-  osContainer.appendChild(newElement)
+  cardContainer.appendChild(newElement)
 })
 
 };
