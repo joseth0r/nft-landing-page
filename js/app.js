@@ -7,7 +7,7 @@ let idtest=[];
 let nftname=[];
 let nftimage=[];
 let dots = 1;
-
+let accounts;
 window.addEventListener('DOMContentLoaded', () => {
   const onboarding = new MetaMaskOnboarding();
   const onboardButton = document.getElementById('connectWallet');
