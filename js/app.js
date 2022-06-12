@@ -400,7 +400,7 @@ async function fetchWithRetry(url)  {
 
 
 //card:
-async function cardview() {
+async function cardview(editions) {
 const cardContainer = document.getElementById('cardContainer')
 
 editions.forEach((nft) => {
