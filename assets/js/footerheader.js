@@ -1,6 +1,6 @@
 $(function(){
-    $("#header_ch").load("/nft-landing-page/header.html"); 
+    $("#header_ch").load("/header.html"); 
   
-    $("#footer_ch").load("/nft-landing-page/footer.html"); 
+    $("#footer_ch").load("/footer.html"); 
   
   });
