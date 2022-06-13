@@ -16,7 +16,7 @@
     $('.bar').toggleClass('animate');
     var mobileNav = $('.mobile-nav');
     mobileNav.toggleClass('hide show');
-
+console.log("mobile menu opebned");
     document.body.classList.remove('no-scroll')
 
 	})
@@ -234,25 +234,6 @@ $(function() {
 
 
 
-
-
-
-/*==================== connectwallet menu ====================*/
-
-
-  const $menu = $('.dropdown');
-$(document).mouseup(e => {
-   if (!$menu.is(e.target) // if the target of the click isn't the container...
-   && $menu.has(e.target).length === 0) // ... nor a descendant of the container
-   {
-     $menu.removeClass('is-active');
-  }
- });
-
-$('.togglemenu').on('click', () => {
-  $menu.toggleClass('is-active');
-  
-});
 
 
 

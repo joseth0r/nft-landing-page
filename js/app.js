@@ -25,6 +25,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   welcomeP.innerHTML = welcome_p;
 
   $(document).ready(function() {
+    
   if (window.location.pathname == '/mint/') {
     
     if (window.ethereum) {
@@ -44,7 +45,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   };
 });
  
-
 
 
 
