@@ -160,7 +160,7 @@ const updateConnectStatus = async () => {
     spinner.classList.remove('hidden');
     //window.contract = new web3.eth.Contract(abi, contractAddress);
 
-    checkOwner(accounts[0]);
+    //checkOwner(accounts[0]);
   } else {
     //menuconnetwallet.classList.add('hidden'); //cerramos menu
 
@@ -194,7 +194,7 @@ const updateConnectStatus = async () => {
           window.address = accts[0];
           accounts = accts;
           //window.contract = new web3.eth.Contract(abi, contractAddress);
-          checkOwner(accounts[0]);
+          //checkOwner(accounts[0]);
         });
     };
     onboardButtonM.onclick = async () => {
@@ -219,7 +219,7 @@ const updateConnectStatus = async () => {
           window.address = accts[0];
           accounts = accts;
           //window.contract = new web3.eth.Contract(abi, contractAddress);
-          checkOwner(accounts[0]);
+          //checkOwner(accounts[0]);
         });
     };
 
@@ -288,150 +288,12 @@ async function checkChain() {
       }
     }
   }
-}
+};
 
 
 
 
 
-
-
-const checkOwner = async (account) => {
-  if(account) {
-    let isOwner = false;
-    let page = 1
-    
-    //const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-    //const res = await fetch(`https://api.nftport.xyz/v0/nfts/${contractaddress})`);
-    let nftData = await data.json(); 
-
-    isOwner = !isOwner ? data.isOwner : isOwner;
-    updateStatusText(isOwner, true)
-    
-    editions = [...data.editions] 
-
-    nftname = [...data.nftname]//new
-
-console.log(data);
-console.log(editions);
-    console.log(nftname);
-
-
-
-
-
-    let nextPage = data.next_page
-
-    while(nextPage) {
-      
-      page = nextPage
-      const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-
-
-
-      
-      isOwner = !isOwner ? data.isOwner : isOwner;
-      updateStatusText(isOwner, true)
-      
-      editions = [...editions, ...data.editions]
-    nftname = [...nftname, ...data.nftname] //new
-      nextPage = data.next_page
-
-
-
-      
-      
-    }
-
-    updateStatusText(isOwner, false)
-    console.log(data)
-    itemsNFT(isOwner,nftdata)
-
-  }
-}
-
-
-function itemsNFT(isOwner,nftdata) {
-  const osContainer = document.getElementById('openseaItems')
-  const newElement = document.createElement('div')
-  nftData.nfts.forEach((index) => {
-
-    newElement.innerHTML = `
-    <div class='flex flex-col'>
-      <div class='flex-col w-full space-y-1'>
-        <p class='text-gray-800 text-lg'>index</p>
-      </div>
-    </div>
-  </a>
-`
-osContainer.appendChild(newElement)
-
-  });
-  console.log(nftData);
-  setNFTs(nftData.nfts);
-}
-
-
-
-
-
-function updateStatusText(isOwner, checking) {
-  const statusText = document.querySelector('.owner-status');
-  if(checking) {
-    if(isOwner) {
-      statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
-    } else {
-      statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} 😻${renderDots(dots)}`;
-    }
-  } else {
-    if(isOwner) {
-      statusText.innerText = `You own ${nftname} ${editions.length} ${COLLECTION_NAME}!! 😻`;
-    } else {
-      statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
-    }
-  }
-  dots = dots === 3 ? 1 : dots + 1;
-}
-
-function renderDots(dots) {
-  let dotsString = '';
-  for (let i = 0; i < dots; i++) {
-    dotsString += '.';
-  }
-  return dotsString;
-}
-
-function timer(ms) {
-  return new Promise(res => setTimeout(res, ms));
-}
-
-async function fetchWithRetry(url)  {
-  await timer(TIMEOUT);
-  return new Promise((resolve, reject) => {
-    const fetch_retry = (_url) => {
-      return fetch(_url).then(async (res) => {
-        const status = res.status;
-
-        if(status === 200) {
-          return resolve(res.json());
-        }            
-        else {
-          console.error(`ERROR STATUS: ${status}`)
-          console.log('Retrying')
-          await timer(TIMEOUT)
-          fetch_retry(_url)
-        }            
-      })
-      .catch(async (error) => {  
-        console.error(`CATCH ERROR: ${error}`)  
-        console.log('Retrying')    
-        await timer(TIMEOUT)    
-        fetch_retry(_url)
-      }); 
-    }
-    return fetch_retry(url);
-  });
-}
 
 
 
