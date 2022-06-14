@@ -310,9 +310,6 @@ const checkOwner = async (account) => {
     editions = [...data.editions] 
 
 
-console.log(data);
-console.log(editions);
-
 
 
 
