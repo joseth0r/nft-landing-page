@@ -352,6 +352,7 @@ console.log(editions);
 
 function updateStatusText(isOwner, checking) {
   const statusText = document.querySelector('.owner-status');
+  const welcomeTextConnected = document.getElementById("welcomeTextConnected");
   if(checking) {
       welcomeTextConnected.innerText=`Hello ${accounts[0]}}`
     if(isOwner) {
