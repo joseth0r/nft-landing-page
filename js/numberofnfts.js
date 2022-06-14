@@ -307,7 +307,7 @@ async function checkChain() {
 
 
 
-function checkOwner(account) {
+const checkOwner = async (account) => {
     if(account) {
       let isOwner = false;
       let page = 1
@@ -331,7 +331,7 @@ function checkOwner(account) {
         nextPage = data.next_page
       }
   
-      updateStatusText(isOwner, false)
+      //updateStatusText(isOwner, false)
     }
   }
 
