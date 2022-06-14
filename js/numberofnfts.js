@@ -10,8 +10,6 @@ welcomeP.innerHTML = "Connect your wallet to check your discount please";
 
 // METAMASK CONNECTION falla esto:
 window.addEventListener("DOMContentLoaded", async () => {
-  
-
     const menuWallet = document.getElementById("menuwallet");
     
     if (window.ethereum) {
@@ -25,10 +23,11 @@ window.addEventListener("DOMContentLoaded", async () => {
       // Check if User is already connected by retrieving the accounts
       await window.web3.eth.getAccounts().then(async (addr) => {
         accounts = addr;
+        //ojo
       });
     }
   
-  
+
     updateConnectStatus();
     if (MetaMaskOnboarding.isMetaMaskInstalled()) {
       window.ethereum.on("accountsChanged", (newAccounts) => {
@@ -149,6 +148,8 @@ const updateConnectStatus = async () => {
           onboardButtonConnectedM.disabled = true;
           window.address = accts[0];
           accounts = accts;
+          checkOwner(accts[0]);
+
           //window.contract = new web3.eth.Contract(abi, contractAddress);
           console.log("hola100")
 
@@ -176,7 +177,7 @@ const updateConnectStatus = async () => {
           window.address = accts[0];
           accounts = accts;
           //window.contract = new web3.eth.Contract(abi, contractAddress);
-          checkOwner(accounts[0]);
+          checkOwner(accts[0]);
           console.log("hola30")
 
         });
