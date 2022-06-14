@@ -322,7 +322,7 @@ console.log(editions);
     while(nextPage) {
       
       page = nextPage
-      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+      const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
 
 
 
