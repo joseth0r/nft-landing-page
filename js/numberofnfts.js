@@ -105,7 +105,7 @@ const updateConnectStatus = async () => {
     // SHOW SPINNER
     spinner.classList.remove('hidden');
     //window.contract = new web3.eth.Contract(abi, contractAddress);
-    console.log("hola111")
+    console.log("hola1112")
 
     await window.ethereum
         .request({
