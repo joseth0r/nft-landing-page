@@ -70,8 +70,12 @@ console.log("hola2")
   if (window.ethereum) {
     window.web3 = new Web3(window.ethereum);
     checkChain();
+    console.log("hola4")
+
   } else if (window.web3) {
     window.web3 = new Web3(window.web3.currentProvider);
+    console.log("hola5")
+
   }
 
   if (window.web3) {
@@ -88,6 +92,7 @@ console.log("hola2")
       accounts = newAccounts;
       updateConnectStatus();
       checkOwner(accounts[0]);
+      console.log("hola6")
 
     });
   }
