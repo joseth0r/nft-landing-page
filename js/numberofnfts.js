@@ -3,7 +3,6 @@ const TIMEOUT = 1000;
 const COLLECTION_NAME = 'The Boring Elon';
 let editions = [];
 let dots = 1;
-let nftname=[];//new, works
 
 
 
@@ -310,11 +309,9 @@ const checkOwner = async (account) => {
     
     editions = [...data.editions] 
 
-    nftname = [...data.nftname]//new
 
 console.log(data);
 console.log(editions);
-    console.log(nftname);
 
 
 
@@ -334,7 +331,6 @@ console.log(editions);
       updateStatusText(isOwner, true)
       
       editions = [...editions, ...data.editions]
-    nftname = [...nftname, ...data.nftname] //new
       nextPage = data.next_page
 
 
@@ -362,7 +358,7 @@ function updateStatusText(isOwner, checking) {
     }
   } else {
     if(isOwner) {
-      statusText.innerText = `You own ${nftname} ${editions.length} ${COLLECTION_NAME}`;
+      statusText.innerText = `You own  ${editions.length} ${COLLECTION_NAME}`;
     } else {
       statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
     }
