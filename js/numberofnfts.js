@@ -86,6 +86,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     window.ethereum.on("accountsChanged", (newAccounts) => {
       accounts = newAccounts;
       updateConnectStatus();
+      checkOwner(accounts[0]);
+
     });
   }
 });
