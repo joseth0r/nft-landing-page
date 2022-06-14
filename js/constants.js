@@ -1,9 +1,9 @@
 const contractAddress = "0x26b9FE69be1E57aD917353E078897F1d8f804329"; //Replace with your own contract address
 const chain = 'polygon'; // rinkeby or polygon
-const welcome_h1 = "0/3500";
-const welcome_h2 = "MINTED";
-const welcome_p = 'Click the "CONNECT WALLET" Button to access the minting process.';
-const changenetwork = 'Change the network to Polygon to mint.';
+//const welcome_h1 = "Hello! Connect your wallet please.";
+//const welcome_h2 = "MINTED";
+const welcome_p = 'Hello! Connect your wallet please.';
+const changenetwork = 'Change the network to Polygon, please';
 
 const h1_presale_coming_soon = "The Boring Elon NFT Drop Coming Soon!!";
 const h1_presale_mint = "WHITELIST MINTING";
