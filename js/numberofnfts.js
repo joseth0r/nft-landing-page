@@ -4,6 +4,8 @@ const COLLECTION_NAME = 'CryptoHasbulla';
 let editions = [];
 let dots = 1;
 
+const welcomeP = document.getElementById("welcomeP");
+welcomeP.innerHTML = "Connect your wallet to check your discount please";
 
 
 // METAMASK CONNECTION falla esto:
@@ -282,7 +284,9 @@ const checkOwner = async (account) => {
 
   function updateStatusText(isOwner, checking) {
     const statusText = document.querySelector('.owner-status');
+    const welcomeConnectedText= document.getElementById("welcomeTextConnected");
     if(checking) {
+        welcomeTextConnected.innerText=`Hello ${accounts[0]}`;
       if(isOwner) {
         statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
       } else {
