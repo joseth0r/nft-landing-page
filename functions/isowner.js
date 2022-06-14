@@ -1,8 +1,6 @@
-import myJson from 'tokenid.json' assert {type: 'json'};
 
 const fetch = require('node-fetch')
-const jsontoken=myJson;
-const CONTRACT = "0x2953399124F0cBB46d2CbACD8A89cF0599974963";
+const CONTRACT = "0xA755Cd34d4527Afa4D44794b4810c03dFd85C9e9";
 const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 
