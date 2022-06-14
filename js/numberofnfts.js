@@ -294,52 +294,33 @@ async function checkChain() {
 
 
 
-
 const checkOwner = async (account) => {
-  if(account) {
-    let isOwner = false;
-    let page = 1
-    
-    const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-    //const res = await fetch(`https://api.nftport.xyz/v0/nfts/${contractaddress})`);
-    //let nftData = await data.json(); 
-
-    isOwner = !isOwner ? data.isOwner : isOwner;
-    updateStatusText(isOwner, true)
-    
-    editions = [...data.editions] 
-
-
-
-
-
-
-    let nextPage = data.next_page
-
-    while(nextPage) {
+    if(account) {
+      let isOwner = false;
+      let page = 1
       
-      page = nextPage
       const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-
-
-
-      
+  
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
-      editions = [...editions, ...data.editions]
-      nextPage = data.next_page
-
-
-
-      
-      
+      editions = [...data.editions]
+      let nextPage = data.next_page
+  
+      while(nextPage) {
+        page = nextPage
+        const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+  
+        isOwner = !isOwner ? data.isOwner : isOwner;
+        updateStatusText(isOwner, true)
+        
+        editions = [...editions, ...data.editions]
+        nextPage = data.next_page
+      }
+  
+      updateStatusText(isOwner, false)
     }
-
-    updateStatusText(isOwner, false)
-
   }
-}
 
 
 function updateStatusText(isOwner, checking) {
