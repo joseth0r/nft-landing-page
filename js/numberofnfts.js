@@ -106,7 +106,8 @@ const updateConnectStatus = async () => {
     spinner.classList.remove('hidden');
     //window.contract = new web3.eth.Contract(abi, contractAddress);
     console.log("hola11")
-
+    window.address = accts[0];
+    accounts = accts;
     checkOwner(accounts[0]);
   } else {
     //menuconnetwallet.classList.add('hidden'); //cerramos menu
