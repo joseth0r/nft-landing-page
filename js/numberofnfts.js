@@ -274,7 +274,7 @@ const checkOwner = async (account) => {
         nextPage = data.next_page
       }
   
-      //updateStatusText(isOwner, false)
+      updateStatusText(isOwner, false)
     }
   }
 
