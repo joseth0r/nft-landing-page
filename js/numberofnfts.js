@@ -38,7 +38,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   
     else{
       updateConnectStatus();
-  
+      checkOwner(accounts[0]);
+
     }
 
   };
