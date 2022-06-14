@@ -1,8 +1,11 @@
-const fetch = require('node-fetch')
+import myJson from 'tokenid.json' assert {type: 'json'};
 
-const CONTRACT = "0xa755cd34d4527afa4d44794b4810c03dfd85c9e9";
+const fetch = require('node-fetch')
+const jsontoken=myJson;
+const CONTRACT = "0x2953399124F0cBB46d2CbACD8A89cF0599974963";
 const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
+
 const include = "metadata";
 exports.handler = async (event, context) => {
   const wallet = event.queryStringParameters && event.queryStringParameters.wallet
@@ -54,7 +57,9 @@ const getOwnedNfts = async (wallet, page) => {
     const pages = Math.ceil(total / 50);
     data.nfts.forEach(nft => {
       if(nft.contract_address === CONTRACT) {
+
         editions.push(nft.token_id)
+        
       }
     })
 

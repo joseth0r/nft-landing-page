@@ -1,0 +1,10 @@
+
+
+{
+    "number": {
+      "person": "Alice",
+      "country": "Austria",
+      "tasks": ["develop", "design", "test"],
+      "age": 30
+    }
+  }
