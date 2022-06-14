@@ -105,7 +105,7 @@ const updateConnectStatus = async () => {
     // SHOW SPINNER
     spinner.classList.remove('hidden');
     //window.contract = new web3.eth.Contract(abi, contractAddress);
-    console.log("hola11")
+    console.log("hola111")
     window.address = accts[0];
     accounts = accts;
     checkOwner(accounts[0]);
