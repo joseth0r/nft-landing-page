@@ -88,4 +88,3 @@ async function fetchData(url, options) {
     });
   });
 }
-© 2022 GitHub, Inc.
