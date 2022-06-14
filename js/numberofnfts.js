@@ -3,6 +3,7 @@ const TIMEOUT = 1000;
 const COLLECTION_NAME = 'CryptoHasbulla';
 let editions = [];
 let dots = 1;
+const $menu = $('.dropdown');
 
 
 /*
@@ -16,7 +17,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   const changenetworkPtext = document.getElementById("changenetworkPtext");
 
 
-  const $menu = $('.dropdown');
 
 
   //welcomeH1.innerText = "Hello!, connect your wallet please.";
@@ -86,6 +86,15 @@ console.log("hola2")
 });
 
 */
+
+$(document).ready(function() {
+onboardButton.onclick = () => {
+    onboarding.startOnboarding();
+    updateConnectStatus();
+    };
+});
+
+
 
 const updateConnectStatus = async () => {
   const onboarding = new MetaMaskOnboarding();
