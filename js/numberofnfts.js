@@ -344,9 +344,9 @@ const checkOwner = async (account) => {
 
 function updateStatusText(isOwner, checking) {
   const statusText = document.querySelector('.owner-status');
-  const welcomeTextConnected = document.getElementById("welcomeTextConnected");
+  //const welcomeTextConnected = document.getElementById("welcomeTextConnected");
   if(checking) {
-      welcomeTextConnected.innerText=`Hello ${accounts[0]}`
+      //welcomeTextConnected.innerText=`Hello ${accounts[0]}`
     if(isOwner) {
       statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
     } else {
