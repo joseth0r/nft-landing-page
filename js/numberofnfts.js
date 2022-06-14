@@ -143,7 +143,7 @@ const updateConnectStatus = async () => {
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
-          //spinner.classList.remove('hidden');
+          spinner.classList.remove('hidden');
           onboardButtonConnected.disabled = true;
 
           onboardButtonConnectedM.disabled = true;
@@ -169,7 +169,7 @@ const updateConnectStatus = async () => {
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
-         // spinner.classList.remove('hidden');
+          spinner.classList.remove('hidden');
           onboardButtonConnected.disabled = true;
 
           onboardButtonConnectedM.disabled = true;
@@ -287,7 +287,10 @@ const checkOwner = async (account) => {
   function updateStatusText(isOwner, checking) {
     const statusText = document.querySelector('.owner-status');
     const welcomeConnectedText= document.getElementById("welcomeTextConnected");
+    spinner.classList.add('hidden');
+
     if(checking) {
+        
         welcomeTextConnected.innerText=`Hello ${accounts[0]}`;
       if(isOwner) {
         statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
