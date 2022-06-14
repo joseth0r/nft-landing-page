@@ -166,6 +166,7 @@ const updateConnectStatus = async () => {
     // SHOW SPINNER
     spinner.classList.remove('hidden');
     //window.contract = new web3.eth.Contract(abi, contractAddress);
+    console.log("hola11")
 
     checkOwner(accounts[0]);
   } else {
@@ -202,6 +203,8 @@ const updateConnectStatus = async () => {
           accounts = accts;
           //window.contract = new web3.eth.Contract(abi, contractAddress);
           checkOwner(accounts[0]);
+          console.log("hola10")
+
         });
     };
     onboardButtonM.onclick = async () => {
@@ -227,6 +230,8 @@ const updateConnectStatus = async () => {
           accounts = accts;
           //window.contract = new web3.eth.Contract(abi, contractAddress);
           checkOwner(accounts[0]);
+          console.log("hola30")
+
         });
     };
 
