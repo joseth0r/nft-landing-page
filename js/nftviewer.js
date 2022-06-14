@@ -1,95 +1,44 @@
 let accounts;
 const TIMEOUT = 1000;
-const COLLECTION_NAME = 'The Boring Elon';
+const COLLECTION_NAME = 'CryptoHasbulla';
 let editions = [];
 let dots = 1;
-let nftname=[];//new, works
+let nftname=[];
 
+const welcomeP = document.getElementById("welcomeP");
+welcomeP.innerHTML = "Connect your wallet to check your discount please";
 
 
 // METAMASK CONNECTION falla esto:
 window.addEventListener("DOMContentLoaded", async () => {
   
-  const welcomeH1 = document.getElementById("welcomeH1");
-  //const welcomeH2 = document.getElementById("welcomeH2");
-  const welcomeP = document.getElementById("welcomeP");
-  const changenetworkP = document.getElementById("changenetworkP");
-  const changenetworkPtext = document.getElementById("changenetworkPtext");
 
-
-  const $menu = $('.dropdown');
-
-
-  welcomeH1.innerText = welcome_h1;
-  //welcomeH2.innerText = welcome_h2;
-  welcomeP.innerHTML = welcome_p;
-
-  $(document).ready(function() {
-    
-  if (window.location.pathname == '/mint/') {
+    const menuWallet = document.getElementById("menuwallet");
     
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
-  
       checkChain();
     } else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider);
-  
     }
   
-    else{
-      updateConnectStatus();
-  
+    if (window.web3) {
+      // Check if User is already connected by retrieving the accounts
+      await window.web3.eth.getAccounts().then(async (addr) => {
+        accounts = addr;
+      });
     }
-
-  };
-});
- 
-
-
-
-  //updateConnectStatus();
-
-
-/*
-  if (window.web3) {
-    // Check if User is already connected by retrieving the accounts
-    console.log("already connected");
-    await window.web3.eth.getAccounts().then(async (addr) => {
-      accounts = addr;
-
-    });
-
-  }
-  */
-  //esto es el fallo
-
-
-
   
-  if (window.ethereum) {
-    window.web3 = new Web3(window.ethereum);
-    checkChain();
-  } else if (window.web3) {
-    window.web3 = new Web3(window.web3.currentProvider);
-  }
-
-  if (window.web3) {
-    // Check if User is already connected by retrieving the accounts
-    await window.web3.eth.getAccounts().then(async (addr) => {
-      accounts = addr;
-    });
-  }
-
-
-  updateConnectStatus();
-  if (MetaMaskOnboarding.isMetaMaskInstalled()) {
-    window.ethereum.on("accountsChanged", (newAccounts) => {
-      accounts = newAccounts;
-      updateConnectStatus();
-    });
-  }
-});
+  
+    updateConnectStatus();
+    if (MetaMaskOnboarding.isMetaMaskInstalled()) {
+      window.ethereum.on("accountsChanged", (newAccounts) => {
+        accounts = newAccounts;
+        updateConnectStatus();
+      });
+    }
+  });
+  
 
 
 
@@ -157,10 +106,17 @@ const updateConnectStatus = async () => {
     notConnected.classList.remove('show-not-connected');
     notConnected.classList.add('hidden');
     // SHOW SPINNER
-    spinner.classList.remove('hidden');
-    //window.contract = new web3.eth.Contract(abi, contractAddress);
+    //spinner.classList.remove('hidden');
 
+
+
+    //window.contract = new web3.eth.Contract(abi, contractAddress);
+    console.log("hola1112")
     checkOwner(accounts[0]);
+
+
+
+
   } else {
     //menuconnetwallet.classList.add('hidden'); //cerramos menu
 
@@ -172,6 +128,7 @@ const updateConnectStatus = async () => {
     spinner.classList.add('hidden');
     notConnected.classList.remove('hidden');
     notConnected.classList.add('show-not-connected');
+
     onboardButton.onclick = async () => {
       await window.ethereum
         .request({
@@ -194,7 +151,8 @@ const updateConnectStatus = async () => {
           window.address = accts[0];
           accounts = accts;
           //window.contract = new web3.eth.Contract(abi, contractAddress);
-          checkOwner(accounts[0]);
+          console.log("hola100")
+
         });
     };
     onboardButtonM.onclick = async () => {
@@ -220,6 +178,8 @@ const updateConnectStatus = async () => {
           accounts = accts;
           //window.contract = new web3.eth.Contract(abi, contractAddress);
           checkOwner(accounts[0]);
+          console.log("hola30")
+
         });
     };
 
@@ -295,103 +255,64 @@ async function checkChain() {
 
 
 
-
 const checkOwner = async (account) => {
-  if(account) {
-    let isOwner = false;
-    let page = 1
     
-    const data = await fetchWithRetry(`../.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-    //const res = await fetch(`https://api.nftport.xyz/v0/nfts/${contractaddress})`);
-    //let nftData = await data.json(); 
-
-    isOwner = !isOwner ? data.isOwner : isOwner;
-    updateStatusText(isOwner, true)
-    
-    editions = [...data.editions] 
-
-    nftname = [...data.nftname]//new
-
-console.log(data);
-console.log(editions);
-    console.log(nftname);
-
-
-
-
-
-    let nextPage = data.next_page
-
-    while(nextPage) {
+    if(account) {
+      let isOwner = false;
+      let page = 1
       
-      page = nextPage
       const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-
-
-
-      
+  
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
-      editions = [...editions, ...data.editions]
-    nftname = [...nftname, ...data.nftname] //new
-      nextPage = data.next_page
-
-
-
-      
-      
-    }
-
-    updateStatusText(isOwner, false)
-    console.log(data)
-    itemsNFT(isOwner,nftdata)
-
-  }
-}
-
-
-function itemsNFT(isOwner,nftdata) {
-  const osContainer = document.getElementById('openseaItems')
-  const newElement = document.createElement('div')
-  nftData.nfts.forEach((index) => {
-
-    newElement.innerHTML = `
-    <div class='flex flex-col'>
-      <div class='flex-col w-full space-y-1'>
-        <p class='text-gray-800 text-lg'>index</p>
-      </div>
-    </div>
-  </a>
-`
-osContainer.appendChild(newElement)
-
-  });
-  console.log(nftData);
-  setNFTs(nftData.nfts);
-}
-
-
-
-
-
-function updateStatusText(isOwner, checking) {
-  const statusText = document.querySelector('.owner-status');
-  if(checking) {
-    if(isOwner) {
-      statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
-    } else {
-      statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} 😻${renderDots(dots)}`;
-    }
-  } else {
-    if(isOwner) {
-      statusText.innerText = `You own ${nftname} ${editions.length} ${COLLECTION_NAME}!! 😻`;
-    } else {
-      statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
+      editions = [...data.editions]
+      let nextPage = data.next_page
+  
+      while(nextPage) {
+        page = nextPage
+        const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+  
+        isOwner = !isOwner ? data.isOwner : isOwner;
+        updateStatusText(isOwner, true)
+        
+        editions = [...editions, ...data.editions]
+        nextPage = data.next_page
+      }
+  
+      updateStatusText(isOwner, false)
     }
   }
-  dots = dots === 3 ? 1 : dots + 1;
-}
+
+
+
+  function updateStatusText(isOwner, checking) {
+    const spinner = document.getElementById("spinner");
+
+    const statusText = document.querySelector('.owner-status');
+    const welcomeConnectedText= document.getElementById("welcomeTextConnected");
+    spinner.classList.add('hidden');
+
+    if(checking) {
+        
+        welcomeTextConnected.innerText=`Hello ${accounts[0]}`;
+      if(isOwner) {
+        statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
+      } else {
+        statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} 😻${renderDots(dots)}`;
+      }
+    } else {
+      if(isOwner) {
+        statusText.innerText = `You own ${editions.length} ${COLLECTION_NAME}!! 😻`;
+        
+      } else {
+        statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
+      }
+    }
+    dots = dots === 3 ? 1 : dots + 1;
+  }
+  
+  
 
 function renderDots(dots) {
   let dotsString = '';
@@ -433,38 +354,3 @@ async function fetchWithRetry(url)  {
   });
 }
 
-
-
-
-
-
-
-
-
-
-//
-
-
-//card:
-/*
-async function cardview(data) {
-const cardContainer = document.getElementById('cardContainer')
-
-data.forEach((nft) => {
-  const { nftname } = nft
-
-  const newElement = document.createElement('div')
-  newElement.innerHTML = `
-      <div class='flex flex-col'>
-       
-        <div class='flex-col w-full space-y-1'>
-          <p class='text-gray-800 text-lg'>${nftname}</p>
-        </div>
-      </div>
-    </a>
-  `
-
-  cardContainer.appendChild(newElement)
-})
-
-};*/
