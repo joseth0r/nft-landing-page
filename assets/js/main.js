@@ -80,48 +80,11 @@ function onPageLoad(){
 
 
 
-/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-const sections = document.querySelectorAll("section[id]");
-
-function scrollActive() {
-  const scrollY = window.pageYOffset;
-
-  sections.forEach((current) => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 150;
-    sectionId = current.getAttribute("id");
-    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document
-        .querySelector(".nav_list a[href*=" + sectionId + "]")
-        .classList.remove("text-white/70");
-          } else {
-      document
-        .querySelector(".nav_list a[href*=" + sectionId + "]")
-        .classList.add("text-white/70");
-    }
-  });
-}
-window.addEventListener("scroll", scrollActive);
-/*==================== TESLA SLIDER ====================*/
 
 
-$( document ).ready( function() {
-  var button = $('.tesla-bottom button');
-  var slider = $('.slider');
-  
-  button.on('click', function(e) {
-    
-    if ( slider.hasClass('opened') ) {
-      button.text('Configure your Tesla');
-      slider.toggleClass('opened');
-    } else {
-      button.text('Close');
-      slider.toggleClass('opened');
-    }
-    
-  });
-  
-});
+
+
+
 
 
 /*==================== SCROLL REVEAL ANIMATION ====================*/
@@ -215,26 +178,29 @@ $(function() {
 });
 */
 
-/*==================== MAIN SCREEN ====================*/
-
-(function () {
-  $(window).scroll(function () { 
-      var Num = $(window).scrollTop() / 500;
-      var Num2 = $(window).scrollTop() * .0004; // higher number for more zoom
-      var Num2mod = Num2 + 1;
-      var Num3 = $(window).scrollTop() * .2; // Title speed
-      var Num3mod = Num3 + 1;
-      return $('.shade').css('opacity', Num),
-      $(".bg").css({"transform":"scale(" + Num2mod + ")"}),
-      $(".text").css({"margin-top":"-" + Num3mod + "px"});
-  });
-}.call(this));
 
 
 
 
 
+/*==================== connectwallet menu ====================*/
 
+
+const $menu = $('.dropdown');
+$(document).mouseup(e => {
+   if (!$menu.is(e.target) // if the target of the click isn't the container...
+   && $menu.has(e.target).length === 0) // ... nor a descendant of the container
+   {
+     console.log("encima")
+     $menu.removeClass('is-active');
+  }
+ });
+
+$('.togglemenu').on('click', () => {
+  console.log("hola")
+  $menu.toggleClass('is-active');
+  
+});
 
 
 
