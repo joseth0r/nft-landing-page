@@ -3,96 +3,40 @@ const TIMEOUT = 1000;
 const COLLECTION_NAME = 'CryptoHasbulla';
 let editions = [];
 let dots = 1;
-const $menu = $('.dropdown');
 
 
-/*
+
 // METAMASK CONNECTION falla esto:
 window.addEventListener("DOMContentLoaded", async () => {
   
-  //const welcomeH1 = document.getElementById("welcomeH1");
-  //const welcomeH2 = document.getElementById("welcomeH2");
-  const welcomeP = document.getElementById("welcomeP");
-  const changenetworkP = document.getElementById("changenetworkP");
-  const changenetworkPtext = document.getElementById("changenetworkPtext");
 
-
-
-
-  //welcomeH1.innerText = "Hello!, connect your wallet please.";
-  //welcomeH2.innerText = welcome_h2;
-  welcomeP.innerHTML = welcome_p;
-
-  $(document).ready(function() {
-    
-  if (window.location.pathname == '/merchdiscounts/') {
+    const menuWallet = document.getElementById("menuwallet");
     
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
-  
       checkChain();
     } else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider);
-  console.log("hola1")
     }
   
-    else{
-      updateConnectStatus();
-      checkOwner(accounts[0]);
-console.log("hola2")
+    if (window.web3) {
+      // Check if User is already connected by retrieving the accounts
+      await window.web3.eth.getAccounts().then(async (addr) => {
+        accounts = addr;
+      });
     }
-
-  };
-});
- 
-
-
-
-  //updateConnectStatus();
-
-
-
-
   
-  if (window.ethereum) {
-    window.web3 = new Web3(window.ethereum);
-    checkChain();
-    console.log("hola4")
-
-  } else if (window.web3) {
-    window.web3 = new Web3(window.web3.currentProvider);
-    console.log("hola5")
-
-  }
-
-  if (window.web3) {
-    // Check if User is already connected by retrieving the accounts
-    await window.web3.eth.getAccounts().then(async (addr) => {
-      accounts = addr;
-    });
-  }
-
-
-  updateConnectStatus();
-  if (MetaMaskOnboarding.isMetaMaskInstalled()) {
-    window.ethereum.on("accountsChanged", (newAccounts) => {
-      accounts = newAccounts;
-      updateConnectStatus();
-      checkOwner(accounts[0]);
-      console.log("hola6")
-
-    });
-  }
-});
-
-*/
-
-$(document).ready(function() {
-onboardButton.onclick = () => {
-    onboarding.startOnboarding();
+  
     updateConnectStatus();
-    };
-});
+    if (MetaMaskOnboarding.isMetaMaskInstalled()) {
+      window.ethereum.on("accountsChanged", (newAccounts) => {
+        accounts = newAccounts;
+        updateConnectStatus();
+      });
+    }
+  });
+  
+
 
 
 
@@ -175,7 +119,9 @@ const updateConnectStatus = async () => {
     spinner.classList.add('hidden');
     notConnected.classList.remove('hidden');
     notConnected.classList.add('show-not-connected');
+
     onboardButton.onclick = async () => {
+        console.log("hola")
       await window.ethereum
         .request({
           method: "eth_requestAccounts",

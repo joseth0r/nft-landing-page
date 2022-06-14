@@ -3,66 +3,17 @@ const TIMEOUT = 1000;
 const COLLECTION_NAME = 'The Boring Elon';
 let editions = [];
 let dots = 1;
-let nftname=[];//new, works
 
 
 
 // METAMASK CONNECTION falla esto:
 window.addEventListener("DOMContentLoaded", async () => {
   
-  const welcomeH1 = document.getElementById("welcomeH1");
-  //const welcomeH2 = document.getElementById("welcomeH2");
-  const welcomeP = document.getElementById("welcomeP");
-  const changenetworkP = document.getElementById("changenetworkP");
-  const changenetworkPtext = document.getElementById("changenetworkPtext");
+
+  const menuWallet = document.getElementById("menuwallet");
 
 
-  const $menu = $('.dropdown');
-
-
-  welcomeH1.innerText = welcome_h1;
-  //welcomeH2.innerText = welcome_h2;
-  welcomeP.innerHTML = welcome_p;
-
-  $(document).ready(function() {
-    
-  if (window.location.pathname == '/mint/') {
-    
-    if (window.ethereum) {
-      window.web3 = new Web3(window.ethereum);
-  
-      checkChain();
-    } else if (window.web3) {
-      window.web3 = new Web3(window.web3.currentProvider);
-  
-    }
-  
-    else{
-      updateConnectStatus();
-  
-    }
-
-  };
-});
  
-
-
-
-  //updateConnectStatus();
-
-
-/*
-  if (window.web3) {
-    // Check if User is already connected by retrieving the accounts
-    console.log("already connected");
-    await window.web3.eth.getAccounts().then(async (addr) => {
-      accounts = addr;
-
-    });
-
-  }
-  */
-  //esto es el fallo
 
 
 
@@ -107,12 +58,11 @@ const updateConnectStatus = async () => {
 
 
 
+  const menuWallet = document.getElementById("menuwallet");
 
 
   const notConnected = document.querySelector('.not-connected');
   const spinner = document.getElementById("spinner");
-  const changenetworkP = document.getElementById("changenetworkP");
-  const changenetworkPtext = document.getElementById("changenetworkPtext");
 
   if (!window.ethereum) {
     console.log("pas de metamask");
@@ -147,8 +97,10 @@ const updateConnectStatus = async () => {
     onboardButtonConnectedM.classList.remove('hidden');
     onboardButtonConnectedM.innerText = `🟢 Connected as 0x..${accounts[0].slice(-4)}`;
     
-    $menu.removeClass('is-active');
+    menuWallet.classList.remove('is-active');
+    menuWallet.classList.remove('togglemenu');
 
+    
     window.address = accounts[0];
     onboardButtonConnected.disabled = true;
     onboardButtonConnectedM.disabled = true;
@@ -182,8 +134,8 @@ const updateConnectStatus = async () => {
           onboardButtonConnected.innerText = `🟢 Connected as 0x..${accts[0].slice(-4)}`;
           onboardButtonConnectedM.classList.remove('hidden');
           onboardButtonConnectedM.innerText = `🟢 Connected as 0x..${accts[0].slice(-4)}`;
-          $menu.removeClass('is-active');
-
+          menuWallet.classList.remove('is-active');
+          menuWallet.classList.remove('togglemenu');
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
@@ -207,7 +159,8 @@ const updateConnectStatus = async () => {
           onboardButtonConnected.innerText = `🟢 Connected as 0x..${accts[0].slice(-4)}`;
           onboardButtonConnectedM.classList.remove('hidden');
           onboardButtonConnectedM.innerText = `🟢 Connected as 0x..${accts[0].slice(-4)}`;
-          $menu.removeClass('is-active');
+          menuWallet.classList.remove('is-active');
+          menuWallet.classList.remove('togglemenu');
 
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
