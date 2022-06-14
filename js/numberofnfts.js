@@ -328,8 +328,13 @@ const checkOwner = async (account) => {
     const statusText = document.querySelector('.owner-status');
 
       if(isOwner) {
+        spinner.classList.add('hidden');
+
         statusText.innerText = `You own ${editions.length} ${COLLECTION_NAME}!! 😻`;
+        
       } else {
+        spinner.classList.add('hidden');
+
         statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
       }
     
