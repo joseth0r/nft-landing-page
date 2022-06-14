@@ -33,13 +33,13 @@ window.addEventListener("DOMContentLoaded", async () => {
       checkChain();
     } else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider);
-  
+  console.log("hola1")
     }
   
     else{
       updateConnectStatus();
       checkOwner(accounts[0]);
-
+console.log("hola2")
     }
 
   };
