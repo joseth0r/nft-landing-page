@@ -4,7 +4,6 @@ const CONTRACT = "0xa755cd34d4527afa4d44794b4810c03dfd85c9e9";
 const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
-
 exports.handler = async (event, context) => {
   const wallet = event.queryStringParameters && event.queryStringParameters.wallet
   const page = event.queryStringParameters && event.queryStringParameters.page
@@ -56,7 +55,6 @@ const getOwnedNfts = async (wallet, page) => {
     data.nfts.forEach(nft => {
       if(nft.contract_address === CONTRACT) {
         editions.push(nft.token_id)
-
       }
     })
 
