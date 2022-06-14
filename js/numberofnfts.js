@@ -345,39 +345,15 @@ console.log(editions);
 
     updateStatusText(isOwner, false)
     console.log(data)
-    itemsNFT(isOwner,nftdata)
 
   }
 }
 
 
-function itemsNFT(isOwner,nftdata) {
-  const osContainer = document.getElementById('openseaItems')
-  const newElement = document.createElement('div')
-  nftData.nfts.forEach((index) => {
-
-    newElement.innerHTML = `
-    <div class='flex flex-col'>
-      <div class='flex-col w-full space-y-1'>
-        <p class='text-gray-800 text-lg'>index</p>
-      </div>
-    </div>
-  </a>
-`
-osContainer.appendChild(newElement)
-
-  });
-  console.log(nftData);
-  setNFTs(nftData.nfts);
-}
-
-
-
-
-
 function updateStatusText(isOwner, checking) {
   const statusText = document.querySelector('.owner-status');
   if(checking) {
+      welcomeTextConnected.innerText=`Hello ${accounts[0]}}`
     if(isOwner) {
       statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
     } else {
@@ -385,7 +361,7 @@ function updateStatusText(isOwner, checking) {
     }
   } else {
     if(isOwner) {
-      statusText.innerText = `You own ${nftname} ${editions.length} ${COLLECTION_NAME}!! 😻`;
+      statusText.innerText = `You own ${nftname} ${editions.length} ${COLLECTION_NAME}`;
     } else {
       statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
     }
@@ -433,38 +409,3 @@ async function fetchWithRetry(url)  {
   });
 }
 
-
-
-
-
-
-
-
-
-
-//
-
-
-//card:
-/*
-async function cardview(data) {
-const cardContainer = document.getElementById('cardContainer')
-
-data.forEach((nft) => {
-  const { nftname } = nft
-
-  const newElement = document.createElement('div')
-  newElement.innerHTML = `
-      <div class='flex flex-col'>
-       
-        <div class='flex-col w-full space-y-1'>
-          <p class='text-gray-800 text-lg'>${nftname}</p>
-        </div>
-      </div>
-    </a>
-  `
-
-  cardContainer.appendChild(newElement)
-})
-
-};*/
