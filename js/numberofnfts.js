@@ -105,7 +105,10 @@ const updateConnectStatus = async () => {
     notConnected.classList.remove('show-not-connected');
     notConnected.classList.add('hidden');
     // SHOW SPINNER
-    spinner.classList.remove('hidden');
+    //spinner.classList.remove('hidden');
+
+
+
     //window.contract = new web3.eth.Contract(abi, contractAddress);
     console.log("hola1112")
     checkOwner(accounts[0]);
@@ -140,7 +143,7 @@ const updateConnectStatus = async () => {
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
-          spinner.classList.remove('hidden');
+          //spinner.classList.remove('hidden');
           onboardButtonConnected.disabled = true;
 
           onboardButtonConnectedM.disabled = true;
@@ -166,7 +169,7 @@ const updateConnectStatus = async () => {
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
-          spinner.classList.remove('hidden');
+         // spinner.classList.remove('hidden');
           onboardButtonConnected.disabled = true;
 
           onboardButtonConnectedM.disabled = true;
