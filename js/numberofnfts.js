@@ -307,7 +307,7 @@ const checkOwner = async (account) => {
     isOwner = !isOwner ? data.isOwner : isOwner;
     updateStatusText(isOwner, true)
     
-    editions = [data.editions] 
+    editions = [...data.editions] 
 
 
 
