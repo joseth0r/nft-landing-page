@@ -106,34 +106,7 @@ const updateConnectStatus = async () => {
     spinner.classList.remove('hidden');
     //window.contract = new web3.eth.Contract(abi, contractAddress);
     console.log("hola1112")
-
-    await window.ethereum
-        .request({
-          method: "eth_requestAccounts",
-        })
-        .then(function (accts) {
-          onboardButtonConnected.classList.remove('hidden');
-          onboardButtonConnected.innerText = `🟢 Connected as 0x..${accts[0].slice(-4)}`;
-          onboardButtonConnectedM.classList.remove('hidden');
-          onboardButtonConnectedM.innerText = `🟢 Connected as 0x..${accts[0].slice(-4)}`;
-          $menu.removeClass('is-active');
-
-          notConnected.classList.remove('show-not-connected');
-          notConnected.classList.add('hidden');
-          // SHOW SPINNER
-          spinner.classList.remove('hidden');
-          onboardButtonConnected.disabled = true;
-
-          onboardButtonConnectedM.disabled = true;
-          window.address = accts[0];
-          accounts = accts;
-          //window.contract = new web3.eth.Contract(abi, contractAddress);
-          checkOwner(accounts[0]);
-          console.log("hola10")
-
-        });
-
-
+    checkOwner(accounts[0]);
 
 
 
