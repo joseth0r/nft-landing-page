@@ -295,7 +295,7 @@ const checkOwner = async (account) => {
 
     if(checking) {
         
-        welcomeTextConnected.innerText=`Hello ${accounts[0]}`;
+        //welcomeTextConnected.innerText=`Hello ${accounts[0]}`;
       if(isOwner) {
         statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
       } else {
