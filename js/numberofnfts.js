@@ -255,6 +255,7 @@ async function checkChain() {
 
 
 const checkOwner = async (account) => {
+    
     if(account) {
       let isOwner = false;
       let page = 1
@@ -285,6 +286,8 @@ const checkOwner = async (account) => {
 
 
   function updateStatusText(isOwner, checking) {
+    const spinner = document.getElementById("spinner");
+
     const statusText = document.querySelector('.owner-status');
     const welcomeConnectedText= document.getElementById("welcomeTextConnected");
     spinner.classList.add('hidden');
