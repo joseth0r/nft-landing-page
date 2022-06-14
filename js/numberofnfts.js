@@ -303,6 +303,7 @@ const checkOwner = async (account) => {
     } else {
       if(isOwner) {
         statusText.innerText = `You own ${editions.length} ${COLLECTION_NAME}!! 😻`;
+        
       } else {
         statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
       }
