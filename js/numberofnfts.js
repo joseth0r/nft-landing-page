@@ -307,7 +307,7 @@ async function checkChain() {
 
 
 
-const checkOwner = async (account) => {
+function checkOwner(account) {
     if(account) {
       let isOwner = false;
       let page = 1
