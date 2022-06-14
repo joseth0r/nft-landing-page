@@ -147,7 +147,7 @@ const updateConnectStatus = async () => {
           window.address = accts[0];
           accounts = accts;
           //window.contract = new web3.eth.Contract(abi, contractAddress);
-          console.log("hola10")
+          console.log("hola100")
 
         });
     };
