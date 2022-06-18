@@ -278,19 +278,18 @@ const checkOwner = async (account) => {
      console.log(nftname)
 //
 const osContainer = document.getElementById('openseaItems')
-data.forEach((nft) => {
-    const {editions,nftname, nftimage} = nft;
-    const newElement = document.createElement('div')
+    
+for ( i=0; i<response.nfts.length; i++){
+  const newElement = document.createElement('div')
         
-            console.log("hpppppppppppp")
               newElement.innerHTML = `
-                <a href='https://opensea.io/assets/matic/${contract_address}/${token_id}' target="_blank">
+                <a href='https://opensea.io/assets/matic/0x21321/${editions[i]}' target="_blank">
                   <div class='flex flex-col mx-4'>
                     <img
-                      src='${file_url}'
+                      src='${nftimage[i]}'
                       class='w-full rounded-lg' />
                     <div class='flex-col w-full space-y-1 '>
-                      <p class='text-gray-800 text-lg'>${name}</p>
+                      <p class='text-gray-800 text-lg'>${nftname[i]}</p>
                     </div>
                   </div>
                 </a>
@@ -300,7 +299,7 @@ data.forEach((nft) => {
           
 
 
-})
+}
 //
 
       let nextPage = data.next_page
@@ -330,40 +329,6 @@ data.forEach((nft) => {
 
 
 
-
-
-function getOpenseaItems(isOwner) {
-
-
-    const osContainer = document.getElementById('openseaItems')
-    response.nfts.forEach((nft) => {
-        const {contract_address,token_id, name, file_url,description} = nft;
-        const newElement = document.createElement('div')
-            if (nft.description=="Crypto Hasbulla is a collection of 10,000 unique hand-drawn NFTs available on the Ethereum blockchain. One Crypto Hasbulla token is your ticket to future drops, events, and much much more. Join the community today at www.Cryptohasbullanft.com"){
-                console.log("hpppppppppppp")
-                  newElement.innerHTML = `
-                    <a href='https://opensea.io/assets/matic/${contract_address}/${token_id}' target="_blank">
-                      <div class='flex flex-col mx-4'>
-                        <img
-                          src='${file_url}'
-                          class='w-full rounded-lg' />
-                        <div class='flex-col w-full space-y-1 '>
-                          <p class='text-gray-800 text-lg'>${name}</p>
-                        </div>
-                      </div>
-                    </a>
-                  `
-                  osContainer.appendChild(newElement)
-
-              }
-    
-  
-
-    })
-
-
-
-  }
 
 
 
