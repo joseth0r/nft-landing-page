@@ -61,14 +61,7 @@ data-wf-site="61a8ac3236206e592ee28933">
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous">
 </script>
-<script>
-$(function(){
 
-  $("#footer_ch").load("footer.html"); 
-
-});
-
-</script>
 
 
 
@@ -561,7 +554,101 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
 
 <!--========== FOOTER==========-->
 
-<div id="footer_ch"></div>
+<footer class="fixed bottom-0  z-30 h-auto w-screen pt-12 md:pt-8 font-cta text-gray-light md:bg-transparent md:w-full px-0">
+
+
+  
+    <div
+      class="max-w-screen-xl relative z-20 mx-auto flex w-full flex-col items-center text-[8px]   md:w-[80%] mb-12 ">
+  
+      <div class=" w-full mb-4 ">
+        <div class=" md:border-b opacity-60  "></div>
+      </div>
+  
+      <div class="md:flex sm:w-full md:space-x-12 items-center">
+        <span
+          class="footer-text  mt-8 mb-0 md:mt-0 md:mb-0 block whitespace-nowrap text-center md:text-left uppercase text-white ">© 2022
+          CryptoHasbulla</span>
+        <ul
+          class="items-center mt-8 text-center w-full space-y-2 sm:flex sm:space-y-0 sm:space-x-6 sm:justify-center md:my-0  md:space-x-4"><!--
+          <li>
+            <a class=" inline-block footer-text whitespace-nowrap desktop-nav-highlight  border-gray-light pb-1 uppercase"
+              href="">Terms &amp; conditions</a>
+          </li>
+          <li>
+            <a href="" target="_blank" rel="noopener noreferrer"
+              class="inline-block footer-text whitespace-nowrap desktop-nav-highlight border-gray-light pb-1 uppercase">Privacy</a>
+          </li>
+          <li>
+            <a class="inline-block footer-text whitespace-nowrap desktop-nav-highlight border-gray-light pb-1 uppercase"
+              href="">License</a>
+          </li>
+          <li>
+            <a class="inline-block footer-text whitespace-nowrap desktop-nav-highlight border-gray-light pb-1 uppercase"
+              href="">NFt Purchase Agreement</a>
+          </li>-->
+        </ul>
+        <div class="flex items-center  md:justify-end">
+          <ul class="mt-14 flex align-center items-center md:justify-end space-x-5 pt-[2px] md:mt-0">
+            <li>
+              <a href="https://twitter.com/theboringelon" target="_blank" rel="noreferrer"
+                class="inline-block h-5 md:h-3 text-gray-light"><svg class="h-full w-auto" viewBox="0 0 22 18" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M21.0268 2.17225C20.2532 2.51569 19.4217 2.74698 18.5491 2.85124C19.4401 2.31769 20.1244 1.47223 20.4459 0.464701C19.6127 0.958831 18.6893 1.31804 17.7063 1.51166C16.9204 0.673217 15.7981 0.1493 14.5575 0.1493C11.7724 0.1493 9.72576 2.74786 10.3548 5.44542C6.77062 5.26582 3.59207 3.54863 1.46399 0.93868C0.3338 2.87752 0.877868 5.41388 2.79831 6.69827C2.09216 6.67549 1.42632 6.48187 0.845452 6.15858C0.798142 8.157 2.23059 10.0266 4.30523 10.4428C3.69809 10.6075 3.03311 10.646 2.35675 10.5164C2.9052 12.2301 4.49798 13.4768 6.38688 13.5118C4.57332 14.9338 2.28841 15.5689 0 15.2991C1.90906 16.523 4.17732 17.2371 6.61292 17.2371C14.6224 17.2371 19.1475 10.4726 18.8742 4.40547C19.717 3.79657 20.4485 3.03698 21.0268 2.17225Z"
+                    fill="currentColor"></path>
+                </svg></a>
+            </li>
+            <li><a href="https://discord.gg/theboringelon" target="_blank" rel="noreferrer"
+                class="inline-block h-5 md:h-3 text-gray-light">
+                <svg class="h-full w-auto" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_0_6)">
+                    <path
+                      d="M20.1616 2.47123C18.7156 1.80777 17.1651 1.31896 15.5439 1.039C15.5143 1.0336 15.4849 1.0471 15.4696 1.07411C15.2702 1.42878 15.0493 1.89149 14.8947 2.25517C13.151 1.99412 11.4162 1.99412 9.70823 2.25517C9.55352 1.8834 9.32461 1.42878 9.1243 1.07411C9.10909 1.048 9.0796 1.0345 9.05008 1.039C7.42977 1.31807 5.87921 1.80688 4.43237 2.47123C4.41985 2.47663 4.40911 2.48564 4.40198 2.49734C1.4609 6.89125 0.655219 11.1772 1.05046 15.4099C1.05225 15.4306 1.06387 15.4505 1.07997 15.463C3.02041 16.8881 4.90006 17.7532 6.7448 18.3266C6.77433 18.3356 6.80561 18.3248 6.8244 18.3005C7.26077 17.7046 7.64976 17.0762 7.98328 16.4154C8.00296 16.3768 7.98417 16.3308 7.94395 16.3155C7.32694 16.0815 6.73943 15.7961 6.17429 15.4721C6.12959 15.4459 6.12601 15.382 6.16713 15.3514C6.28606 15.2623 6.40502 15.1696 6.51858 15.0759C6.53912 15.0588 6.56775 15.0552 6.59191 15.066C10.3047 16.7611 14.3242 16.7611 17.9931 15.066C18.0172 15.0543 18.0459 15.0579 18.0673 15.075C18.1809 15.1687 18.2998 15.2623 18.4197 15.3514C18.4608 15.382 18.4581 15.4459 18.4134 15.4721C17.8483 15.8024 17.2607 16.0815 16.6428 16.3146C16.6026 16.3299 16.5847 16.3768 16.6044 16.4154C16.9451 17.0753 17.3341 17.7036 17.7624 18.2996C17.7803 18.3248 17.8125 18.3356 17.842 18.3266C19.6957 17.7532 21.5753 16.8881 23.5158 15.463C23.5328 15.4505 23.5435 15.4315 23.5453 15.4108C24.0183 10.5173 22.753 6.26651 20.1911 2.49823C20.1848 2.48564 20.1741 2.47663 20.1616 2.47123ZM8.53772 12.8326C7.41993 12.8326 6.4989 11.8064 6.4989 10.5461C6.4989 9.2858 7.40206 8.25958 8.53772 8.25958C9.68229 8.25958 10.5944 9.29481 10.5765 10.5461C10.5765 11.8064 9.67334 12.8326 8.53772 12.8326ZM16.0759 12.8326C14.9582 12.8326 14.0371 11.8064 14.0371 10.5461C14.0371 9.2858 14.9403 8.25958 16.0759 8.25958C17.2205 8.25958 18.1326 9.29481 18.1147 10.5461C18.1147 11.8064 17.2205 12.8326 16.0759 12.8326Z"
+                      fill="currentColor"></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_0_6">
+                      <rect width="22.6862" height="17.5739" fill="white" transform="translate(0.958481 0.906255)"></rect>
+                    </clipPath>
+                  </defs>
+                </svg></a></li>
+                <li><a href="https://instagram.com/theboringelon" target="_blank" rel="noreferrer"
+                  class="inline-block h-5 md:h-3-5 text-gray-light">
+                  <svg class="h-full w-auto" stroke="currentColor" fill="none"  viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                    fill="currentColor"></path></svg></a></li>
+                    <li><a href="https://instagram.com/theboringelon" target="_blank" rel="noreferrer"
+                      class="inline-block h-5 md:h-3-5 text-gray-light">
+                      <svg class="h-full w-auto" stroke="currentColor" fill="none"  viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                        fill="currentColor"></path></svg></a></li>
+
+  
+  
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  
+
+  </footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
