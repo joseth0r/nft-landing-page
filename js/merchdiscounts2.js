@@ -1,6 +1,6 @@
 // METAMASK CONNECTION
 const TIMEOUT = 1000;
-const COLLECTION_NAME = 'CodeCats';
+const COLLECTION_NAME = 'Cryptohasbulla';
 let editions = [];
 let dots = 1;
 
@@ -69,7 +69,7 @@ const checkOwner = async (account) => {
       editions = [...editions, ...data.editions]
       nextPage = data.next_page
     }
-
+    
     updateStatusText(isOwner, false)
   }
 }
