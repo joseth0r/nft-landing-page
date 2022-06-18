@@ -1,5 +1,3 @@
-const fetch = require('node-fetch')
-
 let accounts;
 const TIMEOUT = 1000;
 const COLLECTION_NAME = 'CryptoHasbulla';
@@ -8,38 +6,6 @@ let dots = 1;
 
 const welcomeP = document.getElementById("welcomeP");
 welcomeP.innerHTML = "Connect your wallet to check your discount please";
-
-
-const CONTRACT = "0xA755Cd34d4527Afa4D44794b4810c03dFd85C9e9";
-const AUTH = process.env.NFTPORT_API_KEY;
-const chain = "polygon";
-
-const include = "metadata";
-exports.handler = async (event, context) => {
-  const wallet = event.queryStringParameters && event.queryStringParameters.wallet
-  const page = event.queryStringParameters && event.queryStringParameters.page
-
-  const isOwner = (wallet) => {
-    if(!wallet) {
-      return {
-        isOwner: false
-      }
-    } else {
-      return getOwnedNfts(wallet, page)
-    }
-  }
-
-  const response = await isOwner(wallet)
-
-  return {
-    'statusCode': 200,
-    'headers': {
-      'Cache-Control': 'no-cache',
-      'Content-Type': 'application/json',
-    },
-    'body': JSON.stringify(response)
-  }
-}
 
 
 // METAMASK CONNECTION falla esto:
@@ -289,77 +255,14 @@ async function checkChain() {
 
 
 
-const getOwnedNfts = async (wallet, page) => {
-  const url = `https://api.nftport.xyz/v0/accounts/${wallet}/?`;
-  
-  const options = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: AUTH
-    }
-  };
-  const query = new URLSearchParams({
-    chain,
-    include,
-    page_number: page
-  });
-
-  let editions = []
-  try {
-    const data = await fetchData(url + query, options)
-    console.log(`Recieved page ${page}`)
-    const total = data.total;
-    const pages = Math.ceil(total / 50);
-    data.nfts.forEach(nft => {
-      if(nft.contract_address === CONTRACT) {
-
-        editions.push(nft.token_id)
-        
-      }
-    })
-
-    return {
-      isOwner: editions.length > 0 ? true : false,
-      editions,
-      next_page: +page === pages ? null : +page + 1,
-    }
-  } catch(err) {
-    console.log(`Catch: ${JSON.stringify(err)}`)
-    return {
-      error: err
-    }
-  }
-}
-
-async function fetchData(url, options) {
-  return new Promise((resolve, reject) => {
-    return fetch(url, options).then(res => {
-      const status = res.status;            
-
-      if(status === 200) {
-        return resolve(res.json());
-      } else {
-        console.log(`Fetch failed with status ${status}`);
-        return reject(res.json());
-      }        
-    }).catch(function (error) { 
-      reject(error)
-    });
-  });
-}
-
-
 const checkOwner = async (account) => {
     
     if(account) {
       let isOwner = false;
       let page = 1
       
-      //const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-      const data = getOwnedNfts(account,page);
-
-
+      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+  
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
@@ -368,9 +271,8 @@ const checkOwner = async (account) => {
   
       while(nextPage) {
         page = nextPage
-        //const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-        const data = getOwnedNfts(account,page);
-
+        const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+  
         isOwner = !isOwner ? data.isOwner : isOwner;
         updateStatusText(isOwner, true)
         
@@ -378,7 +280,7 @@ const checkOwner = async (account) => {
         nextPage = data.next_page
       }
   
-      updateStatusText(isOwner, false)
+      //updateStatusText(isOwner, false)
     }
   }
 
