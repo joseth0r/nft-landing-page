@@ -2,9 +2,10 @@ let accounts;
 const TIMEOUT = 1000;
 const COLLECTION_NAME = 'CryptoHasbulla';
 let editions = [];
-let dots = 1;
 let nftname=[];
 let nftimage=[];
+let dots = 1;
+
 const welcomeP = document.getElementById("welcomeP");
 welcomeP.innerHTML = "Connect your wallet to check your discount please";
 
