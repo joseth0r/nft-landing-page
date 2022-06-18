@@ -5,6 +5,7 @@ let editions = [];
 let nftname=[];
 let nftimage=[];
 let dots = 1;
+const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
 
 const welcomeP = document.getElementById("welcomeP");
 welcomeP.innerHTML = "Connect your wallet to check your discount please";
@@ -303,7 +304,7 @@ for ( i=0; i<editions.length; i++){
   const newElement = document.createElement('div')
         
               newElement.innerHTML = `
-                <a href='https://opensea.io/assets/matic/0x21321/${editions[i]}' target="_blank">
+                <a href='https://opensea.io/assets/matic/${CONTRACT}/${editions[i]}' target="_blank">
                   <div class='flex flex-col mx-4'>
                     <img
                       src='${nftimage[i]}'
