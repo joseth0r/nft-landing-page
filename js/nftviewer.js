@@ -271,12 +271,37 @@ const checkOwner = async (account) => {
 
 
       editions = [...data.editions]
-      nftname = [data.nftname]
+      nftname = [...data.nftname]
 
-      nftimage = [data.nftimage]
+      nftimage = [...data.nftimage]
 
      console.log(nftname)
+//
+const osContainer = document.getElementById('openseaItems')
+data.forEach((nft) => {
+    const {editions,nftname, nftimage} = nft;
+    const newElement = document.createElement('div')
+        
+            console.log("hpppppppppppp")
+              newElement.innerHTML = `
+                <a href='https://opensea.io/assets/matic/${contract_address}/${token_id}' target="_blank">
+                  <div class='flex flex-col mx-4'>
+                    <img
+                      src='${file_url}'
+                      class='w-full rounded-lg' />
+                    <div class='flex-col w-full space-y-1 '>
+                      <p class='text-gray-800 text-lg'>${name}</p>
+                    </div>
+                  </div>
+                </a>
+              `
+              osContainer.appendChild(newElement)
 
+          
+
+
+})
+//
 
       let nextPage = data.next_page
   
@@ -296,6 +321,9 @@ const checkOwner = async (account) => {
       }
       
       updateStatusText(isOwner, false)
+
+
+      
     }
   }
 
@@ -303,7 +331,7 @@ const checkOwner = async (account) => {
 
 
 
-/*
+
 function getOpenseaItems(isOwner) {
 
 
@@ -338,7 +366,7 @@ function getOpenseaItems(isOwner) {
   }
 
 
-*/
+
 
 
 
