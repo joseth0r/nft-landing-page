@@ -262,7 +262,7 @@ const checkOwner = async (account) => {
       let page = 1
       
       const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-  
+      console.log(data)
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
@@ -270,8 +270,7 @@ const checkOwner = async (account) => {
 
 
       editions = [...data.editions]
-      nftname = [data.nftname]
-      console.log(nftname)
+
      // nftimage = [...data.nftimage]
 
      
