@@ -261,7 +261,7 @@ const checkOwner = async (account) => {
       let isOwner = false;
       let page = 1
       
-      const data = await fetchWithRetry(`/.netlify/functions/isowner_full/?wallet=${account}&page=${page}`);
+      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
   
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
@@ -282,7 +282,7 @@ const checkOwner = async (account) => {
   
       while(nextPage) {
         page = nextPage
-        const data = await fetchWithRetry(`/.netlify/functions/isowner_full/?wallet=${account}&page=${page}`);
+        const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
   
         isOwner = !isOwner ? data.isOwner : isOwner;
         updateStatusText(isOwner, true)
