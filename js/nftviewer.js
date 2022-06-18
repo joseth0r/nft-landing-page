@@ -270,7 +270,8 @@ const checkOwner = async (account) => {
 
 
       editions = [...data.editions]
-     // nftname = [...data.nftname]
+      nftname = [data.nftname]
+      console.log(nftname)
      // nftimage = [...data.nftimage]
 
      
@@ -286,6 +287,7 @@ const checkOwner = async (account) => {
         updateStatusText(isOwner, true)
         
         editions = [...editions, ...data.editions]
+
         //nftname = [...nftname,...data.nftname]
         //nftimage = [...nftimage,...data.nftimage]
 
