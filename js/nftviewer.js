@@ -8,7 +8,7 @@ let dots = 1;
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
 
 const welcomeP = document.getElementById("welcomeP");
-welcomeP.innerHTML = "Connect your wallet to check your discount please";
+welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
 
 
 // METAMASK CONNECTION falla esto:
@@ -355,10 +355,10 @@ for ( i=0; i<editions.length; i++){
       }
     } else {
       if(isOwner) {
-        statusText.innerText = `You own ${editions.length} ${COLLECTION_NAME}!! 😻`;
+        statusText.innerText = `Wow! You own ${editions.length} ${COLLECTION_NAME}`;
         
       } else {
-        statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
+        statusText.innerText = `You don't own any ${COLLECTION_NAME}. You can purchase one ;)`;
       }
     }
     dots = dots === 3 ? 1 : dots + 1;
