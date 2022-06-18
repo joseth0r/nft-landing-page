@@ -4,7 +4,7 @@ const COLLECTION_NAME = 'CryptoHasbulla';
 let editions = [];
 let dots = 1;
 let nftname=[];
-
+let nftimage=[];
 const welcomeP = document.getElementById("welcomeP");
 welcomeP.innerHTML = "Connect your wallet to check your discount please";
 
@@ -261,28 +261,88 @@ const checkOwner = async (account) => {
       let isOwner = false;
       let page = 1
       
-      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+      const data = await fetchWithRetry(`/.netlify/functions/isowner_full/?wallet=${account}&page=${page}`);
   
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
+
+
+
       editions = [...data.editions]
+      nftname = [...data.nftname]
+      nftimage = [...data.nftimage]
+
+      console.log(editions)
+      console.log(nftname)
+      console.log(nftimage)
+
+
       let nextPage = data.next_page
   
       while(nextPage) {
         page = nextPage
-        const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+        const data = await fetchWithRetry(`/.netlify/functions/isowner_full/?wallet=${account}&page=${page}`);
   
         isOwner = !isOwner ? data.isOwner : isOwner;
         updateStatusText(isOwner, true)
         
         editions = [...editions, ...data.editions]
+        nftname = [...nftname,...data.nftname]
+        nftimage = [...nftimage,...data.nftimage]
+
+        console.log(editions)
+        console.log(nftname)
+        console.log(nftimage)
         nextPage = data.next_page
       }
-  
+      
       updateStatusText(isOwner, false)
     }
   }
+
+
+
+
+
+/*
+function getOpenseaItems(isOwner) {
+
+
+    const osContainer = document.getElementById('openseaItems')
+    response.nfts.forEach((nft) => {
+        const {contract_address,token_id, name, file_url,description} = nft;
+        const newElement = document.createElement('div')
+            if (nft.description=="Crypto Hasbulla is a collection of 10,000 unique hand-drawn NFTs available on the Ethereum blockchain. One Crypto Hasbulla token is your ticket to future drops, events, and much much more. Join the community today at www.Cryptohasbullanft.com"){
+                console.log("hpppppppppppp")
+                  newElement.innerHTML = `
+                    <a href='https://opensea.io/assets/matic/${contract_address}/${token_id}' target="_blank">
+                      <div class='flex flex-col mx-4'>
+                        <img
+                          src='${file_url}'
+                          class='w-full rounded-lg' />
+                        <div class='flex-col w-full space-y-1 '>
+                          <p class='text-gray-800 text-lg'>${name}</p>
+                        </div>
+                      </div>
+                    </a>
+                  `
+                  osContainer.appendChild(newElement)
+
+              }
+    
+  
+
+    })
+
+
+
+  }
+
+
+*/
+
+
 
 
 
