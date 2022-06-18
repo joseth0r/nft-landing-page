@@ -60,7 +60,7 @@ const updateConnectStatus = async () => {
 
 
   const notConnected = document.querySelector('.not-connected');
-  const spinner = document.getElementById("spinner");
+ // const spinner = document.getElementById("spinner");
   const changenetworkP = document.getElementById("changenetworkP");
   const changenetworkPtext = document.getElementById("changenetworkPtext");
 
@@ -68,7 +68,7 @@ const updateConnectStatus = async () => {
     console.log("pas de metamask");
           // HIDE SPINNER
 
-    spinner.classList.add('hidden');
+  //  spinner.classList.add('hidden');
     notConnected.classList.remove('hidden');
     notConnected.classList.add('show-not-connected');
 
@@ -126,7 +126,7 @@ const updateConnectStatus = async () => {
     onboardButtonM.innerText = "🦊 Metamask";
 
     // HIDE SPINNER
-    spinner.classList.add('hidden');
+   // spinner.classList.add('hidden');
     notConnected.classList.remove('hidden');
     notConnected.classList.add('show-not-connected');
 
@@ -145,7 +145,7 @@ const updateConnectStatus = async () => {
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
-          spinner.classList.remove('hidden');
+         // spinner.classList.remove('hidden');
           onboardButtonConnected.disabled = true;
 
           onboardButtonConnectedM.disabled = true;
@@ -171,7 +171,7 @@ const updateConnectStatus = async () => {
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
-          spinner.classList.remove('hidden');
+        //  spinner.classList.remove('hidden');
           onboardButtonConnected.disabled = true;
 
           onboardButtonConnectedM.disabled = true;
@@ -338,11 +338,11 @@ for ( i=0; i<editions.length; i++){
 
 
   function updateStatusText(isOwner, checking) {
-    const spinner = document.getElementById("spinner");
+    //const spinner = document.getElementById("spinner");
 
     const statusText = document.querySelector('.owner-status');
     const welcomeConnectedText= document.getElementById("welcomeTextConnected");
-    spinner.classList.add('hidden');
+    //spinner.classList.add('hidden');
 
     if(checking) {
         
