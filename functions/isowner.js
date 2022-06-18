@@ -59,7 +59,7 @@ const getOwnedNfts = async (wallet, page) => {
       if(nft.contract_address === CONTRACT ) {
         editions.push(nft.token_id)
     //    nftname.push(nft.name)
-      //  nftimage.pus(nft.file_url)
+      //  nftimage.push(nft.file_url)
       }
     })
 
