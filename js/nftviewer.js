@@ -279,7 +279,7 @@ const checkOwner = async (account) => {
 //
 const osContainer = document.getElementById('openseaItems')
     
-for ( i=0; i<response.nfts.length; i++){
+for ( i=0; i<editions.length; i++){
   const newElement = document.createElement('div')
         
               newElement.innerHTML = `
