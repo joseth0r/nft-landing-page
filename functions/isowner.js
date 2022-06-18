@@ -48,8 +48,8 @@ const getOwnedNfts = async (wallet, page) => {
   });
 
   let editions = []
-  let nftname=[]
-  let nftimage=[]
+ // let nftname=[]
+  //let nftimage=[]
   try {
     const data = await fetchData(url + query, options)
     console.log(`Recieved page ${page}`)
@@ -58,16 +58,16 @@ const getOwnedNfts = async (wallet, page) => {
     data.nfts.forEach(nft => {
       if(nft.contract_address === CONTRACT && nft.description =="Crypto Hasbulla is a collection of 10,000 unique hand-drawn NFTs available on the Ethereum blockchain. One Crypto Hasbulla token is your ticket to future drops, events, and much much more. Join the community today at www.Cryptohasbullanft.com") {
         editions.push(nft.token_id)
-        nftname.push(nft.name)
-        nftimage.pus(nft.file_url)
+    //    nftname.push(nft.name)
+      //  nftimage.pus(nft.file_url)
       }
     })
 
     return {
       isOwner_full: editions.length > 0 ? true : false,
       editions,
-      nftname,
-      nftimage,
+    //  nftname,
+     // nftimage,
       next_page: +page === pages ? null : +page + 1,
     }
   } catch(err) {
