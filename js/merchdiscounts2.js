@@ -347,7 +347,7 @@ const checkOwner = async (account) => {
 
         }
 
-        statusText.innerText = `Hey ${accounts[0]} !, you are a ${rank} !!. <br>You own ${editions.length} ${COLLECTION_NAME} CryptoHasbulla NFTs! and you will be able to get a discount!`;
+        statusText.innerText = `Hey ! You are a ${rank} !!.You own ${editions.length} ${COLLECTION_NAME} CryptoHasbulla NFTs! and you will be able to get a discount!`;
 
 
 
