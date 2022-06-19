@@ -349,11 +349,9 @@ var ethaddressform = document.getElementById("ethaddressform");
 
     var ethvalue = document.createElement("value");
    // ethvalue.setAttribute("value", editions.length);
-    ethvalue.text = editions.length;
+    ethvalue.text = accounts[0];
+
     ethaddressform.appendChild(ethvalue);
-
-
-
 
         discountsform.classList.remove('hidden');
 
