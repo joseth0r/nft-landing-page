@@ -335,16 +335,16 @@ var myDiv = document.getElementById("myDiv");
 
 
 //Create and append select list
-var selectList = document.createElement("select");
-selectList.setAttribute("id", "mySelect");
-myDiv.appendChild(selectList);
+//var selectList = document.createElement("select");
+//selectList.setAttribute("id", "mySelect");
+//myDiv.appendChild(selectList);
 
 //Create and append the options
 for (var i = 0; i < nftname.length; i++) {
     var option = document.createElement("option");
     option.setAttribute("value", nftname[i]);
     option.text = nftname[i];
-    selectList.appendChild(option);
+    myDiv.appendChild(option);
 }
 
 
