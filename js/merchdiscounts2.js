@@ -336,12 +336,14 @@ const checkOwner = async (account) => {
 
         if (editions.length=1){
           console.log("XDDDD")
-          rank="hola 🐟 ";
+          rank="Fish 🐟 ";
         }
         else if (5<editions.length<20){
+          rank="XD 🐟 ";
 
         }
         else{
+          rank="Whale 🐋 ";
 
         }
 
