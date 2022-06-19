@@ -8,7 +8,10 @@ let dots = 1;
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
 
 const welcomeP = document.getElementById("welcomeP");
-welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
+welcomeP.innerHTML = "Connect your wallet to get your discount if you hold CryptoHasbullas NFTs.";
+
+
+
 
 
 // METAMASK CONNECTION falla esto:
@@ -318,6 +321,7 @@ const checkOwner = async (account) => {
     const statusText = document.querySelector('.owner-status');
     const welcomeConnectedText= document.getElementById("welcomeTextConnected");
     //spinner.classList.add('hidden');
+    const discountsform = document.getElementById("discountsform");
 
     if(checking) {
         
@@ -330,7 +334,16 @@ const checkOwner = async (account) => {
     } else {
       if(isOwner) {
         statusText.innerText = `Wow! You own ${editions.length} ${COLLECTION_NAME}`;
-        
+        discountsform.classList.remove('hidden');
+
+
+
+
+
+
+
+
+
       } else {
         statusText.innerText = `You don't own any ${COLLECTION_NAME}. You can purchase one ;)`;
       }
