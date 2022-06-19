@@ -333,7 +333,7 @@ const checkOwner = async (account) => {
       }
     } else {
       if(isOwner) {
-        statusText.innerText = `Wow! You own ${editions.length} ${COLLECTION_NAME}`;
+        statusText.innerText = ` You own ${editions.length} ${COLLECTION_NAME} NFT, you will be able to get a discount!`;
 
 
 
