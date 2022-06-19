@@ -492,6 +492,8 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
           <input class="mt-2 w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" type="text" name="twitter" placeholder="@jose.th0r#0001">
         </div>
       </div>
+
+      <div id="FormItems">
       <div class="-mx-3 md:flex mb-6">
         <div class="md:w-full px-3">
           <label class="uppercase tracking-wide text-white text-xs font-bold mb-4" >
@@ -511,7 +513,7 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
           <label class="uppercase tracking-wide text-white text-xs font-bold mb-4" >
           Custom Item link*
           </label>
-          <select class="mt-2 w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" name="find[]" >
+          <select class="mt-2 w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" name="find[]"  >
 
             <option value="instagram">Instagram</option>
             <option value="twitter">Twitter</option>
@@ -522,8 +524,18 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
         </div>
 
       </div>
+
+    </div>
+
+
       <div data-netlify-recaptcha="true" class="m-auto" ></div>
       <div class="mt-6 flex-shrink-0 flex items-start justify-center">
+        <div
+          class="Addmore relative w-full lg:w-auto mt-14 mb-2 lg:mb-0 text-white lg:-mt-3 flex flex-col justify-start text-center border-white border rounded-sm">
+          <button
+            class="  relative z-10 text-center uppercase header-button w-full py-[10px] h-12 lg:h-9 px-3 lg:px-5 cursor-pointer" type="submit" ><a  class=" no-underline text-white/70" >ADD MORE</a></button>
+        
+        </div>
         <div
           class=" relative w-full lg:w-auto mt-14 mb-2 lg:mb-0 text-white lg:-mt-3 flex flex-col justify-start text-center border-white border rounded-sm">
           <button
@@ -619,6 +631,18 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
                 </script>
 
 
+<script>
+  $(".Addmore").click(function(e) {
+  e.preventDefault();
+  
+  // make a separation line
+  $("#FormItems").append('<div class=" w-full mb-4 "><div class=" md:border-b opacity-60  "></div></div>');
+  
+  // append the input field as your needs
+  $("#FormItems").append('  <div class="-mx-3 md:flex mb-6"><div class="md:w-full px-3"><label class="uppercase tracking-wide text-white text-xs font-bold mb-4" >Choose NFT*</label><select class="mt-2 w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" id="myDiv"></select></div></div>');
+  $("#FormItems").append('  <div class="-mx-3 md:flex mb-6"><div class="md:w-full px-3"><label class="uppercase tracking-wide text-white text-xs font-bold mb-4" >Custom Item link*</label><select class="mt-2 w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" name="find[]"  ><option value="instagram">Instagram</option><option value="twitter">Twitter</option><option value="friends">Friends</option><option value="other">Other</option></select></div></div>');
 
+});
+</script>
   </body>
 </html>

@@ -305,11 +305,11 @@ for ( i=0; i<editions.length; i++){
         
               newElement.innerHTML = `
                 <a href='https://opensea.io/assets/matic/${CONTRACT}/${editions[i]}' target="_blank">
-                  <div class='flex flex-col mx-4'>
+                  <div class='flex flex-col mx-4 img-hover mb-5'>
                     <img
                       src='${nftimage[i]}'
                       class='w-full rounded-lg' />
-                    <div class='flex-col w-full space-y-1 '>
+                    <div class='flex-col w-full mt-4 '>
                       <p class='text-gray-800 text-lg'>${nftname[i]}</p>
                     </div>
                   </div>

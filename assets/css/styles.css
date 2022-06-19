@@ -1283,15 +1283,14 @@ padding-left: 15px;
   margin-left: auto;
 }
 
-.img-welcome{
-  width: 400px;
+.img-hover{
   -webkit-transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
 }
 
-.img-welcome:hover{
-  -webkit-transform: scale(1.1) rotate(0.01deg);
-  transform: scale(1.1) rotate(0.01deg);
+.img-hover:hover{
+  -webkit-transform: scale(1.05) rotate(0.01deg);
+  transform: scale(1.05) rotate(0.01deg);
 }
 
 
@@ -2058,5 +2057,27 @@ strong {
 @media (min-width:768px) {
 .sm\:w-full {
   width: 100%
+}
+}
+
+
+
+/* merch discounts*/
+
+.discountscontainer {
+  width: 100%;
+  max-width: 52.5rem;
+  margin: 5rem auto 2rem;
+  background-color: #999aa01a;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 768px)
+{
+.discountscontainer {
+    flex-direction: row;
 }
 }
