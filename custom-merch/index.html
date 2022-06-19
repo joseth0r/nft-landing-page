@@ -431,6 +431,18 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
 
 <!-- END OPENSEA ITEMS-->
 
+
+<form method="get" id="theform">
+  <select id="pt" value="pt" name="pt" onChange="addParameter()">
+      <option value="" name="">Select</option>
+      <option value="1" name="1">House</option>
+      <option value="2" name="2">Commercial</option>
+      <option value="3" name="3">Land</option>
+  </select>
+  <input type="submit" />
+</form>
+
+
 <div id="footer_ch"></div>
 
     <!--========== SCROLL REVEAL ==========-->
@@ -488,7 +500,7 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
                     <!--mint-->
-                    <script src="/js/merchdiscounts2.js"></script>
+                    <script src="/js/custom-merch.js"></script>
                     <script src="/js/selector.js"></script>
                     <script src="/js/metamask-onboarding.bundle.js"></script>
                     <script src="/js/web3.min.js"></script>
