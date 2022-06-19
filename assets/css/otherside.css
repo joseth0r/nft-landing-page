@@ -2437,7 +2437,9 @@ input[type=number]::-webkit-outer-spin-button {
     display: none
 }
 
-
+.hidden-2 {
+    display: none
+}
 @media (min-width:1024px) {
     .md_connect\:hidden {
         display: none
