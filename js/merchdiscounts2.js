@@ -346,12 +346,14 @@ var ethaddressform = document.getElementById("ethaddressform");
 //myDiv.appendChild(selectList);
 
 //Create and append the options
-
+/*
     var ethvalue = document.createElement("value");
     ethvalue.setAttribute("value", accounts[0]);
     ethvalue.text = accounts[0];
 
     ethaddressform.appendChild(ethvalue);
+    */
+    document.getElementById("ethaddressform").value = accounts[0];
 
         discountsform.classList.remove('hidden');
 
