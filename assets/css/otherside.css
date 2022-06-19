@@ -1252,7 +1252,7 @@ input[type=number] {
     display: inline-block;
     position: relative;
     --tw-bg-opacity: 1;
-    background-color: rgb(235 35 35/var(--tw-bg-opacity));
+    background-color: #262FF6;
     font-weight: 500
 }
 
@@ -1267,7 +1267,7 @@ input[type=number] {
 .button-primary:not(:disabled):hover {
     transition:0.2s;
     --tw-bg-opacity: 1;
-    background-color: rgb(180 35 35/var(--tw-bg-opacity))
+    background-color: #171fb6
 }
 
 .button-secondary {
@@ -4286,7 +4286,7 @@ input[type=number]::-webkit-outer-spin-button {
     --tw-translate-x: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     --tw-bg-opacity: 1;
-    background-color: rgb(235 35 35/var(--tw-bg-opacity)); /* color linea */
+    background-color: #262FF6; /* color linea */
     content: var(--tw-content);
     transition-duration: .5s
 }
