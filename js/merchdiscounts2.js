@@ -350,9 +350,18 @@ const checkOwner = async (account) => {
         statusText.innerText = `Hey ! You are a ${rank} !!.You own ${editions.length} ${COLLECTION_NAME} CryptoHasbulla NFTs! and you will be able to get a discount!`;
 
 
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
 
     document.getElementById("ethaddressform").value = accounts[0];
     document.getElementById("numberchform").value = editions.length;
+
+    document.getElementById("timedateform").value = dateTime;
+
+
+
 
         discountsform.classList.remove('hidden');
 
