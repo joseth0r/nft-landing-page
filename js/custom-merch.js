@@ -331,31 +331,22 @@ const checkOwner = async (account) => {
       if(isOwner) {
         statusText.innerText = `Wow! You own ${editions.length} ${COLLECTION_NAME}`;
 //
+var myDiv = document.getElementById("myDiv");
 
-        var sel = document.createElement('select');
-        sel.name = 'drop1';
-        sel.id = 'Select1';
-        
-        var cars = [
-          "volvo",
-          "saab",
-          "mercedes",
-          "audi"
-        ];
-        
-        var options_str = "";
-        
-        nftname.forEach( function(name) {
-          options_str += '<option value="' + name + '">' + name + '</option>';
-        });
-        
-        sel.innerHTML = options_str;
-        
-        
-        window.onload = function() {
-          document.body.appendChild(sel);
-        };
-        //
+
+//Create and append select list
+var selectList = document.createElement("select");
+selectList.setAttribute("id", "mySelect");
+myDiv.appendChild(selectList);
+
+//Create and append the options
+for (var i = 0; i < nftname.length; i++) {
+    var option = document.createElement("option");
+    option.setAttribute("value", nftname[i]);
+    option.text = nftname[i];
+    selectList.appendChild(option);
+}
+
 
 
         
