@@ -336,6 +336,7 @@ const checkOwner = async (account) => {
 
         if (editions.length=1){
           console.log("XDDDD")
+          rank="hola 🐟 "
         }
         else if (5<editions.length<20){
 
@@ -344,7 +345,7 @@ const checkOwner = async (account) => {
 
         }
 
-        statusText.innerText = ` You own ${editions.length} ${COLLECTION_NAME} NFT, you will be able to get a discount!`;
+        statusText.innerText = `Hey! ${accounts[0]}, you are a ${rank}  You own ${editions.length} ${COLLECTION_NAME} NFT, you will be able to get a discount!`;
 
 
 
