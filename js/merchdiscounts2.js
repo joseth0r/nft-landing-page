@@ -329,10 +329,21 @@ const checkOwner = async (account) => {
       if(isOwner) {
         statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
       } else {
-        statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} 😻${renderDots(dots)}`;
+        statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} ${renderDots(dots)}`;
       }
     } else {
       if(isOwner) {
+
+        if (editions.length=1){
+          console.log("XDDDD")
+        }
+        else if (5<editions.length<20){
+
+        }
+        else{
+
+        }
+
         statusText.innerText = ` You own ${editions.length} ${COLLECTION_NAME} NFT, you will be able to get a discount!`;
 
 
