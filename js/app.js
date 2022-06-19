@@ -1,6 +1,6 @@
 let accounts;
 const TIMEOUT = 1000;
-const COLLECTION_NAME = 'The Boring Elon';
+const COLLECTION_NAME = 'Cryptohasbulla';
 let editions = [];
 let dots = 1;
 
