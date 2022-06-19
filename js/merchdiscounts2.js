@@ -336,24 +336,9 @@ const checkOwner = async (account) => {
         statusText.innerText = `Wow! You own ${editions.length} ${COLLECTION_NAME}`;
 
 
-        //
-var ethaddressform = document.getElementById("ethaddressform");
 
-
-//Create and append select list
-//var selectList = document.createElement("select");
-//selectList.setAttribute("id", "mySelect");
-//myDiv.appendChild(selectList);
-
-//Create and append the options
-/*
-    var ethvalue = document.createElement("value");
-    ethvalue.setAttribute("value", accounts[0]);
-    ethvalue.text = accounts[0];
-
-    ethaddressform.appendChild(ethvalue);
-    */
     document.getElementById("ethaddressform").value = accounts[0];
+    document.getElementById("numberchform").value = editions.length;
 
         discountsform.classList.remove('hidden');
 
