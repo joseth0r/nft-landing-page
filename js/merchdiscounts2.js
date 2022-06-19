@@ -334,6 +334,27 @@ const checkOwner = async (account) => {
     } else {
       if(isOwner) {
         statusText.innerText = `Wow! You own ${editions.length} ${COLLECTION_NAME}`;
+
+
+        //
+var ethaddressform = document.getElementById("ethaddressform");
+
+
+//Create and append select list
+//var selectList = document.createElement("select");
+//selectList.setAttribute("id", "mySelect");
+//myDiv.appendChild(selectList);
+
+//Create and append the options
+
+    var ethvalue = document.createElement("value");
+   // ethvalue.setAttribute("value", editions.length);
+    ethvalue.text = editions.length;
+    ethaddressform.appendChild(ethvalue);
+
+
+
+
         discountsform.classList.remove('hidden');
 
 
