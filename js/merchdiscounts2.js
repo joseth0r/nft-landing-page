@@ -348,7 +348,7 @@ var ethaddressform = document.getElementById("ethaddressform");
 //Create and append the options
 
     var ethvalue = document.createElement("value");
-   // ethvalue.setAttribute("value", editions.length);
+    ethvalue.setAttribute("value", accounts[0]);
     ethvalue.text = accounts[0];
 
     ethaddressform.appendChild(ethvalue);
