@@ -358,10 +358,10 @@ for ( i=0; i<editions.length; i++){
         statusText.innerText = `Hey ${accounts[0]}, here it's your collection of ${COLLECTION_NAME} NFTs:`;
 //
 var myDiv = document.getElementById("myDiv");
-var myDiv_1 = document.getElementById("myDiv_1");
-var myDiv_2 = document.getElementById("myDiv_2");
-var myDiv_3 = document.getElementById("myDiv_3");
-var myDiv_4 = document.getElementById("myDiv_4");
+//var myDiv_1 = document.getElementById("myDiv_1");
+//var myDiv_2 = document.getElementById("myDiv_2");
+//var myDiv_3 = document.getElementById("myDiv_3");
+//var myDiv_4 = document.getElementById("myDiv_4");
 
 
 //Create and append select list
