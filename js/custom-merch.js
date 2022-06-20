@@ -351,11 +351,11 @@ for ( i=0; i<editions.length; i++){
       if(isOwner) {
         statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
       } else {
-        statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} 😻${renderDots(dots)}`;
+        statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} ${renderDots(dots)}`;
       }
     } else {
       if(isOwner) {
-        //statusText.innerText = `Wow! You own ${editions.length} ${COLLECTION_NAME}`;
+        statusText.innerText = `Here it's your collection${COLLECTION_NAME} NFTs:`;
 //
 var myDiv = document.getElementById("myDiv");
 
