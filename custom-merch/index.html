@@ -739,9 +739,10 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
   const nftid=0;
   const merchlink=0;
 const maxmerchperpage=5;
-
+console.log(nftid)
   $(".Addmore").click(function(e) {
     nftid++;
+    console.log(nftid)
     merchlink++;
   e.preventDefault();
   if (nftid<maxmerchperpage){
