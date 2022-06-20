@@ -355,7 +355,7 @@ for ( i=0; i<editions.length; i++){
       }
     } else {
       if(isOwner) {
-        statusText.innerText = `Here it's your collection${COLLECTION_NAME} NFTs:`;
+        statusText.innerText = `Hey ${accounts[0]}, here it's your collection of ${COLLECTION_NAME} NFTs:`;
 //
 var myDiv = document.getElementById("myDiv");
 
