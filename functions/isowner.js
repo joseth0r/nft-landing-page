@@ -5,6 +5,18 @@ const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
 
+var tokenid_data = [ {
+  "name" : "zyzz hasbulla",
+  "tokenid" : "62020157288306137204262585601212871537268194779568533209731806292692472692737"
+}, {
+  "name" : "eeee",
+  "tokenid" : "400"
+} ];
+
+
+
+
+
 exports.handler = async (event, context) => {
   const wallet = event.queryStringParameters && event.queryStringParameters.wallet
   const page = event.queryStringParameters && event.queryStringParameters.page
@@ -56,7 +68,7 @@ const getOwnedNfts = async (wallet, page) => {
     const total = data.total;
     const pages = Math.ceil(total / 50);
     data.nfts.forEach(nft => {
-      if(nft.contract_address === CONTRACT && nft.description == "Crypto Hasbulla is a collection of 10,000 unique hand-drawn NFTs available on the Ethereum blockchain. One Crypto Hasbulla token is your ticket to future drops, events, and much much more. Join the community today at www.Cryptohasbullanft.com") {
+      if(nft.contract_address === CONTRACT && tokenid_data.filter(x => x.tokenid === nft.token_id)) {
         editions.push(nft.token_id);
         nftname.push(nft.name);
         nftimage.push(nft.file_url);
