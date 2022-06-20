@@ -375,13 +375,13 @@ for (var i = 0; i < nftname.length; i++) {
     option.setAttribute("value", nftname[i]);
     option.text = nftname[i];
     myDiv.appendChild(option);
-    myDiv_1.appendChild(option);
+   // myDiv_1.appendChild(option);
 
-    myDiv_2.appendChild(option);
+   // myDiv_2.appendChild(option);
 
-    myDiv_3.appendChild(option);
+ //   myDiv_3.appendChild(option);
 
-    myDiv_4.appendChild(option);
+ //   myDiv_4.appendChild(option);
 
 }
 
