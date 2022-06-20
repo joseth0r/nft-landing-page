@@ -5,10 +5,10 @@ const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
 
-const tokenarray=["62020157288306137204262585601212871537268194779568533209731806292692472692737","62020157288306137204262585601212871537268194779568533209731806159651565731841"];
+//const tokenarray=["62020157288306137204262585601212871537268194779568533209731806292692472692737","62020157288306137204262585601212871537268194779568533209731806159651565731841"];
 
 
-var tokenid_data = require('../tokenid.json');
+const tokenarray = require('../tokenarray.json');
 
 exports.handler = async (event, context) => {
   const wallet = event.queryStringParameters && event.queryStringParameters.wallet
