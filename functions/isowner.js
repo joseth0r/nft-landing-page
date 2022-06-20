@@ -6,7 +6,7 @@ const chain = "polygon";
 const include = "metadata";
 
 
-var tokenid_data = require('tokenid.json');
+var tokenid_data = require('./tokenid.json');
 
 exports.handler = async (event, context) => {
   const wallet = event.queryStringParameters && event.queryStringParameters.wallet
