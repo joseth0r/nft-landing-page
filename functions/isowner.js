@@ -5,6 +5,8 @@ const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
 
+const tokenarray=["62020157288306137204262585601212871537268194779568533209731806292692472692737"];
+
 
 var tokenid_data = require('../tokenid.json');
 
@@ -59,7 +61,10 @@ const getOwnedNfts = async (wallet, page) => {
     const total = data.total;
     const pages = Math.ceil(total / 50);
     data.nfts.forEach(nft => {
-      if(nft.contract_address === CONTRACT && (tokenid_data.tokenid.includes(nft.token_id)==true)) {
+      
+      //if(nft.contract_address === CONTRACT && (tokenid_data.tokenid.includes(nft.token_id)==true)) { //esto no funciona
+      if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto no funciona
+
         editions.push(nft.token_id);
         nftname.push(nft.name);
         nftimage.push(nft.file_url);
