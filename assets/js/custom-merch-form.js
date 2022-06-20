@@ -1,11 +1,11 @@
-  const nftid=0;
-  const merchlink=0;
+  var nftid=0;
+  var merchlink=0;
 const maxmerchperpage=5;
 console.log(nftid)
   $(".Addmore").click(function(e) {
-    nftid++;
+    nftid=nftid+1;
     console.log(nftid)
-    merchlink++;
+    merchlink=merchlink+1;
   e.preventDefault();
   if (nftid<maxmerchperpage){
   // make a separation line
