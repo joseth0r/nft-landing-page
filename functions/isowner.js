@@ -5,17 +5,8 @@ const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
 
-var tokenid_data = [ {
-  "name" : "zyzz hasbulla",
-  "tokenid" : "62020157288306137204262585601212871537268194779568533209731806292692472692737"
-}, {
-  "name" : "eeee",
-  "tokenid" : "400"
-} ];
 
-
-
-
+var tokenid_data = require('/tokenid.json');
 
 exports.handler = async (event, context) => {
   const wallet = event.queryStringParameters && event.queryStringParameters.wallet
