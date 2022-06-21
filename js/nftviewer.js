@@ -298,10 +298,6 @@ const checkOwner = async (account) => {
                     </a>
                   `
                   osContainer.appendChild(newElement)
-    
-              
-    
-    
     }
       let nextPage = data.next_page
   
@@ -314,10 +310,6 @@ const checkOwner = async (account) => {
         
         editions = [...editions, ...data.editions]
 
-
-
-
-        
         nftname = [...nftname,...data.nftname]
         nftimage = [...nftimage,...data.nftimage]
 
