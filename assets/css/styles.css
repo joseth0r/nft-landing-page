@@ -74,6 +74,13 @@
 
 
 /*team  */
+
+
+.mr-3{
+  background-image: url(/assets/img/hasbu1.png);
+}
+
+
 .team-wrapper {
   padding: 1rem;
   border-style: solid;
@@ -93,9 +100,11 @@
   transform: translate(0px, 0px);
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
+  
 }
 
 .img-card-team{
+
   -webkit-transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
 }
@@ -2073,6 +2082,8 @@ strong {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 5px;
+
 }
 
 @media only screen and (min-width: 768px)
@@ -2080,4 +2091,97 @@ strong {
 .discountscontainer {
     flex-direction: row;
 }
+}
+
+
+
+/*custom merch */
+
+.claim-merch-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: -12px;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+
+@media (min-width: 641px){
+.features-tiles .tiles-item {
+    padding: 32px;
+}
+}
+
+.features-tiles .tiles-item {
+  flex-basis: 350px;
+  max-width: 350px;
+  padding: 16px;
+}
+
+.tiles-item {
+  padding: 12px;
+}
+
+.tiles-item, .tiles-wrap.push-left:after {
+  flex-basis: 330px;
+  max-width: 330px;
+  box-sizing: initial;
+}
+
+.features-tiles .tiles-item-inner {
+  padding: 0;
+}
+.tiles-item-inner {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
+  padding: 32px 24px;
+}
+.tiles-item * {
+  box-sizing: border-box;
+}
+
+.features-tiles-item-image {
+  display: inline-flex;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  align-items: center;
+  background: #ffffff;
+}
+.center-content img, .center-content svg, .center-content video {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features-tiles-item-content h3{
+  font-family: F37Judge;
+
+  font-size: 32px;
+    line-height: 34px;
+    letter-spacing: .02em;
+    color: #fff;
+
+  text-transform: uppercase;
+
+}
+
+.container-claim-merch{
+
+
+  max-width: 1128px;
+}
+
+@media (min-width: 481px){
+.container-claim-merch {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+}
+.container-claim-merch {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 16px;
+    padding-right: 16px;
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="264px" height="202px" viewBox="0 0 264 202" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 2</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="noun_Package_1440966" transform="translate(-899.047867, -772.013841)" fill="#000000">
+            <g id="Group" transform="translate(0.000000, -0.000000)">
+                <g id="Group-2" transform="translate(899.047867, 772.013841)">
+                    <path fill="#000" d="M146,113 C146,113 191,117 191,142 L238,97 C238,97 266,90 263,122 C263,122 205,222 106,197 C106,197 75,176 48,171 L48,99 C65,96 90,96 105,113 L146,113 Z M190,143 C190,143 182,181 117,173 C53,164 156,166 156,166 C156,166 179,168 190,143 Z" id="Shape"></path>
+                    <path fill="#000" d="M45,170 L45,98 L45,93 C45,88 41,84 35,84 L10,84 C5,84 -1.13686838e-13,88 -1.13686838e-13,93 L-1.13686838e-13,180 C-1.13686838e-13,185 5,189 10,189 L35,189 C41,189 45,185 45,180 L45,170 Z" id="Path"></path>
+                    <path fill="#000" d="M118,18 L118,64 L135,50 L155,64 L155,18 L199,18 L199,114 L214,96 L214,10 C214,0 204,0 204,0 L71,0 C54,0 56,13 56,13 L56,84 L73,87 L73,18 L118,18 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
