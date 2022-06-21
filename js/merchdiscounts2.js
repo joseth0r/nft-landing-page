@@ -334,7 +334,7 @@ const checkOwner = async (account) => {
     } else {
       if(isOwner) {
 
-        if (editions.length=1){
+        if (editions.length==1){
           console.log("XDDDD")
           rank="Fish 🐟 ";
         }
