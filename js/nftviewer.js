@@ -268,7 +268,11 @@ const checkOwner = async (account) => {
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
+//
+      const osContainer = document.getElementById('openseaItems')
+    
 
+//
 
 
       editions = [...data.editions]
@@ -278,7 +282,27 @@ const checkOwner = async (account) => {
 
      console.log(nftname)
 
-
+     for ( i=0; i<editions.length; i++){
+      const newElement = document.createElement('div')
+            
+                  newElement.innerHTML = `
+                    <a href='https://opensea.io/assets/matic/${CONTRACT}/${editions[i]}' target="_blank">
+                      <div class='flex flex-col mx-4 img-hover mb-5'>
+                        <img
+                          src='${nftimage[i]}'
+                          class='w-full rounded-lg' />
+                        <div class='flex-col w-full mt-4 '>
+                          <p class='text-gray-800 text-lg'>${nftname[i]}</p>
+                        </div>
+                      </div>
+                    </a>
+                  `
+                  osContainer.appendChild(newElement)
+    
+              
+    
+    
+    }
       let nextPage = data.next_page
   
       while(nextPage) {
@@ -290,38 +314,42 @@ const checkOwner = async (account) => {
         
         editions = [...editions, ...data.editions]
 
+
+
+
+        
         nftname = [...nftname,...data.nftname]
         nftimage = [...nftimage,...data.nftimage]
+
+        for ( i=0; i<editions.length; i++){
+          const newElement = document.createElement('div')
+                
+                      newElement.innerHTML = `
+                        <a href='https://opensea.io/assets/matic/${CONTRACT}/${editions[i]}' target="_blank">
+                          <div class='flex flex-col mx-4 img-hover mb-5'>
+                            <img
+                              src='${nftimage[i]}'
+                              class='w-full rounded-lg' />
+                            <div class='flex-col w-full mt-4 '>
+                              <p class='text-gray-800 text-lg'>${nftname[i]}</p>
+                            </div>
+                          </div>
+                        </a>
+                      `
+                      osContainer.appendChild(newElement)
+        
+                  
+        
+        
+        }
+
+
 
         nextPage = data.next_page
       }
       
       updateStatusText(isOwner, false)
-//
-const osContainer = document.getElementById('openseaItems')
-    
-for ( i=0; i<editions.length; i++){
-  const newElement = document.createElement('div')
-        
-              newElement.innerHTML = `
-                <a href='https://opensea.io/assets/matic/${CONTRACT}/${editions[i]}' target="_blank">
-                  <div class='flex flex-col mx-4 img-hover mb-5'>
-                    <img
-                      src='${nftimage[i]}'
-                      class='w-full rounded-lg' />
-                    <div class='flex-col w-full mt-4 '>
-                      <p class='text-gray-800 text-lg'>${nftname[i]}</p>
-                    </div>
-                  </div>
-                </a>
-              `
-              osContainer.appendChild(newElement)
 
-          
-
-
-}
-//
 
       
     }
