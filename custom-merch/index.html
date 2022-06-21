@@ -235,20 +235,7 @@ id="header">
 
         
 
-            <div class=" flex-shrink-0 flex items-start justify-center">
-              <div
-                class="dropdown relative w-full lg:w-auto mt-14 mb-2 lg:mb-0 text-white lg:-mt-3 flex flex-col justify-start text-center border-white border rounded-sm" >
-                <button
-                  class=" togglemenu relative z-10 text-center uppercase header-button w-full py-[10px] h-12 lg:h-9 px-3 lg:px-5 cursor-pointer" ><a id="walletConnectedM" class=" no-underline text-white/70" >CONNECT WALLET</a></button>
-                  <nav class="dropdown-menu  relative h-full overflow-hidden z-30">
-                    <div
-                      class="connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-shrink-0 justify-start lg:justify-start text-[12px] leading-[1] font-cta uppercase text-left">
-                      <button type="button"  class=" cta duration-200"   ><span
-                          class=" flex w-full items-center justify-center text-center" id="connectWalletM">🦊 Metamask</span></button></div>
-                  </nav>
-              </div>
-            </div>
-
+          
 <!--pre footer-->
 <footer class="relative z-30 h-auto w-screen pt-12 md:pt-8 font-cta text-gray-light md:bg-transparent md:w-full px-0">
 
@@ -417,6 +404,7 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
       </div>
     </div>
   </div>
+</div>
   <div class="relative w-full mt-8 lg:mt-10 z-50">
     <div class="h-full relative z-20 flex flex-col justify-center items-center">
 
@@ -471,7 +459,16 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
 
 
 
-
+  <!--connect wallet mobile-->
+  <div class="md_connect:hidden container-mintsection mt-6 flex-shrink-0 flex items-start justify-center">
+    <div class="dropdown relative w-full lg:w-auto mt-14 mb-2 lg:mb-0 text-white lg:-mt-3 flex flex-col justify-start text-center border-white border rounded-sm">
+      <button class=" togglemenu relative z-10 text-center uppercase header-button w-full py-[10px] h-12 lg:h-9 px-3 lg:px-5 cursor-pointer"><a id="walletConnectedM" class=" no-underline text-white/70">CONNECT WALLET</a></button>
+        <nav class="dropdown-menu  relative h-full overflow-hidden z-30">
+          <div class="connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-shrink-0 justify-start lg:justify-start text-[12px] leading-[1] font-cta uppercase text-left">
+            <button type="button" class=" cta duration-200"><span class=" flex w-full items-center justify-center text-center" id="connectWalletM">🦊 Metamask</span></button></div>
+        </nav>
+    </div>
+  </div>
 
 
 
