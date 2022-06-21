@@ -4274,8 +4274,42 @@ input[type=number]::-webkit-outer-spin-button {
     content: var(--tw-content)
 }
 
+
+
+
+
+
+
 @media (min-width:1024px) {
     .bg-bottom-fade:after {
+        content: var(--tw-content);
+        height: 50vh
+    }
+}
+
+
+.bg-bottom-fade-hasbu:before {
+    content: var(--tw-content);
+    z-index: -1
+}
+
+.bg-bottom-fade-hasbu:after {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    display: block;
+    height: 50%;
+    width: 100%;
+    background-image: linear-gradient(to top, var(--tw-gradient-stops));
+    --tw-gradient-from: #000;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+    --tw-content: "";
+    content: var(--tw-content)
+}
+
+
+@media (min-width:1024px) {
+    .bg-bottom-fade-hasbu:after {
         content: var(--tw-content);
         height: 50vh
     }
