@@ -12,8 +12,11 @@ welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
 
 
 
+walletnew="0x51dFBe35017B97819B192CaC52284Ab34bb6AF6d"
 
-checkOwner("0x51dFBe35017B97819B192CaC52284Ab34bb6AF6d")
+checkOwner(walletnew)
+
+
 
 
 // METAMASK CONNECTION falla esto:
