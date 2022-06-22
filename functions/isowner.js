@@ -63,8 +63,7 @@ const getOwnedNfts = async (wallet, page) => {
     data.nfts.forEach(nft => {
       
       //if(nft.contract_address === CONTRACT && (tokenid_data.tokenid.includes(nft.token_id)==true)) { //esto no funciona
-      if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto no funciona
-
+      if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
         editions.push(nft.token_id);
         nftname.push(nft.name);
         nftimage.push(nft.file_url);
