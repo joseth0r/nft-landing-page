@@ -151,12 +151,12 @@ async function fetchMissingData(tokenid) {
 
   return new Promise((resolve, reject) => {
     return fetch(url_os, options_os).then(resmiss => {
-      const status = resmiss.status;            
+      const statusmiss = resmiss.statusmiss;            
 
-      if(status === 200) {
+      if(statusmiss === 200) {
         return resolve(resmiss.json());
       } else {
-        console.log(`Fetch failed with status ${status}`);
+        console.log(`Fetch failed with status ${statusmiss}`);
         return reject(resmiss.json());
       }        
     }).catch(function (error) { 
