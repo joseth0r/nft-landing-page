@@ -121,7 +121,7 @@ async function fetchMissingData(tokenid){
 
 //const responsemissing=await fetch(url_os,options_os).then(response => response.json());
 return new Promise((resolve, reject) => {
-  return fetch(url_os, options_os).then(res => response.json());
+  return fetch(url_os, options_os).then(resp => resp.json());
 });
 
 }
