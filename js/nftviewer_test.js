@@ -12,9 +12,8 @@ welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
 
 
 
-walletnew="0x51dFBe35017B97819B192CaC52284Ab34bb6AF6d"
+const walletnew="0x51dFBe35017B97819B192CaC52284Ab34bb6AF6d"
 
-checkOwner(walletnew)
 
 
 
@@ -418,3 +417,4 @@ async function fetchWithRetry(url)  {
 
 
 
+checkOwner(walletnew)
