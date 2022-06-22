@@ -149,7 +149,7 @@ async function fetchMissingData(tokenid) {
   };
 
 
-  return new Promise((resolve, reject) => {
+  return new Promise((reject) => {
     return fetch(url_os, options_os).catch(function (error) { 
       reject(error)
     });
