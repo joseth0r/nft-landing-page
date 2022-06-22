@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFT Viewer - CryptoHasbulla</title>
+    <!--========== FAVICON ==========-->
+    <link rel="icon" href="/assets/img/CH-logo-white.svg" />
+
+
+    
+    <!--========== CSS ==========-->
+
+
+
+    <!--mint-->
+    
+<link rel="stylesheet" href="/css/three-dots.min.css" />
+  <link rel="stylesheet" href="/assets/css/mintsectionstyle.css" />
+    <link rel="stylesheet" href="/css/style2.scss" />
+
+
+
+    <!-- -->
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+
+    <link href="https://nivenranchhod.github.io/portfolio/tesla-range-calculator/tesla-range-calc-styles.css" rel="stylesheet" type="text/css">
+
+    <!--<link rel="stylesheet" href="../assets/css/preloader.css" />-->
+    <link rel="stylesheet" href="/assets/css/logov2.css" />
+    <link rel="stylesheet" href="/assets/css/otherside.css" />
+
+
+    <!--========== SCRIPTS ==========-->
+    <script src="https://uploads-ssl.webflow.com/61a8ac3236206e592ee28933/js/webflow.487c2f205.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script>
+$(function(){
+
+  $("#footer_ch").load("../footer.html"); 
+
+});
+
+</script>
+
+
+
+
+<style type="text/css">
+.marquee-container {
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: row !important;
+  position: relative;
+  width: 100%;
+}
+.marquee-container:hover div {
+  animation-play-state: var(--pause-on-hover);
+}
+.marquee-container:active div {
+  animation-play-state: var(--pause-on-click);
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.overlay::before, .overlay::after {
+  background: linear-gradient(to right, var(--gradient-color));
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: var(--gradient-width);
+  z-index: 2;
+}
+.overlay::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+.overlay::before {
+  left: 0;
+  top: 0;
+}
+
+.marquee {
+  flex: 0 0 auto;
+  min-width: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
+  animation-play-state: var(--play);
+  animation-delay: var(--delay);
+  animation-direction: var(--direction);
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+  
+
+
+</style>
+  </head>
+
+<style>
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
+[vertical-align-middle]{
+vertical-align: middle
+}
+
+[vertical-align-top]{
+vertical-align: top
+}
+
+/* Avoid texts inside the dropdown toggle to go outside the dropdown box. 
+For this we need to have the class of the Drodpown Toggle + the p or h inside */
+.faq-dropdown p {
+white-space: normal !important;
+} */
+
+.c-image-reveal_movement {
+max-width: fit-content;
+}
+
+.c-big-text, .c-small-text {
+user-select: none;
+}
+
+.c-move-to-bottom {
+transform: translateY(80px);
+}
+
+@media screen and (min-width: 767px) {
+.slick-list.draggable {
+overflow: visible;
+}
+}
+</style>
+  <body>
+
+
+<!-- header desde aqui-->
+<!--mobile-->
+<header
+class="l-header-new fixed left-0 right-0 z-[60] mx-auto flex h-20 w-full justify-center text-white duration-500 before:duration-500 before:content-[''] before:bg-gradient-to-b before:absolute before:w-full before:h-full before:from-black/50 before:opacity-1 translate-y-0"
+id="header">
+<div id="background"></div>
+<div
+  class="px-5 xl:px-24 wrapper fixed top-0 left-0 right-0 flex h-20 w-full items-center justify-between text-white lg:relative lg:top-auto lg:left-auto lg:right-auto" >
+  <div class="  absolute left-1/2 top-4 z-50 -translate-x-1/2 justify-center duration-500 opacity-1 translate-y-0" 
+     >
+ <a href="/">
+    <img class="img-fluid h-[60px] " src="/assets/img/CH-logo-white.svg" href="/">
+ </a>
+  </div>
+   
+      <!-- mobile button 2-->
+      <div class="hamburger-menu absolute right-4 z-50 p-2 text-white duration-500 opacity-1 translate-y-0" id="mobile_menu_button">
+
+<div class="bar"></div>
+    </div>
+
+
+      <!--mobile menu-->
+      <div
+        class="mobile-nav hide fixed top-0 z-40 m-0 flex h-screen w-full flex-col justify-between overflow-x-hidden overflow-y-auto bg-black px-5 opacity-1" 
+        >
+        <div class="overlay">
+        <ul class="mt-20 flex flex-wrap border-y-2 border-y-gray-dark">
+          <li
+            class="relative flex items-center justify-center text-center text-white after:content-[''] after:block after:w-full  shrink-0 w-1/2 after:pt-[84%] md:after:pt-[48.3%] border-r-2 border-r-gray-dark">
+            <a class="mobile-nav-link absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/70"
+              href="/">home</a></li>
+          <li
+            class="relative flex items-center justify-center text-center text-white after:content-[''] after:block after:w-full  shrink-0 w-1/2 after:pt-[84%] md:after:pt-[48.3%]">
+            <a class="mobile-nav-link absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/70"
+              href="/viewer/">nft viewer</a></li>
+          <li
+            class="relative flex items-center justify-center text-center text-white after:content-[''] after:block after:w-full  shrink-0 w-1/2 after:pt-[84%] md:after:pt-[48.3%] border-r-2 border-r-gray-dark border-y-2 border-y-gray-dark">
+            <a class="mobile-nav-link absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/70"
+              href="/merchdiscounts/">merch discounts</a></li>
+          <li
+            class="relative flex items-center justify-center text-center text-white after:content-[''] after:block after:w-full  shrink-0 w-1/2 after:pt-[84%] md:after:pt-[48.3%] border-y-2 border-y-gray-dark">
+            <a class="mobile-nav-link absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/70"
+              href="/custom-merch/">custom merch</a></li>
+          <li
+            class="relative flex items-center justify-center text-center text-white after:content-[''] after:block after:w-full  shrink-0 w-1/2 after:pt-[84%] md:after:pt-[48.3%] border-r-2 border-r-gray-dark">
+            <a href="/faq/"
+              class="mobile-nav-link absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/70">FAQ</a></li>
+          <li
+            class=" relative flex items-center justify-center text-center text-white after:content-[''] after:block after:w-full  shrink-0 w-1/2 after:pt-[84%] md:after:pt-[48.3%]">
+            <a class="  mobile-nav-link absolute whitespace-nowrap top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/70" href="https://opensea.io/cryptohasbulla">BUY NFTS</a></li>
+
+        </ul>
+
+
+
+        
+
+      
+
+<!--pre footer-->
+<footer class="relative z-30 h-auto w-screen pt-12 md:pt-8 font-cta text-gray-light md:bg-transparent md:w-full px-0">
+
+
+
+
+  <div
+    class="max-w-screen-xl relative z-20 mx-auto flex w-full flex-col items-center text-[8px]   md:w-[80%] mb-12 ">
+
+    <div class=" w-full mb-4 ">
+      <div class=" md:border-b opacity-60  "></div>
+    </div>
+
+    <div class="md:flex sm:w-full md:space-x-12 items-center">
+      <span
+        class="footer-text  mt-8 mb-0 md:mt-0 md:mb-0 block whitespace-nowrap text-center md:text-left uppercase text-white ">© 2022
+        CryptoHasbulla</span>
+        <ul
+        class="items-center mt-8 text-center w-full space-y-2 sm:flex sm:space-y-0 sm:space-x-6 sm:justify-center md:my-0  md:space-x-4">
+        <li>
+          <a class=" inline-block footer-text whitespace-nowrap desktop-nav-highlight  border-gray-light pb-1 uppercase"
+            href="">Hasbulla Merchandising</a>
+        </li>
+        <li>
+          <a href="https://cryptohasbullanft.com" target="_blank" rel="noopener noreferrer"
+            class="inline-block footer-text whitespace-nowrap desktop-nav-highlight border-gray-light pb-1 uppercase">Cryptohasbulla web</a>
+        </li>
+
+        <li>
+          <a href="" target="_blank" rel="noopener noreferrer"
+          class="inline-block footer-text whitespace-nowrap desktop-nav-highlight border-gray-light pb-1 uppercase">Contact us</a>
+      </li>
+
+      </ul>
+      <div class="flex items-center  md:justify-end">
+        <ul class="mt-14 flex align-center items-center md:justify-end space-x-5 pt-[2px] md:mt-0">
+          <li>
+            <a href="https://twitter.com/Hasbulla_NFT" target="_blank" rel="noreferrer"
+              class="inline-block h-5 md:h-3 text-gray-light"><svg class="h-full w-auto" viewBox="0 0 22 18" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M21.0268 2.17225C20.2532 2.51569 19.4217 2.74698 18.5491 2.85124C19.4401 2.31769 20.1244 1.47223 20.4459 0.464701C19.6127 0.958831 18.6893 1.31804 17.7063 1.51166C16.9204 0.673217 15.7981 0.1493 14.5575 0.1493C11.7724 0.1493 9.72576 2.74786 10.3548 5.44542C6.77062 5.26582 3.59207 3.54863 1.46399 0.93868C0.3338 2.87752 0.877868 5.41388 2.79831 6.69827C2.09216 6.67549 1.42632 6.48187 0.845452 6.15858C0.798142 8.157 2.23059 10.0266 4.30523 10.4428C3.69809 10.6075 3.03311 10.646 2.35675 10.5164C2.9052 12.2301 4.49798 13.4768 6.38688 13.5118C4.57332 14.9338 2.28841 15.5689 0 15.2991C1.90906 16.523 4.17732 17.2371 6.61292 17.2371C14.6224 17.2371 19.1475 10.4726 18.8742 4.40547C19.717 3.79657 20.4485 3.03698 21.0268 2.17225Z"
+                  fill="currentColor"></path>
+              </svg></a>
+          </li>
+          <li><a href="https://discord.gg/cryptohasbulla" target="_blank" rel="noreferrer"
+              class="inline-block h-5 md:h-3 text-gray-light">
+              <svg class="h-full w-auto" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_0_6)">
+                  <path
+                    d="M20.1616 2.47123C18.7156 1.80777 17.1651 1.31896 15.5439 1.039C15.5143 1.0336 15.4849 1.0471 15.4696 1.07411C15.2702 1.42878 15.0493 1.89149 14.8947 2.25517C13.151 1.99412 11.4162 1.99412 9.70823 2.25517C9.55352 1.8834 9.32461 1.42878 9.1243 1.07411C9.10909 1.048 9.0796 1.0345 9.05008 1.039C7.42977 1.31807 5.87921 1.80688 4.43237 2.47123C4.41985 2.47663 4.40911 2.48564 4.40198 2.49734C1.4609 6.89125 0.655219 11.1772 1.05046 15.4099C1.05225 15.4306 1.06387 15.4505 1.07997 15.463C3.02041 16.8881 4.90006 17.7532 6.7448 18.3266C6.77433 18.3356 6.80561 18.3248 6.8244 18.3005C7.26077 17.7046 7.64976 17.0762 7.98328 16.4154C8.00296 16.3768 7.98417 16.3308 7.94395 16.3155C7.32694 16.0815 6.73943 15.7961 6.17429 15.4721C6.12959 15.4459 6.12601 15.382 6.16713 15.3514C6.28606 15.2623 6.40502 15.1696 6.51858 15.0759C6.53912 15.0588 6.56775 15.0552 6.59191 15.066C10.3047 16.7611 14.3242 16.7611 17.9931 15.066C18.0172 15.0543 18.0459 15.0579 18.0673 15.075C18.1809 15.1687 18.2998 15.2623 18.4197 15.3514C18.4608 15.382 18.4581 15.4459 18.4134 15.4721C17.8483 15.8024 17.2607 16.0815 16.6428 16.3146C16.6026 16.3299 16.5847 16.3768 16.6044 16.4154C16.9451 17.0753 17.3341 17.7036 17.7624 18.2996C17.7803 18.3248 17.8125 18.3356 17.842 18.3266C19.6957 17.7532 21.5753 16.8881 23.5158 15.463C23.5328 15.4505 23.5435 15.4315 23.5453 15.4108C24.0183 10.5173 22.753 6.26651 20.1911 2.49823C20.1848 2.48564 20.1741 2.47663 20.1616 2.47123ZM8.53772 12.8326C7.41993 12.8326 6.4989 11.8064 6.4989 10.5461C6.4989 9.2858 7.40206 8.25958 8.53772 8.25958C9.68229 8.25958 10.5944 9.29481 10.5765 10.5461C10.5765 11.8064 9.67334 12.8326 8.53772 12.8326ZM16.0759 12.8326C14.9582 12.8326 14.0371 11.8064 14.0371 10.5461C14.0371 9.2858 14.9403 8.25958 16.0759 8.25958C17.2205 8.25958 18.1326 9.29481 18.1147 10.5461C18.1147 11.8064 17.2205 12.8326 16.0759 12.8326Z"
+                    fill="currentColor"></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_0_6">
+                    <rect width="22.6862" height="17.5739" fill="white" transform="translate(0.958481 0.906255)"></rect>
+                  </clipPath>
+                </defs>
+              </svg></a></li>
+              <li><a href="https://instagram.com/cryptohasbulla" target="_blank" rel="noreferrer"
+                class="inline-block h-5 md:h-3-5 text-gray-light">
+                <svg class="h-full w-auto" stroke="currentColor" fill="none"  viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                  fill="currentColor"></path></svg></a></li>
+
+                  <li><a href="https://opensea.io/collection/cryptohasbi" target="_blank" rel="noreferrer"
+                    class="inline-block h-5 md:h-3-5 text-gray-light">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-auto"  width="15.16" height="13" viewBox="0 0 24 24" fill="none"><path  d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.629 0 12 0ZM5.92 12.403l.051-.081 3.123-4.884a.107.107 0 0 1 .187.014c.52 1.169.972 2.623.76 3.528-.088.372-.335.876-.614 1.342a2.405 2.405 0 0 1-.117.199.106.106 0 0 1-.09.045H6.013a.106.106 0 0 1-.091-.163zm13.914 1.68a.109.109 0 0 1-.065.101c-.243.103-1.07.485-1.414.962-.878 1.222-1.548 2.97-3.048 2.97H9.053a4.019 4.019 0 0 1-4.013-4.028v-.072c0-.058.048-.106.108-.106h3.485c.07 0 .12.063.115.132-.026.226.017.459.125.67.206.42.636.682 1.099.682h1.726v-1.347H9.99a.11.11 0 0 1-.089-.173l.063-.09c.16-.231.391-.586.621-.992.156-.274.308-.566.43-.86.024-.052.043-.107.065-.16.033-.094.067-.182.091-.269a4.57 4.57 0 0 0 .065-.223c.057-.25.081-.514.081-.787 0-.108-.004-.221-.014-.327-.005-.117-.02-.235-.034-.352a3.415 3.415 0 0 0-.048-.312 6.494 6.494 0 0 0-.098-.468l-.014-.06c-.03-.108-.056-.21-.09-.317a11.824 11.824 0 0 0-.328-.972 5.212 5.212 0 0 0-.142-.355c-.072-.178-.146-.339-.213-.49a3.564 3.564 0 0 1-.094-.197 4.658 4.658 0 0 0-.103-.213c-.024-.053-.053-.104-.072-.152l-.211-.388c-.029-.053.019-.118.077-.101l1.32.357h.01l.173.05.192.054.07.019v-.783c0-.379.302-.686.679-.686a.66.66 0 0 1 .477.202.69.69 0 0 1 .2.484V6.65l.141.039c.01.005.022.01.031.017.034.024.084.062.147.11.05.038.103.086.165.137a10.351 10.351 0 0 1 .574.504c.214.199.454.432.684.691.065.074.127.146.192.226.062.079.132.156.19.232.079.104.16.212.235.324.033.053.074.108.105.161.096.142.178.288.257.435.034.067.067.141.096.213.089.197.159.396.202.598a.65.65 0 0 1 .029.132v.01c.014.057.019.12.024.184a2.057 2.057 0 0 1-.106.874c-.031.084-.06.17-.098.254-.075.17-.161.343-.264.502-.034.06-.075.122-.113.182-.043.063-.089.123-.127.18a3.89 3.89 0 0 1-.173.221c-.053.072-.106.144-.166.209-.081.098-.16.19-.245.278-.048.058-.1.118-.156.17-.052.06-.108.113-.156.161-.084.084-.15.147-.208.202l-.137.122a.102.102 0 0 1-.072.03h-1.051v1.346h1.322c.295 0 .576-.104.804-.298.077-.067.415-.36.816-.802a.094.094 0 0 1 .05-.03l3.65-1.057a.108.108 0 0 1 .138.103z"
+                  fill="currentColor">
+
+                </path></svg>
+
+                    </a></li>
+
+      
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    </footer>
+
+      </div>
+      </div>
+    <!-- computer navvvv-->
+  <nav
+    class=" header-button flex w-full flex-1 items-center justify-between uppercase duration-500 opacity-1 translate-y-0" >
+    <div class="" id="main_nav" >
+    <div class="nav_menu header-font" id="nav-menu ">
+    <ul class="nav_list m-0 flex space-x-4 lg:space-x-5">
+      <li ><a class="nav_link no-underline desktop-nav-highlight text-white text-white/70" href="/">Home</a></li>
+      <li ><a class="nav_link no-underline desktop-nav-highlight text-white text-white" href="/viewer">NFT Viewer</a></li>
+      <li ><a class="nav_link no-underline desktop-nav-highlight text-white text-white/70" href="/merchdiscounts">Merch Discounts</a></li>
+      <li ><a class="nav_link no-underline desktop-nav-highlight text-white text-white/70" href="/custom-merch">Custom Merch</a></li>
+
+      <li><a class="nav_link no-underline desktop-nav-highlight text-white text-white/70" href="/faq">Faq</a></li>
+    </ul>
+  </div>
+</div>
+<div class="" id="main_nav2">
+    <div class="flex items-start space-x-4 lg:space-x-5 h-3"  >
+      <ul class="nav_list m-0 flex space-x-6">
+        <li class="text-white/70  lg:block">CH:</li>
+        <li><a class="no-underline desktop-nav-highlight text-white text-white/70" href="https://opensea.io/cryptohasbulla">Buy NFTs</a></li>
+
+      </ul>
+
+
+
+<!--connect wallet-->
+<div
+class="dropdown relative w-full lg:w-auto mt-14 mb-8 lg:mb-0 text-white lg:-mt-3 flex flex-col justify-start text-center border-white border rounded-sm" id="menuwallet"  >
+<button
+class="togglemenu relative z-10 text-center uppercase header-button w-full py-[10px] h-12 lg:h-9 px-3 lg:px-5 cursor-pointer" ><a  id="walletConnected" class=" no-underline text-white/70">CONNECT WALLET</a></button>
+
+<nav class="dropdown-menu  relative h-full overflow-hidden z-30">
+<div
+class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-shrink-0 justify-start lg:justify-start text-[12px] leading-[1] font-cta uppercase text-left">
+<button type="button" id="connectWallet" class=" cta duration-200"  >
+  <span
+    class=" flex w-full items-center justify-center text-center ">🦊 Metamask</span></button></div>
+</nav>
+
+
+</div>
+</div>
+    <!---->
+    </div>
+  </nav>
+</div>
+</header>
+
+<!--    FIIIIIIN    headerrrrrrr             -->
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="w-full  justify-center md:justify-end animate-fade-up pt-32 md:pt-44">
+
+<div class="headline-2 text-center" style="opacity: 0; animation-delay: 175ms;">
+  <div class="markdown mb-8">
+    <h2>NFT VIEWER</h2>
+  </div>
+</div>
+</div>
+
+
+
+      <!--connect wallet mobile-->
+      <div class="md_connect:hidden container-mintsection mt-6 flex-shrink-0 flex items-start justify-center">
+        <div class="dropdown relative w-full lg:w-auto mt-14 mb-2 lg:mb-0 text-white lg:-mt-3 flex flex-col justify-start text-center border-white border rounded-sm">
+          <button class=" togglemenu relative z-10 text-center uppercase header-button w-full py-[10px] h-12 lg:h-9 px-3 lg:px-5 cursor-pointer"><a id="walletConnectedM" class=" no-underline text-white/70">CONNECT WALLET</a></button>
+            <nav class="dropdown-menu  relative h-full overflow-hidden z-30">
+              <div class="connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-shrink-0 justify-start lg:justify-start text-[12px] leading-[1] font-cta uppercase text-left">
+                <button type="button" class=" cta duration-200"><span class=" flex w-full items-center justify-center text-center" id="connectWalletM">🦊 Metamask</span></button></div>
+            </nav>
+        </div>
+      </div>
+
+
+  <div class=" flex flex-col">
+    <section class="container-mintsection not-connected">
+
+      <div>
+
+
+        <p id="welcomeP">
+          
+        </p>
+
+      </div>
+
+
+    </section>
+
+
+
+    <div class="hidden headline-4 center text-center mt-20 mb-10 ">
+    <h1 id="changenetworkP"></h1>
+    </div>
+
+<!--
+    <div id="spinner" class="dot-spin" ></div>
+    </div>
+-->
+    <div id="welcomeTextConnected"></div>
+
+      <div class="text-center owner-status mb-20"></div>
+    
+
+
+
+  <!-- OPENSEA ITEMS!"!!!!!"-->
+  <div class='w-full flex justify-center'>
+    <div id='openseaItems' class=" sm:w-70p grid grid-cols-2 lg:grid-cols-4 gap-y-4">
+      <!-- Opensea items go here -->
+     
+      
+    </div>
+  </div>
+  
+
+<!-- END OPENSEA ITEMS-->
+
+<div id="footer_ch"></div>
+
+    <!--========== SCROLL REVEAL ==========-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--========== MAIN JS ==========-->
+    <script src="../assets/js/main.js"></script>
+
+
+        <!--========== PARTICLES ==========-->
+        <!--
+		<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+		<script src='https://threejs.org/examples/js/libs/stats.min.js'></script>
+    <script  src="assets/js/particles.js"></script>-->
+
+
+
+        <!--========== text animation ==========-->
+        <!--
+        <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/TextGeometry.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/FontUtils.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/pnltri.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/droid_sans_bold.typeface.js"></script>-->
+
+        <!-- partial -->
+        <!--
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js'></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+        <script src="assets/js/animatedtext.js" ></script>-->
+
+
+
+        <!--==========preloader ==========-->
+      <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+      <!--
+      <script  src="../assets/js/preloader.js"></script>-->
+
+                  
+                    <!-- WEBSITE COPY -->
+
+                      <script src="https://uploads-ssl.webflow.com/61a8ac3236206e592ee28933/js/webflow.487c2f205.js"></script>
+                      <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=61a8ac3236206e592ee28933"
+                      type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+                      crossorigin="anonymous"></script>
+                    <script src="https://uploads-ssl.webflow.com/61a8ac3236206e592ee28933/js/webflow.487c2f205.js"
+                      type="text/javascript"></script>   <!--este es el de roadmap-->
+                  
+                    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+                    <script src="https://tools.refokus.io/slider-generator/bundle.v1.0.0.js"></script>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+                    <!--mint-->
+                    <script src="/js/opensea_api.js"></script>
+
+                <script>
+                  var loading=document.getElementById('loading');
+                   
+                  function myFunction(){
+                    loading.style.display='none';
+                  }
+                </script>
+
+
+
+  </body>
+</html>

@@ -46,6 +46,7 @@ const getOwnedNfts = async (wallet, page) => {
       Authorization: AUTH
     }
   };
+
   const query = new URLSearchParams({
     chain,
     include,
@@ -65,8 +66,18 @@ const getOwnedNfts = async (wallet, page) => {
       //if(nft.contract_address === CONTRACT && (tokenid_data.tokenid.includes(nft.token_id)==true)) { //esto no funciona
       if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
         editions.push(nft.token_id);
-        nftname.push(nft.name);
-        nftimage.push(nft.file_url);
+        if (nftname==""){
+          missingname_image (tokenid)
+          nftname=nftname_missing
+          nftname=nftimage_missing
+
+        }
+        else{       
+          nftname.push(nft.name);
+          nftimage.push(nft.file_url);
+
+        }
+
       }
     })
 
@@ -101,3 +112,32 @@ async function fetchData(url, options) {
     });
   });
 }
+
+
+
+
+//new
+async function missingname_image (tokenid){
+
+  const options = {
+    method: 'GET',
+    headers: {Accept: 'application/json', 'X-API-KEY': 'bafa0d3c02b54c3dbaf92c66ac2bb250'}
+  };
+  
+  const infomissing= await fetch(`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${tokenid}`, options)
+    .then(response => response.json())  
+    .catch(err => console.error(err))
+  
+  console.log(infomissing.name)
+  console.log(infomissing.image)
+  
+  nftname_missing=infomissing.name
+  nftimage=infomissing.image
+  
+  return{
+    nftname_missing,
+    nftimage_missing
+  }
+  
+  }
+//
