@@ -14,40 +14,12 @@ welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
 
 const walletnew="0xdeC4DEFd8822f4D830d0463F38c1D2f458CcD9A4"
 
+checkOwner(walletnew)
 
 
 
 
 // METAMASK CONNECTION falla esto:
-window.addEventListener("DOMContentLoaded", async () => {
-  
-  checkOwner(walletnew)
-
-    const menuWallet = document.getElementById("menuwallet");
-    
-    if (window.ethereum) {
-      window.web3 = new Web3(window.ethereum);
-      checkChain();
-    } else if (window.web3) {
-      window.web3 = new Web3(window.web3.currentProvider);
-    }
-  
-    if (window.web3) {
-      // Check if User is already connected by retrieving the accounts
-      await window.web3.eth.getAccounts().then(async (addr) => {
-        accounts = addr;
-      });
-    }
-  
-  
-    updateConnectStatus();
-    if (MetaMaskOnboarding.isMetaMaskInstalled()) {
-      window.ethereum.on("accountsChanged", (newAccounts) => {
-        accounts = newAccounts;
-        updateConnectStatus();
-      });
-    }
-  });
   
 
 
