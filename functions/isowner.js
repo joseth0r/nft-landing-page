@@ -148,15 +148,16 @@ async function fetchMissingData(tokenid) {
     headers: {Accept: 'application/json', 'X-API-KEY': 'bafa0d3c02b54c3dbaf92c66ac2bb250'}
   };
 
+
   return new Promise((resolve, reject) => {
-    return fetch(url_os, options_os).then(res => {
-      const status = res.status;            
+    return fetch(url_os, options_os).then(resmiss => {
+      const status = resmiss.status;            
 
       if(status === 200) {
-        return resolve(res.json());
+        return resolve(resmiss.json());
       } else {
         console.log(`Fetch failed with status ${status}`);
-        return reject(res.json());
+        return reject(resmiss.json());
       }        
     }).catch(function (error) { 
       reject(error)
