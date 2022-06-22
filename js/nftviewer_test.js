@@ -13,9 +13,9 @@ welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
 
 
 const walletnew="0xdeC4DEFd8822f4D830d0463F38c1D2f458CcD9A4"
-
-checkOwner(walletnew)
-
+window.onload = function() {
+  checkOwner(walletnew);
+};
 
 
 
