@@ -67,7 +67,7 @@ const getOwnedNfts = async (wallet, page) => {
       if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
         editions.push(nft.token_id);
         if (nft.name===""){
-          fetchMissingData(nft.token_id);
+          const missingdata = await fetchMissingData(tokenid);
           nftname.push(missingdata.name);
           nftimage.push(missingdata.image);
         }
@@ -116,18 +116,23 @@ async function fetchData(url, options) {
 
 
 
+async function fetchMissingData(tokenid){
+  var url_os=`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${tokenid}`;
 
-//newv2
+//const responsemissing=await fetch(url_os,options_os).then(response => response.json());
+return new Promise((resolve, reject) => {
+  return fetch(url_os, options_os).then(res => {
+    const status = res.status;            
 
-const fetchMissingData = async(tokenid) => {
+    if(status === 200) {
+      return resolve(res.json());
+    } else {
+      console.log(`Fetch failed with status ${status}`);
+      return reject(res.json());
+    }        
+  }).catch(function (error) { 
+    reject(error)
+  });
+});
 
-  const url_os=`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${tokenid}`
-  const options_os = {
-    method: 'GET',
-    headers: {Accept: 'application/json', 'X-API-KEY': 'bafa0d3c02b54c3dbaf92c66ac2bb250'}
-  };
-
-  const missing=await fetch(url_os,options).then(response => response.json());
-
-  return missing;
 }
