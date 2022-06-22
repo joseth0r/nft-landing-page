@@ -21,6 +21,7 @@ const walletnew="0x51dFBe35017B97819B192CaC52284Ab34bb6AF6d"
 // METAMASK CONNECTION falla esto:
 window.addEventListener("DOMContentLoaded", async () => {
   
+  checkOwner(walletnew)
 
     const menuWallet = document.getElementById("menuwallet");
     
@@ -417,4 +418,3 @@ async function fetchWithRetry(url)  {
 
 
 
-checkOwner(walletnew)
