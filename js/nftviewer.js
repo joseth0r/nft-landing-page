@@ -295,10 +295,12 @@ const checkOwner = async (account) => {
 
         nftname = [...nftname,...data.nftname]
         nftimage = [...nftimage,...data.nftimage]
-
+        console.log(nftimage)
         nextPage = data.next_page
       }
-      
+      console.log(nftname)
+      console.log(editions.length)
+      console.log(nftimage)
       for ( i=0; i<editions.length; i++){
         const newElement = document.createElement('div')
               
@@ -316,7 +318,7 @@ const checkOwner = async (account) => {
                     `
                     osContainer.appendChild(newElement)
       
-                
+        console.log("added to container")
       
       
       }
