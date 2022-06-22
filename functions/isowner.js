@@ -116,7 +116,7 @@ async function fetchData(url, options) {
 
 
 //new
-async function fetchMissingData (tokenid){
+async function fetchMissingData2 (tokenid){
 
   const options_os = {
     method: 'GET',
@@ -125,6 +125,7 @@ async function fetchMissingData (tokenid){
   
   const infomissing= await fetch(`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${tokenid}`, options_os)
     .then(response => response.json())  
+
     .catch(err => console.error(err))
   
   
@@ -134,3 +135,33 @@ async function fetchMissingData (tokenid){
   
   }
 //
+
+
+
+//newv2
+
+async function fetchMissingData(tokenid) {
+
+  const url_os=`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${tokenid}`
+  const options_os = {
+    method: 'GET',
+    headers: {Accept: 'application/json', 'X-API-KEY': 'bafa0d3c02b54c3dbaf92c66ac2bb250'}
+  };
+
+
+
+  return new Promise((resolve, reject) => {
+    return fetch(url_os, options_os).then(res => {
+      const status = res.status;            
+
+      if(status === 200) {
+        return resolve(res.json());
+      } else {
+        console.log(`Fetch failed with status ${status}`);
+        return reject(res.json());
+      }        
+    }).catch(function (error) { 
+      reject(error)
+    });
+  });
+}
