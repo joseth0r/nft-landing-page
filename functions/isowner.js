@@ -115,27 +115,6 @@ async function fetchData(url, options) {
 
 
 
-//new
-async function fetchMissingData2 (tokenid){
-
-  const options_os = {
-    method: 'GET',
-    headers: {Accept: 'application/json', 'X-API-KEY': 'bafa0d3c02b54c3dbaf92c66ac2bb250'}
-  };
-  
-  const infomissing= await fetch(`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${tokenid}`, options_os)
-    .then(response => response.json())  
-
-    .catch(err => console.error(err))
-  
-  
-  return{
-    infomissing
-  }
-  
-  }
-//
-
 
 
 //newv2
