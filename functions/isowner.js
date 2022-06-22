@@ -67,7 +67,7 @@ const getOwnedNfts = async (wallet, page) => {
       if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
         editions.push(nft.token_id);
         if (nft.name===""){
-          const missingdata = fetchMissingData(nft.token_id)
+          const missingdata = await fetchMissingData(nft.token_id)
           nftname.push(missingdata.name);
           nftimage.push(missingdata.image);
         }
@@ -147,8 +147,6 @@ async function fetchMissingData(tokenid) {
     method: 'GET',
     headers: {Accept: 'application/json', 'X-API-KEY': 'bafa0d3c02b54c3dbaf92c66ac2bb250'}
   };
-
-
 
   return new Promise((resolve, reject) => {
     return fetch(url_os, options_os).then(res => {
