@@ -12,7 +12,7 @@ welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
 
 
 
-const walletnew="0xdeC4DEFd8822f4D830d0463F38c1D2f458CcD9A4"
+const walletnew="0x51dFBe35017B97819B192CaC52284Ab34bb6AF6d"
 window.onload = function() {
   checkOwner(walletnew);
 };
