@@ -122,14 +122,7 @@ async function fetchMissingData(tokenid){
 //const responsemissing=await fetch(url_os,options_os).then(response => response.json());
 return new Promise((resolve, reject) => {
   return fetch(url_os, options_os).then(res => {
-    const status = res.status;            
-
-    if(status === 200) {
-      return resolve(res.json());
-    } else {
-      console.log(`Fetch failed with status ${status}`);
-      return reject(res.json());
-    }        
+       
   }).catch(function (error) { 
     reject(error)
   });
