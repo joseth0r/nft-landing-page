@@ -57,7 +57,7 @@ const getOwnedNfts = async (wallet, page) => {
   let nftname=[];
   let nftimage=[];
   try {
-    const data = await fetchData(url + query, options)
+    const data = await fetchData(url + query, options);
     console.log(`Recieved page ${page}`)
     const total = data.total;
     const pages = Math.ceil(total / 50);
@@ -67,7 +67,7 @@ const getOwnedNfts = async (wallet, page) => {
       if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
         editions.push(nft.token_id);
         if (nft.name===""){
-          const missingdata = await fetchMissingData(nft.token_id)
+          const missingdata = fetchMissingData(nft.token_id);
           nftname.push(missingdata.name);
           nftimage.push(missingdata.image);
         }
