@@ -335,19 +335,24 @@ const checkOwner = async (account) => {
       if(isOwner) {
 
         if (editions.length==1){
-          console.log("XDDDD")
-          rank="Fish 🐟 ";
+          discount="5 %";
         }
+        else if (1<editions.length<6){
+          discount="10 %";
+
+        }
+
         else if (5<editions.length<20){
-          rank="XD 🐟 ";
+          discount="15 %";
+
 
         }
-        else{
-          rank="Whale 🐋 ";
+        else if (editions.length>19){
+          discount="20 %";
 
         }
 
-        statusText.innerText = `Hey ! You are a ${rank} !!.You own ${editions.length} ${COLLECTION_NAME} NFTs, and you will be able to get a discount!`;
+        statusText.innerText = `Hey ! You own ${editions.length} ${COLLECTION_NAME} NFTs, and you will be able to get a ${discount} discount!`;
 
 
         var today = new Date();
@@ -361,7 +366,10 @@ const checkOwner = async (account) => {
     document.getElementById("timedateform").value = dateTime;
 
 
+    document.getElementById("discountp").value = discount;
+    document.getElementById("chtokensform").value = nftname;
 
+    
 
         discountsform.classList.remove('hidden');
 
