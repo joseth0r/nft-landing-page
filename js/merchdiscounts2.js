@@ -8,8 +8,7 @@ let dots = 1;
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
 
 const welcomeP = document.getElementById("welcomeP");
-welcomeP.innerHTML = "Connect your wallet to get your discount if you hold CryptoHasbullas NFTs.";
-
+welcomeP.innerHTML = "Connect your wallet, and fill the form if you hold CryptoHasbulla NFTs to get your discount code.";
 
 
 
@@ -352,7 +351,7 @@ const checkOwner = async (account) => {
 
         }
 
-        statusText.innerText = `Hey ! You own ${editions.length} ${COLLECTION_NAME} NFTs, and you will be able to get a ${discount} discount!`;
+        statusText.innerText = `Hey ! You own ${editions.length} ${COLLECTION_NAME} NFTs, and you will have a ${discount} discount. Fill the form to get the discount code:`;
 
 
         var today = new Date();
