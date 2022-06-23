@@ -9,9 +9,9 @@ const include = "metadata";
 //const tokenarray=["62020157288306137204262585601212871537268194779568533209731806292692472692737","62020157288306137204262585601212871537268194779568533209731806159651565731841"];
 
 
-import missingdatajson from "/missingdatajson.json" assert { type: "json" };
+const tokenarray = require('../tokenarray.json'); //para comprobar los CH
 
-const missingdatajson = require('../missingdatajson.json'); //los que fallan con nftport
+import missingdatajson from "/missingdatajson.json" assert { type: "json" };
 
 
 
@@ -84,10 +84,8 @@ const getOwnedNfts = async (wallet, page) => {
         if (nft.name==="" ||nft.file_url==="" ){
           var missingdata = missingdatajson.filter( element => element.tokenid == nft.token_id);
           nftname.push(missingdata[0].name);
-          //const url_os=`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${nft.token_id}`;
-          //const missingdata = await fetchData(url_os, options_os);
-          //nftname.push(missingdata.name);
-          //nftimage.push(missingdata.image);
+          //nftimage.push(missingdata[0].image);
+
         }
         else{       
           nftname.push(nft.name);
