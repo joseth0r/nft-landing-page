@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+import missingdatajson from "/missingdatajson.json" assert { type: "json" };
 
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
 const AUTH = process.env.NFTPORT_API_KEY;
@@ -58,7 +59,8 @@ const getOwnedNfts = async (wallet, page) => {
     const total = data.total;
     const pages = Math.ceil(total / 50);
     data.nfts.forEach(nft => {
-      if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) {
+      //&& (tokenarray.includes(nft.token_id)==true)
+      if(nft.contract_address === CONTRACT ) {
         editions.push(nft.token_id);
         if (nft.name===""){
             nftname.push(nft.name);
