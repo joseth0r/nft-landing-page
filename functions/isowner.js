@@ -6,7 +6,7 @@ const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
 const tokenarray = require('../tokenarray.json'); //para comprobar los CH
-const missingdatajson = require('../missingdatajson.json'); 
+//const missingdatajson = require('../missingdatajson.json'); 
 
 
 
