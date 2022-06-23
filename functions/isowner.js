@@ -54,7 +54,7 @@ const getOwnedNfts = async (wallet, page) => {
   let nftname=[];
   let nftimage=[];
     try {
-    const data = await fetchData(url + query, options)
+    const data = await fetchData(url + query, options);
     console.log(`Recieved page ${page}`)
     const total = data.total;
     const pages = Math.ceil(total / 50);
