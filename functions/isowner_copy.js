@@ -1,12 +1,11 @@
 const fetch = require('node-fetch')
-//import missingdatajson from "../missingdatajson.json" assert { type: "json" };
+import missingdatajson from "/missingdatajson.json" assert { type: "json" };
 
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
 //const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
 const tokenarray = require('../tokenarray.json'); //para comprobar los CH
-//const missingdatajson = require('../missingdatajson.json'); 
 
 
 
@@ -69,18 +68,18 @@ const getOwnedNfts = async (wallet, page) => {
       //(tokenarray.includes(nft.token_id)==true) 
       if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
         editions.push(nft.token_id);
-        //if (nft.name===""){
+        if (nft.name===""){
           //var missingdata = missingdatajson.filter( element => element.tokenid == nft.token_id);
           //nftname.push(missingdata[0].name);
           //nftimage.push("hola");
           //nftimage.push(missingdata[0].image);
 
-       // }
-       // else{       
+        }
+       else{       
           nftname.push(nft.name);
           nftimage.push(nft.file_url);
 
-       // }
+        }
 
       }
     })
