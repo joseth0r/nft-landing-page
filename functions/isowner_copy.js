@@ -66,8 +66,8 @@ const getOwnedNfts = async (wallet, page) => {
     const pages = Math.ceil(total / 50);
     data.nfts.forEach(nft => {
       
-      //if(nft.contract_address === CONTRACT && (tokenid_data.tokenid.includes(nft.token_id)==true)) { //esto no funciona
-      if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
+      //(tokenarray.includes(nft.token_id)==true) 
+      if(nft.contract_address === CONTRACT) { //esto funciona
         editions.push(nft.token_id);
         if (nft.name===""){
           //var missingdata = missingdatajson.filter( element => element.tokenid == nft.token_id);
