@@ -1,5 +1,4 @@
 const fetch = require('node-fetch')
-//import missingdatajson from "../missingdatajson.json" assert { type: "json" };
 
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
 const AUTH = process.env.NFTPORT_API_KEY;
@@ -7,9 +6,6 @@ const chain = "polygon";
 const include = "metadata";
 const tokenarray = require('../tokenarray.json'); //para comprobar los CH
 //const missingdatajson = require('../missingdatajson.json'); 
-
-
-
 
 exports.handler = async (event, context) => {
   const wallet = event.queryStringParameters && event.queryStringParameters.wallet
@@ -47,42 +43,33 @@ const getOwnedNfts = async (wallet, page) => {
       Authorization: AUTH
     }
   };
-
   const query = new URLSearchParams({
     chain,
     include,
     page_number: page
   });
-  //new
-
-
 
   let editions = [];
   let nftname=[];
   let nftimage=[];
-  try {
-    const data = await fetchData(url + query, options);
+    try {
+    const data = await fetchData(url + query, options)
     console.log(`Recieved page ${page}`)
     const total = data.total;
     const pages = Math.ceil(total / 50);
     data.nfts.forEach(nft => {
-      
-      //if(nft.contract_address === CONTRACT && (tokenid_data.tokenid.includes(nft.token_id)==true)) { //esto no funciona
-      if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
+      if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) {
         editions.push(nft.token_id);
         if (nft.name===""){
-          //var missingdata = missingdatajson.filter( element => element.tokenid == nft.token_id);
-          //nftname.push(missingdata[0].name);
-          //nftimage.push("hola");
-          //nftimage.push(missingdata[0].image);
-
-        }
-        else{       
-          nftname.push(nft.name);
-          nftimage.push(nft.file_url);
-
-        }
-
+            nftname.push(nft.name);
+            nftimage.push(nft.file_url);
+  
+          }
+          else{       
+            nftname.push(nft.name);
+            nftimage.push(nft.file_url);
+  
+          }
       }
     })
 
@@ -101,7 +88,6 @@ const getOwnedNfts = async (wallet, page) => {
   }
 }
 
-
 async function fetchData(url, options) {
   return new Promise((resolve, reject) => {
     return fetch(url, options).then(res => {
@@ -118,6 +104,3 @@ async function fetchData(url, options) {
     });
   });
 }
-
-
-
