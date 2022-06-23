@@ -2,9 +2,10 @@
 (function () {
 	$('.hamburger-menu').on('click', function() {
 		$('.bar').toggleClass('animate');
+    var blacklogo= document.getElementById('mainlogoblack');
     var mobileNav = $('.mobile-nav');
     mobileNav.toggleClass('hide show');
-
+    blacklogo.classList.toggle('hidden');
     
     document.body.classList.toggle('no-scroll')
 	})

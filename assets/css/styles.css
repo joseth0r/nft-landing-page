@@ -2242,7 +2242,8 @@ textarea {
   background-image: url("/assets/img/test2.png");
   background-position   : 50% 50%;     /* or: center center */
   background-size       : cover;       /* CSS3 */
-  
+  filter: brightness(115%);
+  opacity: 0.95; 
   position: fixed;
   right: 0;
   bottom: 0;
