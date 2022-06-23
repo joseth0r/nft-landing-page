@@ -1,16 +1,12 @@
 const fetch = require('node-fetch')
-import missingdatajson from "../missingdatajson.json" assert { type: "json" };
+//import missingdatajson from "../missingdatajson.json" assert { type: "json" };
 
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
 const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
-
-
-//const tokenarray=["62020157288306137204262585601212871537268194779568533209731806292692472692737","62020157288306137204262585601212871537268194779568533209731806159651565731841"];
-
-
 const tokenarray = require('../tokenarray.json'); //para comprobar los CH
+const missingdatajson = require('../missingdatajson.json'); 
 
 
 
