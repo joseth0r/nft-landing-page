@@ -6,6 +6,8 @@ const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
 const tokenarray = require('../tokenarray.json'); //para comprobar los CH
+const missingdatajson = require('../missingdatajson.json'); //para comprobar los CH
+
 //const missingdatajson = require('../missingdatajson.json'); 
 
 exports.handler = async (event, context) => {
@@ -60,11 +62,13 @@ const getOwnedNfts = async (wallet, page) => {
     const pages = Math.ceil(total / 50);
     data.nfts.forEach(nft => {
       //&& (tokenarray.includes(nft.token_id)==true)
-      if(nft.contract_address === CONTRACT ) {
+      if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) {
         editions.push(nft.token_id);
         if (nft.name===""){
-            nftname.push(nft.name);
-            nftimage.push(nft.file_url);
+          var missingdata = missingdatajson.filter( element => element.tokenid == nft.token_id);
+          nftname.push(missingdata[0].name);
+          nftimage.push("hola");
+         // nftimage.push(missingdata[0].image);
   
           }
           else{       
