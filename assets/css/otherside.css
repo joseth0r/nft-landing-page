@@ -2673,8 +2673,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media only screen and (min-width: 768px){
-.w-14rem {
-    width: 14rem;
+.w-13rem {
+    width: 13rem;
     margin: 0;
 }
 }
