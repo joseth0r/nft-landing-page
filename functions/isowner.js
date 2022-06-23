@@ -60,13 +60,6 @@ const getOwnedNfts = async (wallet, page) => {
   //new
 
 
-  const options_os = {
-    method: 'GET',
-    headers: {Accept: 'application/json', 'X-API-KEY': 'bafa0d3c02b54c3dbaf92c66ac2bb250'}
-  };
-
-
-
 
   let editions = [];
   let nftname=[];
@@ -130,22 +123,4 @@ async function fetchData(url, options) {
 }
 
 
-
-async function getmissingdata(tokenid) {
-
-  var url_os=`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${tokenid}`;
-return fetch(url_os, options_os)
-.then(response => response.json())
-.catch(err => console.error(err))
-;
- 
-}
-
-async function lol (){
-  const datamissing = await (getmissingdata(tokenid));
-  
-  console.log(datamissing)
-  nftname.push(datamissing.name)
-  
-  }
 
