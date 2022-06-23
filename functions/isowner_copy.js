@@ -2,7 +2,7 @@ const fetch = require('node-fetch')
 //import missingdatajson from "../missingdatajson.json" assert { type: "json" };
 
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
-const AUTH = process.env.NFTPORT_API_KEY;
+//const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
 const tokenarray = require('../tokenarray.json'); //para comprobar los CH
