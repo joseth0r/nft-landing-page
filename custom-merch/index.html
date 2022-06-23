@@ -34,7 +34,7 @@
 
     <!--<link rel="stylesheet" href="../assets/css/preloader.css" />-->
     <link rel="stylesheet" href="/assets/css/logov2.css" />
-    <link rel="stylesheet" href="/assets/css/otherside.css" />
+    <link rel="stylesheet" href="/assets/css/tailwind.css" />
 
 
     <!--========== SCRIPTS ==========-->
@@ -262,7 +262,7 @@ id="header">
         </li>
 
         <li>
-          <a href="" target="_blank" rel="noopener noreferrer"
+          <a href="/contact/" 
           class="inline-block footer-text whitespace-nowrap desktop-nav-highlight border-gray-light pb-1 uppercase">Contact us</a>
       </li>
 
@@ -405,134 +405,7 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
 
 
 
-  <div class="hidden headline-4 center text-center mt-20 mb-10 ">
-  <h1 id="changenetworkP"></h1>
-  </div>
-  <section class="container-mintsection lg:w-[50%]">
 
-    <div class="countdown card">
-      <div id="countdown">
-        <ul class="count-down" data-date="">
-          <li class="clock-item">
-            <span class="count-number days">20</span>
-            <p class="count-text">Days</p>
-          </li>
-
-          <li class="clock-item">
-            <span class="count-number hours">20</span>
-            <p class="count-text">Hour</p>
-          </li>
-
-          <li class="clock-item">
-            <span class="count-number minutes">20</span>
-            <p class="count-text">Min</p>
-          </li>
-
-          <li class="clock-item">
-            <span class="count-number seconds">20</span>
-            <p class="count-text">Sec</p>
-          </li>
-        </ul>
-        <h2 id="subHeading">Pre-Sale Countdown</h2>
-      </div>
-      <h1 id="mainHeading">NFT Drop Coming Soon!!</h1>
-      <p id="mainText">
-        text!
-      </p>
-      <a
-        id="actionButton"
-        href="https://discord.gg/A9CnsVzzkZ"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hero-btn btn "
-        ><span>text button eeee</span>
-      </a>
-      <div id="mintContainer" class="mint-container hidden">
-
-
-
-        <div class="info-container" style=" margin-top: 20px; ">
-          <img class="img-fluid" id="price-img" src="../assets/img/HIDDEN.JPG" alt="The Boring Elon">
-          <div>
-            <h3>Supply</h3>
-            <p id="totalSupply"></p>
-          </div>
-          <div>
-            <h3>Price Per Mint</h3>
-            <p id="pricePerMint"></p>
-          </div>
-          <div>
-            <h3>Max</h3>
-            <p id="maxPerMint"></p>
-          </div>
-        </div>
-
-        <div class="mint-qty">
-          <span>
-            <div class="input-number-decrement" id="mintDecrement"><svg width="12" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg" style="left: 11px;">
-              
-              <defs> 
-                  <linearGradient id="gradient">
-                    <stop offset="0" stop-color="#000" />
-                    <stop offset="1" stop-color="#000" /> 
-                  </linearGradient> 
-                </defs>
-                <path id="minus" fill="#ffff" d="M15 0H1C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1C0 1.26522 0.105357 1.51957 0.292893 1.70711C0.48043 1.89464 0.734784 2 1 2H15C15.2652 2 15.5196 1.89464 15.7071 1.70711C15.8946 1.51957 16 1.26522 16 1C16 0.734784 15.8946 0.48043 15.7071 0.292893C15.5196 0.105357 15.2652 0 15 0Z" fill="white"></path>
-                <path id="minus_hover" fill="url(#gradient)" d="M15 0H1C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1C0 1.26522 0.105357 1.51957 0.292893 1.70711C0.48043 1.89464 0.734784 2 1 2H15C15.2652 2 15.5196 1.89464 15.7071 1.70711C15.8946 1.51957 16 1.26522 16 1C16 0.734784 15.8946 0.48043 15.7071 0.292893C15.5196 0.105357 15.2652 0 15 0Z" fill="white"></path>
-
-         </svg></div>
-            <input
-              id="mintInput"
-              class="input-number"
-              type="number"
-              value="1"
-              min="1"
-              max="5"
-            />
-            <div class="input-number-increment" id="mintIncrement"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="left: 11px;">
-              <defs> 
-                <linearGradient id="gradient">
-                  <stop offset="0" stop-color="#000" />
-                  <stop offset="1" stop-color="#000" /> 
-                </linearGradient> 
-              </defs>
-              <path id="plus" fill="#ffff" d="M15 7H9V1C9 0.734784 8.89464 0.48043 8.70711 0.292893C8.51957 0.105357 8.26522 0 8 0C7.73478 0 7.48043 0.105357 7.29289 0.292893C7.10536 0.48043 7 0.734784 7 1V7H1C0.734784 7 0.48043 7.10536 0.292893 7.29289C0.105357 7.48043 0 7.73478 0 8C0 8.26522 0.105357 8.51957 0.292893 8.70711C0.48043 8.89464 0.734784 9 1 9H7V15C7 15.2652 7.10536 15.5196 7.29289 15.7071C7.48043 15.8946 7.73478 16 8 16C8.26522 16 8.51957 15.8946 8.70711 15.7071C8.89464 15.5196 9 15.2652 9 15V9H15C15.2652 9 15.5196 8.89464 15.7071 8.70711C15.8946 8.51957 16 8.26522 16 8C16 7.73478 15.8946 7.48043 15.7071 7.29289C15.5196 7.10536 15.2652 7 15 7Z" fill="white"></path>
-              <path id="plus_hover" fill="url(#gradient)" d="M15 7H9V1C9 0.734784 8.89464 0.48043 8.70711 0.292893C8.51957 0.105357 8.26522 0 8 0C7.73478 0 7.48043 0.105357 7.29289 0.292893C7.10536 0.48043 7 0.734784 7 1V7H1C0.734784 7 0.48043 7.10536 0.292893 7.29289C0.105357 7.48043 0 7.73478 0 8C0 8.26522 0.105357 8.51957 0.292893 8.70711C0.48043 8.89464 0.734784 9 1 9H7V15C7 15.2652 7.10536 15.5196 7.29289 15.7071C7.48043 15.8946 7.73478 16 8 16C8.26522 16 8.51957 15.8946 8.70711 15.7071C8.89464 15.5196 9 15.2652 9 15V9H15C15.2652 9 15.5196 8.89464 15.7071 8.70711C15.8946 8.51957 16 8.26522 16 8C16 7.73478 15.8946 7.48043 15.7071 7.29289C15.5196 7.10536 15.2652 7 15 7Z" fill="white"></path>
-
-            </svg></div>
-          </span>
-          <button id="setQtyMax" class="max-btn btn">SET MAX</button>
-          <!--<button class="block text-center uppercase header-button py-[10px] h-12 lg:h-9 px-3 lg:px-5 cursor-pointer text-white lg:-mt-3 flex flex-col justify-start text-center border-white border rounded-sm" id="setQtyMax">
-            <a class="no-underline text-white/70">SET MAX</a></button>-->
-        </div>
-        <div class="total-price-container">
-          <h3>Total</h3>
-          <p id="totalPrice"></p>
-        </div>
-        <button id="mintButton" class="hero-btn btn mint-btn">Mint</button>
-      </div>
-    </div>
-    <div class="minted-container card show-card hidden">
-      <h1>🎉</h1>
-      <h2>Minted!</h2>
-      <p>Here's your transaction link:</p>
-      <a id="mintedTxnBtn" href="" target="_blank" rel="noopener noreferrer">
-        <button class="hero-btn btn">View Transaction</button>
-      </a>
-      <p>View it in the collection:</p>
-      <a
-        id="mintedLinkBtn"
-        href="https://opensea.io/collection/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <button class="hero-btn btn">View Collection</button>
-      </a>
-    </div>
-  </section>
-
-  <div id="spinner" class="dot-spin" ></div>
-  </div>
 
 
 <div id="footer_ch"></div>
