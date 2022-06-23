@@ -4054,6 +4054,10 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: .6
 }
 
+.opacity-75 {
+    opacity: .75
+}
+
 .opacity-90 {
     opacity: .9
 }
@@ -4948,7 +4952,9 @@ input[type=number]::-webkit-outer-spin-button {
     }
     @media (min-width:768px) {
         .md\:border-b{
-            border-bottom-width: 1px
+            border-bottom-width: 1px;
+            border-color:rgba(0, 0, 0);
+
         }
     
     }
