@@ -67,20 +67,20 @@ const getOwnedNfts = async (wallet, page) => {
     data.nfts.forEach(nft => {
       
       //(tokenarray.includes(nft.token_id)==true) 
-      if(nft.contract_address === CONTRACT) { //esto funciona
+      if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
         editions.push(nft.token_id);
-        if (nft.name===""){
+        //if (nft.name===""){
           //var missingdata = missingdatajson.filter( element => element.tokenid == nft.token_id);
           //nftname.push(missingdata[0].name);
           //nftimage.push("hola");
           //nftimage.push(missingdata[0].image);
 
-        }
-        else{       
+       // }
+       // else{       
           nftname.push(nft.name);
           nftimage.push(nft.file_url);
 
-        }
+       // }
 
       }
     })
