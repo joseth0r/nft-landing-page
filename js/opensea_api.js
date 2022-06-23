@@ -3,32 +3,27 @@ const tokenid= "6202015728830613720426258560121287153726819477956853320973180637
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963"
 const WALLET_ADDRESS= ""
 var nftimage_missing=[]
-let nftname=["hola"];
-const options = {
+const nftname2=""
+const options_os = {
     method: 'GET',
     headers: {Accept: 'application/json', 'X-API-KEY': 'bafa0d3c02b54c3dbaf92c66ac2bb250'}
   };
+  let nftname=[];
 
 
 async function getmissingdata(tokenid) {
 
     var url_os=`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${tokenid}`;
-
-    const collectionResponse = await fetch(
-      url_os,
-      options,
-    );
-    
-    return collectionResponse.json();
+  return fetch(url_os, options_os)
+  .then(response => response.json())
+  .catch(err => console.error(err))
+  ;
+   
   }
+const datamissing = await getmissingdata(tokenid);
+console.log(datamissing)
 
-  getmissingdata(tokenid)
-  .then(function(result){
 
-          nftname2=result.name
-          nftname.push(nftname2)
-          console.log(nftname)
-        })
 
 
 /*

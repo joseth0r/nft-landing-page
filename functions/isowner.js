@@ -9,7 +9,11 @@ const include = "metadata";
 //const tokenarray=["62020157288306137204262585601212871537268194779568533209731806292692472692737","62020157288306137204262585601212871537268194779568533209731806159651565731841"];
 
 
-const tokenarray = require('../tokenarray.json');
+const tokenarray = require('../tokenarray.json'); //para comprobar los CH
+
+const missingdatajson = require('../missingdatajson.json'); //los que fallan con nftport
+
+
 
 exports.handler = async (event, context) => {
   const wallet = event.queryStringParameters && event.queryStringParameters.wallet
@@ -77,15 +81,9 @@ const getOwnedNfts = async (wallet, page) => {
       //if(nft.contract_address === CONTRACT && (tokenid_data.tokenid.includes(nft.token_id)==true)) { //esto no funciona
       if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
         editions.push(nft.token_id);
-        if (nft.name===""){
-          getmissingdata(nft.token_id)
-          .then(function(result){
-        
-                  nftname_missing=result.name;
-                  nftname.push(nftname_missing);
-                  nftimage_missing=result.image;
-                  nftimage.push(nftimage_missing);
-                })
+        if (nft.name==="" ||nft.file_url==="" ){
+          var missingdata = missingdatajson.filter( element => element.tokenid ==nft.token_id);
+          nftname.push(missingdata.name);
           //const url_os=`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${nft.token_id}`;
           //const missingdata = await fetchData(url_os, options_os);
           //nftname.push(missingdata.name);
@@ -134,17 +132,22 @@ async function fetchData(url, options) {
 }
 
 
+
 async function getmissingdata(tokenid) {
 
   var url_os=`https://api.opensea.io/api/v2/metadata/matic/${CONTRACT}/${tokenid}`;
-
-  const collectionResponse = await fetch(
-    url_os,
-    options_os,
-  );
-  
-  return collectionResponse.json();
+return fetch(url_os, options_os)
+.then(response => response.json())
+.catch(err => console.error(err))
+;
+ 
 }
 
-
+async function lol (){
+  const datamissing = await (getmissingdata(tokenid));
+  
+  console.log(datamissing)
+  nftname.push(datamissing.name)
+  
+  }
 
