@@ -2240,13 +2240,14 @@ textarea {
 .bgimage {
   /* The image used */
   background-image: url("/assets/img/test2.png");
-
+  background-position   : 50% 50%;     /* or: center center */
+  background-size       : cover;       /* CSS3 */
+  
   position: fixed;
   right: 0;
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
   background-attachment : fixed;
-background-position   : 50% 50%;     /* or: center center */
-background-size       : cover;       /* CSS3 */
+
 }
