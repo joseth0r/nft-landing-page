@@ -2111,6 +2111,22 @@ strong {
 }
 
 
+
+.hasburightbackbg:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+  background-image: url(/assets/img/hasbu_back2.png) ; 
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+}
+
 /*custom merch */
 
 .claim-merch-wrap {
