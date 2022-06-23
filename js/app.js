@@ -62,13 +62,12 @@ const updateConnectStatus = async () => {
 
 
   const notConnected = document.querySelector('.not-connected');
-  const spinner = document.getElementById("spinner");
 
   if (!window.ethereum) {
     console.log("pas de metamask");
           // HIDE SPINNER
 
-    spinner.classList.add('hidden');
+   // spinner.classList.add('hidden');
     notConnected.classList.remove('hidden');
     notConnected.classList.add('show-not-connected');
 
@@ -109,7 +108,7 @@ const updateConnectStatus = async () => {
     notConnected.classList.remove('show-not-connected');
     notConnected.classList.add('hidden');
     // SHOW SPINNER
-    spinner.classList.remove('hidden');
+   // spinner.classList.remove('hidden');
     //window.contract = new web3.eth.Contract(abi, contractAddress);
 
     //checkOwner(accounts[0]);
@@ -121,7 +120,7 @@ const updateConnectStatus = async () => {
     onboardButtonM.innerText = "🦊 Metamask";
 
     // HIDE SPINNER
-    spinner.classList.add('hidden');
+    //spinner.classList.add('hidden');
     notConnected.classList.remove('hidden');
     notConnected.classList.add('show-not-connected');
     onboardButton.onclick = async () => {
@@ -139,7 +138,7 @@ const updateConnectStatus = async () => {
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
-          spinner.classList.remove('hidden');
+        //  spinner.classList.remove('hidden');
           onboardButtonConnected.disabled = true;
 
           onboardButtonConnectedM.disabled = true;
@@ -165,7 +164,7 @@ const updateConnectStatus = async () => {
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
-          spinner.classList.remove('hidden');
+          //spinner.classList.remove('hidden');
           onboardButtonConnected.disabled = true;
 
           onboardButtonConnectedM.disabled = true;
