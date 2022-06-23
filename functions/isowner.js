@@ -81,7 +81,7 @@ const getOwnedNfts = async (wallet, page) => {
       //if(nft.contract_address === CONTRACT && (tokenid_data.tokenid.includes(nft.token_id)==true)) { //esto no funciona
       if(nft.contract_address === CONTRACT && (tokenarray.includes(nft.token_id)==true)) { //esto funciona
         editions.push(nft.token_id);
-        if (nft.name==="" ||nft.file_url==="" ){
+        if (nft.name==="" || nft.file_url===""){
           var missingdata = missingdatajson.filter( element => element.tokenid == nft.token_id);
           nftname.push(missingdata[0].name);
           //nftimage.push(missingdata[0].image);
