@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Merch Discounts - CryptoHasbulla</title>
+    <title>Contact Us - CryptoHasbulla</title>
     <!--========== FAVICON ==========-->
     <link rel="icon" href="/assets/img/CH-logo-white.svg" />
 
@@ -412,7 +412,7 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
       <div class="  text-left text-gray-medium"
         style="max-width: 900px; opacity: 1; animation-delay: 350ms;">
         <div class="markdown">
-          <p>GGG</p><br>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis hic ipsam, eius vel impedit obcaecati tenetur fugit aut modi illo rem veritatis ea dolorem consequatur magni perspiciatis neque provident facilis.</p><br>
         </div>
       </div>
 
@@ -486,10 +486,9 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
   </div>
 
 
-<div class="hidden md:wl-container mx-auto max-w-6xl  py-20 lg:px-24 shadow-xl mb-24" id="discountsform">
-  <form name="discountsform" method="POST" action="https://script.google.com/macros/s/AKfycbz8AjIfTO2MKLI2eUtxaTyGujcUFWrTDr4DuX4Z2cexk0zGs1pdAVPjNY0YV8R0bnCy/exec" data-netlify-recaptcha="true" id="discountsform-2"  >
+<div class="hidden md:wl-container mx-auto max-w-6xl  py-20 lg:px-24 shadow-xl mb-24" id="contactform">
+  <form name="contactform" method="POST" action="https://script.google.com/macros/s/AKfycbxry2ytW2VhexjGEippy2LPnP5AXoA_qD7TV9gAB9gXDZ-fgqk6ry3jcnZryWaSzudl/exec" data-netlify-recaptcha="true" id="contactform-2"  >
     <input class="hidden-2" name="timedate"  id="timedateform" readonly>
-    <input class="hidden-2" name="chtokens"  id="chtokensform" readonly>
 
     <div class=" shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
 
@@ -501,29 +500,15 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
           <input class="mt-2 w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"  name="ethaddress"  id="ethaddressform" readonly>
         </div>
       </div>
-      <div class="-mx-3 md:flex mb-6">
-        <div class="md:w-full px-3">
-          <label class="uppercase tracking-wide text-white text-xs font-bold mb-4" >
-            Cryptohasbullas owned
-          </label>
-          <input class="mt-2 w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"  name="numberch"  id="numberchform" readonly>
-        </div>
-      </div>
+     
 
-      <div class="-mx-3 md:flex mb-6">
-        <div class="md:w-full px-3">
-          <label class="uppercase tracking-wide text-white text-xs font-bold mb-4" >
-            Discount
-          </label>
-          <input class="mt-2 w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3"  name="discount"  id="discountp" readonly>
-        </div>
-      </div>
+    
       <div class="-mx-3 md:flex mb-6">
         <div class="md:w-1/2 px-3 mb-6 md:mb-0">
           <label class=" uppercase tracking-wide text-white text-xs font-bold mb-4" >
-            First name
+            First name*
           </label>
-          <input class="mt-2 w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" type="text" name="firstname" placeholder="First Name" >
+          <input class="mt-2 w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" type="text" name="firstname" placeholder="First Name" required>
           <!--<div>
             <span class="text-red-500 text-xs italic">
               Please fill out this field.
@@ -532,9 +517,9 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
         </div>
         <div class="md:w-1/2 px-3">
           <label class="uppercase tracking-wide text-white text-xs font-bold mb-4"  >
-            Last name
+            Last name*
           </label>
-          <input class="mt-2 w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" type="text" name="lastname" placeholder="Last Name"  >
+          <input class="mt-2 w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3" type="text" name="lastname" placeholder="Last Name" required >
         </div>
       </div>
       <div class="-mx-3 md:flex mb-6">
@@ -562,8 +547,16 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
         </div>
       </div>
 
-     
+    
 
+      <div class="-mx-3 md:flex mb-6">
+        <div class="md:w-full px-3">
+          <label class="uppercase tracking-wide text-white text-xs font-bold mb-4" >
+            Message*
+          </label>
+      <textarea name="message" placeholder="Write here..." class=" mt-2 w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 text-black " styles="height:250px;" required></textarea>
+    </div>
+  </div>
 
       <div data-netlify-recaptcha="true" class="m-auto" ></div>
       <div class="mt-6 flex-shrink-0 flex items-start justify-center">
@@ -571,7 +564,7 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
         <div
           class=" relative w-full lg:w-auto mt-14 mb-2 lg:mb-0 text-white lg:-mt-3 flex flex-col justify-start text-center border-white border rounded-sm">
           <button
-            class="  relative z-10 text-center uppercase header-button w-full py-[10px] h-12 lg:h-9 px-3 lg:px-5 cursor-pointer" type="submit" ><a  class=" no-underline text-white/70" >Get discount</a></button>
+            class="  relative z-10 text-center uppercase header-button w-full py-[10px] h-12 lg:h-9 px-3 lg:px-5 cursor-pointer" type="submit" ><a  class=" no-underline text-white/70" >Send</a></button>
         
         </div>
       </div>
@@ -639,7 +632,7 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
                     <!--mint-->
-                    <script src="/js/merchdiscounts2.js"></script>
+                    <script src="/js/contact.js"></script>
                     <script src="/js/selector.js"></script>
                     <script src="/js/metamask-onboarding.bundle.js"></script>
                     <script src="/js/web3.min.js"></script>
@@ -662,7 +655,7 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
 
 
 window.addEventListener("load", function() {
-  const form = document.getElementById('discountsform-2');
+  const form = document.getElementById('contactform-2');
   form.addEventListener("submit", function(e) {
     e.preventDefault();
     const data = new FormData(form);
