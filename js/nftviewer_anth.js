@@ -9,8 +9,7 @@ const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
 
 const welcomeP = document.getElementById("welcomeP");
 welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
-wallet_anth01="0x1a327f38f151679c945a072960bf68e55c4193A6";
-
+accounts=["0x1a327f38f151679c945a072960bf68e55c4193A6"];
 // METAMASK CONNECTION falla esto:
 
 
@@ -382,7 +381,7 @@ async function fetchWithRetry(url)  {
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  checkOwner(wallet_anth01);
+  checkOwner(accounts[0]);
 
 });
 
