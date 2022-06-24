@@ -13,8 +13,10 @@ wallet_anth01="0x1a327f38f151679c945a072960bf68e55c4193A6";
 
 // METAMASK CONNECTION falla esto:
 
+window.addEventListener('DOMContentLoaded', () => {
+  checkOwner(wallet_anth01);
 
-checkOwner(wallet_anth01);
+});
 
 
 const updateConnectStatus = async () => {
