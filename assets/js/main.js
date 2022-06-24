@@ -2,14 +2,31 @@
 (function () {
 	$('.hamburger-menu').on('click', function() {
 		$('.bar').toggleClass('animate');
-    var blacklogo= document.getElementById('mainlogoblack');
+    //var blacklogo= document.getElementById('mainlogoblack');
     var mobileNav = $('.mobile-nav');
     mobileNav.toggleClass('hide show');
-    blacklogo.classList.toggle('hidden');
+    if (mobileNav.hasClass("show")==true){
+      $('#mainlogoblack').hide(300);
+    }
+    else{
+      $('#mainlogoblack').addClass("visible");
+      $('#mainlogoblack').show(600);
+
+
+
+    }
+    document.body.classList.toggle('no-scroll');
     
-    document.body.classList.toggle('no-scroll')
-	})
+
+  })
 })();
+
+/* */
+
+
+
+
+
 /*==================== close menu mobile when click ====================*/
 
 (function () {
@@ -17,7 +34,6 @@
     $('.bar').toggleClass('animate');
     var mobileNav = $('.mobile-nav');
     mobileNav.toggleClass('hide show');
-console.log("mobile menu opebned");
     document.body.classList.remove('no-scroll')
 
 	})
