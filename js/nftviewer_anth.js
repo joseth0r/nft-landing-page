@@ -1,4 +1,3 @@
-let accounts;
 const TIMEOUT = 1000;
 const COLLECTION_NAME = 'CryptoHasbulla';
 let editions = [];
