@@ -1,10 +1,11 @@
 const TIMEOUT = 1000;
 const COLLECTION_NAME = 'CryptoHasbulla';
 let editions = [];
-let nftname=[];
-let nftimage=[];
+//let nftimage=[];
 let dots = 1;
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
+const nftname= ["hola", "amigo"];
+const nftimage = ["https://lh3.googleusercontent.com/TIdVnJQ73WNhD2ikJNq50bAffqgv_rFbzJowF2YOO4Wvh-idXHxVQvQn7lTajZJYGd6argV0M0SW3yFBIxU0NkO0mjSBNBJl5twm","https://lh3.googleusercontent.com/Eya_dC97XtTWQF0yI_4xlvrQR2lqmffzvVSgtCJU2DM5UEtZq6ddF6kO-EPqyVk35GDm1w4jydIfrp2SVSY29-U4uFcieSOmhDwzGg"];
 
 const welcomeP = document.getElementById("welcomeP");
 welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
@@ -380,7 +381,9 @@ async function fetchWithRetry(url)  {
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  checkOwner(accounts[0]);
+
+
+
 
 });
 

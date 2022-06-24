@@ -19,6 +19,7 @@
   "homepage": "https://github.com/codeSTACKr/nft-landing-page#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "canvasjs": "^1.8.3",
     "node-fetch": "^2.6.7"
   }
 }
