@@ -283,8 +283,9 @@ const checkOwner = async (account) => {
 
 
 
-      let nextPage = data.next_page
-      
+      let nextPage = data.next_page;
+      continuation =data.continuation;
+
       while(nextPage) {
         page = nextPage
         const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}&continuation=${continuation}`);
