@@ -283,8 +283,8 @@ const checkOwner = async (account) => {
 
 
 
-      let nextPage = data.next_page;
-      continuation =data.continuation;
+      let nextPage = data.next_page;     
+       continuation =data.continuation;
 
       while(nextPage) {
         page = nextPage
