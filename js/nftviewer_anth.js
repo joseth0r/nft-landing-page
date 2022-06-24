@@ -2,45 +2,19 @@ let accounts;
 const TIMEOUT = 1000;
 const COLLECTION_NAME = 'CryptoHasbulla';
 let editions = [];
-let dots = 1;
 let nftname=[];
+let nftimage=[];
+let dots = 1;
+const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
 
 const welcomeP = document.getElementById("welcomeP");
-welcomeP.innerHTML = "Connect your wallet to check your discount please";
-
+welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
+wallet_anth01="0x1a327f38f151679c945a072960bf68e55c4193A6";
 
 // METAMASK CONNECTION falla esto:
-window.addEventListener("DOMContentLoaded", async () => {
-  
-
-    const menuWallet = document.getElementById("menuwallet");
-    
-    if (window.ethereum) {
-      window.web3 = new Web3(window.ethereum);
-      checkChain();
-    } else if (window.web3) {
-      window.web3 = new Web3(window.web3.currentProvider);
-    }
-  
-    if (window.web3) {
-      // Check if User is already connected by retrieving the accounts
-      await window.web3.eth.getAccounts().then(async (addr) => {
-        accounts = addr;
-      });
-    }
-  
-  
-    updateConnectStatus();
-    if (MetaMaskOnboarding.isMetaMaskInstalled()) {
-      window.ethereum.on("accountsChanged", (newAccounts) => {
-        accounts = newAccounts;
-        updateConnectStatus();
-      });
-    }
-  });
-  
 
 
+checkOwner(wallet_anth01);
 
 
 const updateConnectStatus = async () => {
@@ -59,7 +33,7 @@ const updateConnectStatus = async () => {
 
 
   const notConnected = document.querySelector('.not-connected');
-  const spinner = document.getElementById("spinner");
+ // const spinner = document.getElementById("spinner");
   const changenetworkP = document.getElementById("changenetworkP");
   const changenetworkPtext = document.getElementById("changenetworkPtext");
 
@@ -67,7 +41,7 @@ const updateConnectStatus = async () => {
     console.log("pas de metamask");
           // HIDE SPINNER
 
-    spinner.classList.add('hidden');
+  //  spinner.classList.add('hidden');
     notConnected.classList.remove('hidden');
     notConnected.classList.add('show-not-connected');
 
@@ -125,7 +99,7 @@ const updateConnectStatus = async () => {
     onboardButtonM.innerText = "🦊 Metamask";
 
     // HIDE SPINNER
-    spinner.classList.add('hidden');
+   // spinner.classList.add('hidden');
     notConnected.classList.remove('hidden');
     notConnected.classList.add('show-not-connected');
 
@@ -144,7 +118,7 @@ const updateConnectStatus = async () => {
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
-          spinner.classList.remove('hidden');
+         // spinner.classList.remove('hidden');
           onboardButtonConnected.disabled = true;
 
           onboardButtonConnectedM.disabled = true;
@@ -170,7 +144,7 @@ const updateConnectStatus = async () => {
           notConnected.classList.remove('show-not-connected');
           notConnected.classList.add('hidden');
           // SHOW SPINNER
-          spinner.classList.remove('hidden');
+        //  spinner.classList.remove('hidden');
           onboardButtonConnected.disabled = true;
 
           onboardButtonConnectedM.disabled = true;
@@ -260,53 +234,107 @@ const checkOwner = async (account) => {
     if(account) {
       let isOwner = false;
       let page = 1
-      
-      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-  
+      let continuation =""
+
+      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}&continuation=${continuation}`);
+      console.log(data)
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
       
+//
+      const osContainer = document.getElementById('openseaItems')
+    
+
+//
+
+
       editions = [...data.editions]
+      nftname = [...data.nftname]
+
+      nftimage = [...data.nftimage]
+
+
+
       let nextPage = data.next_page
-  
+      
       while(nextPage) {
         page = nextPage
-        const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-  
+        const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}&continuation=${continuation}`);
+        console.log(continuation)
         isOwner = !isOwner ? data.isOwner : isOwner;
         updateStatusText(isOwner, true)
         
         editions = [...editions, ...data.editions]
-        nextPage = data.next_page
+
+        nftname = [...nftname,...data.nftname]
+        nftimage = [...nftimage,...data.nftimage]
+        console.log(nftimage)
+        continuation=data.continuation;
+        nextPage = data.next_page;
       }
-  
+      console.log(nftname)
+      console.log(editions.length)
+      console.log(nftimage)
+      for ( i=0; i<editions.length; i++){
+        const newElement = document.createElement('div')
+              
+                    newElement.innerHTML = `
+                      <a href='https://opensea.io/assets/matic/${CONTRACT}/${editions[i]}' target="_blank">
+                        <div class='flex flex-col mx-4 img-hover mb-5'>
+                          <img
+                            src='${nftimage[i]}'
+                            class='w-full rounded-lg' />
+                          <div class='flex-col w-full mt-4 '>
+                            <p class='text-gray-800 text-lg'>${nftname[i]}</p>
+                          </div>
+                        </div>
+                      </a>
+                    `
+                    osContainer.appendChild(newElement)
+      
+        console.log("added to container")
+      
+      
+      }
       updateStatusText(isOwner, false)
+
+
+      
     }
   }
 
 
 
+
+
+
+
+
+
+
+
+
   function updateStatusText(isOwner, checking) {
-    const spinner = document.getElementById("spinner");
+    //const spinner = document.getElementById("spinner");
 
     const statusText = document.querySelector('.owner-status');
     const welcomeConnectedText= document.getElementById("welcomeTextConnected");
-    spinner.classList.add('hidden');
+    //spinner.classList.add('hidden');
 
     if(checking) {
         
         //welcomeTextConnected.innerText=`Hello ${accounts[0]}`;
       if(isOwner) {
-        statusText.innerText = `You do own ${COLLECTION_NAME}!! 😻 Let's see how many${renderDots(dots)}`;
+        statusText.innerText = `You do own ${COLLECTION_NAME}!!  Let's see how many${renderDots(dots)}`;
       } else {
-        statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} 😻${renderDots(dots)}`;
+        statusText.innerText = `Checking to see if you own any ${COLLECTION_NAME} ${renderDots(dots)}`;
       }
     } else {
       if(isOwner) {
-        statusText.innerText = `You own ${editions.length} ${COLLECTION_NAME}!! 😻`;
+        statusText.innerText = `Hey ${accounts[0]}, you own ${editions.length} ${COLLECTION_NAME} NFTs`;
         
       } else {
-        statusText.innerText = `You don't own any ${COLLECTION_NAME} 😿`;
+        statusText.innerText = `You don't own any ${COLLECTION_NAME}. You can purchase one ;)`;
       }
     }
     dots = dots === 3 ? 1 : dots + 1;
@@ -353,4 +381,6 @@ async function fetchWithRetry(url)  {
     return fetch_retry(url);
   });
 }
+
+
 
