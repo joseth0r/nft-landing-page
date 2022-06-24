@@ -50,6 +50,11 @@ function createCanvas() {
 
   startLoadingAllImages(imagesAreNowLoaded); //funcion nueva
 
+
+
+
+
+  
     //images
 /*
     const image = new Image();
@@ -77,13 +82,6 @@ c.fillText("CRYPTOHASBULLAS OWNED BY: "+ account, (w.value/2), (180));
 
 
     c.fillStyle = bg.value;
-
-
-
-
-
-
-
 
     r.append(canva);
 
@@ -122,31 +120,7 @@ function downloadImage() {
 	}
 
 }
-function draw(ctx) {
 
-    // Loop through all images
-    for (let i = 0; i < nftimage.length; i++) {
-  
-
-  
-        // Create canvas element
-        //canvas = document.createElement('canvas');
-        //canvas.setAttribute('width', 132);
-        //canvas.setAttribute('height', 150);
-  
-        // Insert before the image
-     //   nftimage[i].parentNode.insertBefore(canva,nftimage[i]);
-  
-        //ctx = canvas.getContext('2d');
-  
-        // Draw image to canvas
-        ctx.drawImage(nftimage[i], 15, 20);
-  
-        // Add frame
-        //ctx.drawImage(document.getElementById('frame'), 0, 0);
-      
-    }
-  }
 
 
   function startLoadingAllImages(callback){
@@ -196,13 +170,7 @@ function draw(ctx) {
       
 
     }
-    else if (numberch =="")
-    {
-
-
-
-    }
-
+  
   }
 genBtn.addEventListener("click", createCanvas);
 
