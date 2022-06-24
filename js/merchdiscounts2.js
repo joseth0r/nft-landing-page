@@ -263,9 +263,10 @@ const checkOwner = async (account) => {
     
     if(account) {
       let isOwner = false;
-      let page = 1
-      
-      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+      let page = 1;
+      let continuation ="";
+
+      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}&continuation=${continuation}`);
       console.log(data)
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
@@ -282,10 +283,11 @@ const checkOwner = async (account) => {
 
 
       let nextPage = data.next_page
-  
+      continuation =data.continuation;
+
       while(nextPage) {
         page = nextPage
-        const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+        const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}&continuation=${continuation}`);
   
         isOwner = !isOwner ? data.isOwner : isOwner;
         updateStatusText(isOwner, true)
@@ -294,6 +296,7 @@ const checkOwner = async (account) => {
 
         nftname = [...nftname,...data.nftname]
         nftimage = [...nftimage,...data.nftimage]
+        continuation=data.continuation;
 
         nextPage = data.next_page
       }
