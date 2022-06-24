@@ -1,18 +1,43 @@
+const fetch = require('node-fetch')
 //import missingdatajson from "/missingdatajson.json" assert { type: "json" };
 
 const CONTRACT = "0x2953399124f0cbb46d2cbacd8a89cf0599974963";
-const AUTH = "6430d63c-639c-47ee-8999-7371d633b0f0";
+const AUTH = process.env.NFTPORT_API_KEY;
 const chain = "polygon";
 const include = "metadata";
-
-wallet="0x1a327f38f151679c945a072960bf68e55c4193A6";
-var continuation = "";
-let page = 1
+const tokenarray = require('../tokenarray.json'); //para comprobar los CH
+const missingdatajson = require('../missingdatajson.json'); //para comprobar los CH
 
 //const missingdatajson = require('../missingdatajson.json'); 
 
+exports.handler = async (event, context) => {
+  const wallet = event.queryStringParameters && event.queryStringParameters.wallet
+  const page = event.queryStringParameters && event.queryStringParameters.page
+
+  const isOwner = (wallet) => {
+    if(!wallet) {
+      return {
+        isOwner: false
+      }
+    } else {
+      return getOwnedNfts(wallet, page)
+    }
+  }
+
+  const response = await isOwner(wallet)
+
+  return {
+    'statusCode': 200,
+    'headers': {
+      'Cache-Control': 'no-cache',
+      'Content-Type': 'application/json',
+    },
+    'body': JSON.stringify(response)
+  }
+}
+
 const getOwnedNfts = async (wallet, page) => {
-  const url = `https://api.nftport.xyz/v0/accounts/${wallet}?`; // quitar / aqui
+  const url = `https://api.nftport.xyz/v0/accounts/${wallet}/?`;
   
   const options = {
     method: 'GET',
@@ -22,9 +47,9 @@ const getOwnedNfts = async (wallet, page) => {
     }
   };
   const query = new URLSearchParams({
-chain,
-continuation
-
+    chain,
+    include,
+    page_number: page
   });
 
   let editions = [];
@@ -32,15 +57,12 @@ continuation
   let nftimage=[];
     try {
     const data = await fetchData(url + query, options);
+    console.log(`Recieved page ${page}`);
 
     console.log(`Wallet: ${wallet}`);
-    console.log(data)
-    console.log(`Recieved page ${page}`);
 
     const total = data.total;
     const pages = Math.ceil(total / 50);
-    continuation=data.continuation;
-    console.log(continuation)
     data.nfts.forEach(nft => {
       //&& (tokenarray.includes(nft.token_id)==true)
       
@@ -66,7 +88,6 @@ continuation
       nftname,
       nftimage,
       next_page: +page === pages ? null : +page + 1,
-      continuation
     }
   } catch(err) {
     console.log(`Catch: ${JSON.stringify(err)}`)
@@ -92,4 +113,3 @@ async function fetchData(url, options) {
     });
   });
 }
-getOwnedNfts(wallet,page)

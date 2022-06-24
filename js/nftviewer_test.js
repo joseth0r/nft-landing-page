@@ -11,15 +11,35 @@ const welcomeP = document.getElementById("welcomeP");
 welcomeP.innerHTML = "Connect your wallet to see your CryptoHasbullas NFTs.";
 
 
-
-const walletnew="0x51dFBe35017B97819B192CaC52284Ab34bb6AF6d"
-window.onload = function() {
-  checkOwner(walletnew);
-};
-
-
-
 // METAMASK CONNECTION falla esto:
+window.addEventListener("DOMContentLoaded", async () => {
+  
+
+    const menuWallet = document.getElementById("menuwallet");
+    
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum);
+      checkChain();
+    } else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider);
+    }
+  
+    if (window.web3) {
+      // Check if User is already connected by retrieving the accounts
+      await window.web3.eth.getAccounts().then(async (addr) => {
+        accounts = addr;
+      });
+    }
+  
+  
+    updateConnectStatus();
+    if (MetaMaskOnboarding.isMetaMaskInstalled()) {
+      window.ethereum.on("accountsChanged", (newAccounts) => {
+        accounts = newAccounts;
+        updateConnectStatus();
+      });
+    }
+  });
   
 
 
@@ -242,9 +262,9 @@ const checkOwner = async (account) => {
     if(account) {
       let isOwner = false;
       let page = 1
-      
-      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
+      let continuation =""
 
+      const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}&continuation=${continuation}`);
       console.log(data)
       isOwner = !isOwner ? data.isOwner : isOwner;
       updateStatusText(isOwner, true)
@@ -264,11 +284,11 @@ const checkOwner = async (account) => {
 
 
       let nextPage = data.next_page
-  
+      
       while(nextPage) {
         page = nextPage
-        const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}`);
-        console.log(data)
+        const data = await fetchWithRetry(`/.netlify/functions/isowner/?wallet=${account}&page=${page}&continuation=${continuation}`);
+        console.log(continuation)
         isOwner = !isOwner ? data.isOwner : isOwner;
         updateStatusText(isOwner, true)
         
@@ -277,7 +297,8 @@ const checkOwner = async (account) => {
         nftname = [...nftname,...data.nftname]
         nftimage = [...nftimage,...data.nftimage]
         console.log(nftimage)
-        nextPage = data.next_page
+        continuation=data.continuation;
+        nextPage = data.next_page;
       }
       console.log(nftname)
       console.log(editions.length)

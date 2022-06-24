@@ -13,6 +13,7 @@ const missingdatajson = require('../missingdatajson.json'); //para comprobar los
 exports.handler = async (event, context) => {
   const wallet = event.queryStringParameters && event.queryStringParameters.wallet
   const page = event.queryStringParameters && event.queryStringParameters.page
+  const continuation = event.queryStringParameters && event.queryStringParameters.continuation
 
   const isOwner = (wallet) => {
     if(!wallet) {
@@ -20,7 +21,7 @@ exports.handler = async (event, context) => {
         isOwner: false
       }
     } else {
-      return getOwnedNfts(wallet, page)
+      return getOwnedNfts(wallet, page,continuation)
     }
   }
 
@@ -36,8 +37,8 @@ exports.handler = async (event, context) => {
   }
 }
 
-const getOwnedNfts = async (wallet, page) => {
-  const url = `https://api.nftport.xyz/v0/accounts/${wallet}/?`;
+const getOwnedNfts = async (wallet, page,continuation) => {
+  const url = `https://api.nftport.xyz/v0/accounts/${wallet}?`;
   
   const options = {
     method: 'GET',
@@ -49,7 +50,7 @@ const getOwnedNfts = async (wallet, page) => {
   const query = new URLSearchParams({
     chain,
     include,
-    page_number: page
+    continuation
   });
 
   let editions = [];
@@ -60,6 +61,8 @@ const getOwnedNfts = async (wallet, page) => {
     console.log(`Recieved page ${page}`);
 
     console.log(`Wallet: ${wallet}`);
+    const continuation = data.continuation;
+    console.log(continuation)
 
     const total = data.total;
     const pages = Math.ceil(total / 50);
@@ -87,6 +90,7 @@ const getOwnedNfts = async (wallet, page) => {
       editions,
       nftname,
       nftimage,
+      continuation,
       next_page: +page === pages ? null : +page + 1,
     }
   } catch(err) {
