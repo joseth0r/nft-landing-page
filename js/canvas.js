@@ -1,8 +1,16 @@
-const nftname= ["hola", "amigo"];
+const nftname= ["#1800 Zyzz Hasbulla", "amigo"];
 const nftimage = ["https://lh3.googleusercontent.com/TIdVnJQ73WNhD2ikJNq50bAffqgv_rFbzJowF2YOO4Wvh-idXHxVQvQn7lTajZJYGd6argV0M0SW3yFBIxU0NkO0mjSBNBJl5twm"];
 const account="0x2bf227192ac958C58341Ff1F83E64557c9a45FB9"
 const numberch = "1";
+const el = (sel, par) => (par || document).querySelector(sel);
 
+const elRGB = el("#rgb");
+var elHEX ;
+const elUpload = el("#uploadImage");
+const pos = {
+  x: 10,
+  y: 10
+};
 // the loaded images will be placed in imgs[]
 var imgs=[];
 var imagesOK=0;
@@ -14,7 +22,9 @@ var imagesOK=0;
   block,
   genBtn = document.querySelector(".gen"),
   dl = document.querySelector(".download"),
-  canva = document.createElement("canvas"),
+  //canva = document.createElement("canvas"),
+  canva = document.getElementById("mycanvas"),
+
   typeAndDownloadImage = document.querySelector(".type_and_download_image"),
   imageType = document.querySelector("#imageType"),
   quality = document.querySelector(".quality"),
@@ -46,9 +56,8 @@ function createCanvas() {
   logoch.src = '/assets/img/CH-logo-white.svg';
 
   //images end
-  c.fillStyle = bg.value;
 
-  startLoadingAllImages(imagesAreNowLoaded); //funcion nueva
+  //startLoadingAllImages(imagesAreNowLoaded); //funcion nueva
 
 
 
@@ -56,17 +65,21 @@ function createCanvas() {
 
   
     //images
-/*
+
     const image = new Image();
     image.onload = () => {
       c.imageSmoothingEnabled = false;
       //.clearRect(0, 0, canva.width, canva.height);
-      c.drawImage(image, 20, 200,300,300);
-    };
-    image.src = nftimage[0];
-*/
+      c.drawImage(image, 4, 4,300,300);
+        };
+
+        image.src = nftimage[0];
+        getColorAt(pos.x,pos.y);
 
     //images end
+
+
+    c.fillStyle = bg.value;
 
 //texto de dbajo:
 
@@ -74,12 +87,32 @@ c.fillRect(0, 0, w.value, h.value);
 c.font= 53 + "px F37Judge";
 c.fillStyle = "#fff";
 c.textAlign = "center";
-c.fillText("CRYPTOHASBULLAS OWNED BY: "+ account, (w.value/2), (180));
+c.fillText("OWNED BY: "+ account, (w.value/2), (220));
 
 
 //fin texto de debajo
 
 
+
+
+
+//texto de dbajo:
+
+c.font= 53 + "px F37Judge";
+c.fillStyle = "#fff";
+c.textAlign = "center";
+c.fillText("ETH ADDRESS: " + account, (w.value/2), (360));
+
+
+//fin texto de debajo
+
+
+//footer
+c.font= 30 + "px bodyfont2";
+c.fillStyle = "#fff";
+c.textAlign = "center";
+c.fillText("WEB3.CRYPTOHASBULLANFT.COM", (w.value/2), (h.value-10));
+//
 
     c.fillStyle = bg.value;
 
@@ -153,9 +186,35 @@ function downloadImage() {
 
     // the imgs[] array now holds fully loaded images
     // the imgs[] are in the same order as imageURLs[]
-  
+    width=w.value;
+    height=w.value;
+    position_w=w.value/2- width/2;
+    position_h=h.value-height;
+    position_text_w=position_w + 20;
+    position_text_h=position_h+height+60;
+/*
+    c.save();
+    roundedImage(c, position_w,position_h,width,height, 10);
+    c.strokeStyle = '#000'
+    c.stroke()
+    c.clip();
+*/
 
-    if (numberch =="1"){
+
+    c.drawImage(imgs[0],position_w,position_h,width,height);
+
+
+
+    //c.restore();
+    
+    c.font="30px bodyfont2";
+    c.fillStyle="#fff";
+    c.textAlign = "left";
+
+    c.fillText(nftname[0], position_text_w, position_text_h);
+
+
+/*
         width=w.value/2;
         height=w.value/2;
         position_w=w.value/2- width/2;
@@ -168,10 +227,44 @@ function downloadImage() {
         c.drawImage(imgs[0],position_w,position_h,width,height);
         c.fillText(nftname[0], position_text_w, position_text_h);
       
-
-    }
+*/
+    
   
   }
+
+ 
+  const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+
+  function roundedImage(ctx, x, y, width, height, radius) {
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y);
+    ctx.lineTo(x + width - radius, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+    ctx.lineTo(x + width, y + height - radius);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+    ctx.lineTo(x + radius, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+    ctx.lineTo(x, y + radius);
+    ctx.quadraticCurveTo(x, y, x + radius, y);
+    ctx.closePath();
+  }
+  
+  const getColorAt = (x, y) => {
+    const imgData = c.getImageData(x, y, 1, 1).data; // Get pixel data at X,Y
+    const r = imgData[0];
+    const g = imgData[1];
+    const b = imgData[2];
+    const hex = rgbToHex(r, g, b);
+    // Send converted values to inputs
+    //el("#rgb").value = `rgb(${r},${g},${b})`;
+    elHEX = hex;
+    console.log(hex);
+  };
+
+
+
+
+
 genBtn.addEventListener("click", createCanvas);
 
 dl.addEventListener("click", downloadImage);

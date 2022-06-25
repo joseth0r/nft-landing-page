@@ -459,12 +459,15 @@ class=" connect-dropdown-list pt-0 lg:pt-0 pb-1 lg:pb-2 px-3 flex flex-col flex-
         <span>View on GitHub</span>
       </a>
     </div>
+<p>Choose NFT: <select class="mt-2 w-full bg-gray-200 border border-gray-200 text-black text-xs py-3 px-4 pr-8 mb-3 rounded" name="nft_0" id="myDiv"></p>
+<p>Your Name: <input type="text" class="width" placeholder="width without extension"></p>
+
 <p>Width: <input type="text" class="width" placeholder="width without extension"></p>
 <p>Height: <input type="text" class="height" placeholder="height without extension"></p>
 <p>Background: <input type="color" class="bgColor"></p>
 <button class="gen">Generate Image</button>
 <p class="result">
-  <canvas style="display: none" class="block"></canvas>
+  <canvas style="display: none" class="block" id="mycanvas"></canvas>
 </p>
 <div class="type_and_download_image" style="display: none">
   <p>Image Format:
